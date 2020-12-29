@@ -6,20 +6,12 @@
   color: #09577A;
 }
 
-.navbar-brand img {
-  width: 150px !important;
-}
-
 #manageNavbar {
   background-color: white !important;
 }
 
 #manageNavbar .navbar-brand {
   color: #24577A !important;
-}
-
-#manageNavbar .navbar-brand img {
-  width: 150px !important;
 }
 
 #manageNavbar .nav-link {
