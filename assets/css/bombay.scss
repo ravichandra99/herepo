@@ -6,18 +6,18 @@
 .header{
     color: $primary-color;
 }
-// .navbar-brand{
-//     img{
-//         width: 150px !important;
-//     }
-// }
+.navbar-brand{
+    img{
+        width: 150px !important;
+    }
+}
 #manageNavbar{
     background-color:white !important;
     .navbar-brand{
         color: #24577A !important;
-        // img{
-        //     width: 150px !important;
-        // }
+        img{
+            width: 150px !important;
+        }
     }
     .nav-link{
         color: #24577A !important;
