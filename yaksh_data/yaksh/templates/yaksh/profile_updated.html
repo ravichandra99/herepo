@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %} Profile {% endblock %}
-
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/intro.css' %}">
+{% endblock %}
 {% block nav %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="{% url 'yaksh:index' %}">

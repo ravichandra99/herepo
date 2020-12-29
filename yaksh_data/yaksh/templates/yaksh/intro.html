@@ -1,21 +1,25 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %} {{questionpaper.quiz.description}} {% endblock %}
 {% block pagetitle %} Quiz Instructions and Rules {% endblock pagetitle %}
-
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/intro.css' %}">
+{% endblock %}
 {% block content %}
-<div class="container">
-  <div class="card">
+<div class="container-fluid">
+  <div class="contentbg">
+  <div class="card py-4 mx-1 mx-md-4 my-5">
+    
     <div class="card-header">
       {{questionpaper.quiz.description}}
     </div>
     <div class="card-body">
       {% if questionpaper.quiz.is_expired %}
           <div class="alert alert-error">
-              This Quiz has expired. You can no longer attempt this Quiz.
+              This Quiz</div> has expired. You can no longer attempt this Quiz.
           </div>
       {% else %}
-          <div class="alert alert-info">
+          <div class="mymsg my-3">
               You can attempt this Quiz at any time between <b>{{ questionpaper.quiz.start_date_time }}</b> and <b>{{ questionpaper.quiz.end_date_time }}</b>
           </div>
       {% endif %}
@@ -25,12 +29,12 @@
         <div class="col-md-6">
           <center>
             {% if status != "moderator" %}
-              <a href="{% url 'yaksh:view_module' module.id course.id %}" class="btn btn-primary btn-lg" name="home">
+              <a href="{% url 'yaksh:view_module' module.id course.id %}" class="btn mynextbtn" name="home">
                 <i class="fa fa-step-backward"></i>
                 Go Back
               </a>
             {% else %}
-              <a href="{% url 'yaksh:index' %}" class="btn btn-primary btn-lg" name="home">
+              <a href="{% url 'yaksh:index' %}" class="btn mynextbtn" name="home">
                 <i class="fa fa-step-backward"></i>
                 Go Back
               </a>
@@ -41,7 +45,7 @@
           {% if not questionpaper.quiz.is_expired %}
               <form action="{% url 'yaksh:start_quiz' attempt_num module.id questionpaper.id course.id %}" method="post" align="center">
                {% csrf_token %}
-                <button class="btn btn-success btn-lg" type="submit" name="start">
+                <button class="btn myaddbtn" type="submit" name="start">
                   Start <i class="fa fa-play"></i>
                 </button>
               </form>
@@ -50,5 +54,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 {% endblock content %}

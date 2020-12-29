@@ -88,7 +88,7 @@
                         </a>
                       </td>
                       <td>{{ question.type }}</td>
-                      <td>{{ answer.answer.marks }}</td>
+                      <td>{{ answers|last }} {{ answer.answer.marks }}</td>
                       </tr>
                   {% endwith %}
                 {% endfor %}

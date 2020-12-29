@@ -3,134 +3,140 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>
-    {% block title %}
-    {% endblock %}
+        {% block title %} {% endblock %}
     </title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <link rel="stylesheet" href="{% static 'yaksh/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'yaksh/css/custom.css' %}" type="text/css" />
-  <link rel="stylesheet" href="{% static 'yaksh/css/animate.min.css' %}" type="text/css" />
-  <link rel="stylesheet" href="{% static 'yaksh/css/font-awesome.css' %}" type="text/css" />
-  <link rel="stylesheet" href="{% static 'yaksh/css/ontop.css' %}" type="text/css" />
-  <link rel="stylesheet" href="{% static 'yaksh/css/plyr.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'yaksh/css/simplemde.min.css' %}">
-  <link rel="stylesheet" href="{% static 'yaksh/css/toastr.min.css' %}" />
-  <!-- https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/bombay.css' %}" />
-  <!--Work Sans Font-->
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'yaksh/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'yaksh/css/custom.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'yaksh/css/animate.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'yaksh/css/font-awesome.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'yaksh/css/ontop.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'yaksh/css/plyr.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'yaksh/css/simplemde.min.css' %}">
+    <link rel="stylesheet" href="{% static 'yaksh/css/toastr.min.css' %}" />
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+        integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bombay.css' %}" />
+    <!--Work Sans Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    {% block meta %}
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% endblock %}
+    {% block css %}
+    {% endblock %}
 
 
 
-  {% block meta %}
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  {% endblock %}
+    <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/popper.min.js' %}"></script>
+    <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/jquery-3.3.1.min.js' %}"></script>
+    <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/bootstrap.min.js' %}"></script>
+    <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/wow.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/a01bd6bffe.js" crossorigin="anonymous"></script>
+    <script src="{% static 'yaksh/js/plyr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'yaksh/js/simplemde.min.js' %}">
+    </script>
+    <script type="text/javascript" src="{% static 'yaksh/js/toastr.min.js' %}">
+    </script>
 
-  {% block css %}
-  {% endblock %}
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+        integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+        crossorigin="anonymous"></script>
 
- 
-
-  <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/popper.min.js' %}"></script>
-  <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/jquery-3.3.1.min.js' %}"></script>
-  <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/bootstrap.min.js' %}"></script>
-  <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/wow.min.js' %}"></script>
-  <script src="https://kit.fontawesome.com/a01bd6bffe.js" crossorigin="anonymous"></script>
-  <script src="{% static 'yaksh/js/plyr.js' %}"></script>
-  <script type="text/javascript" src="{% static 'yaksh/js/simplemde.min.js' %}">
-  </script>
-  <script type="text/javascript" src="{% static 'yaksh/js/toastr.min.js' %}">
-  </script>
-
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous">
-  </script>
- 
-  <script>
-      new WOW().init();
-      $(document).ready(function() {
-        renderMathInElement(
-          document.body,
-          {
-            delimiters: [
-              {left: "$$", right: "$$", display: false},
-              {left: "$", right: "$", display: true},
-            ]
-          }
-        );
-      });
-  </script>
-  {% block script %}
-  {% endblock %}
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+        integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous">
+        </script>
+    <script src="https://kit.fontawesome.com/a01bd6bffe.js" crossorigin="anonymous" defer></script>
+    <script>
+        new WOW().init();
+        $(document).ready(function () {
+            renderMathInElement(
+                document.body, {
+                delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: false
+                }, {
+                    left: "$",
+                    right: "$",
+                    display: true
+                },]
+            }
+            );
+        });
+    </script>
+    {% block script %} {% endblock %}
 </head>
 
 <body {% block onload %} {% endblock %} class="yaksh">
 
-  <div id="ontop">
-    <div id="state">
-      Checking...<img src="{% static 'yaksh/images/check_answer.gif' %}"/>
+    <div id="ontop">
+        <div id="state">
+            Checking...<img src="{% static 'yaksh/images/check_answer.gif' %}" />
+        </div>
     </div>
-  </div>
-  <div id="loader">
-    <div id="state1">
-      <div class="spinner-grow text-success" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-      <div class="spinner-grow text-danger" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-      <div class="spinner-grow text-warning" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-      <div class="spinner-grow text-primary" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+    <div id="loader">
+        <div id="state1">
+            <div class="spinner-grow text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
     </div>
-  </div>
-  
-  {% block nav %}
-  {% endblock %}
 
-     <div class="base-content">
-         <div class="container-fluid header">
-             <h3 class="headname mx-1 mx-md-4 text-uppercase">{% block pagetitle %}{% endblock pagetitle %}</h3>
-         </div>
-         <h4><center>{% block subtitle %}{% endblock %}</center></h4>
-         {% block content %}
-         {% endblock %}
-     </div>
-     
+    {% block nav %} {% endblock %}
 
-  {% block footer %}
-    <footer class="footer">
-          <div class="container">
-              <div class="row">
+    <div class="base-content">
+        <div class="container-fluid header">
+            <h3 class="headname mx-1 mx-md-1 mx-lg-4 text-uppercase">{% block pagetitle %}{% endblock pagetitle %}</h3>
+        </div>
+        <h4>
+            <center>{% block subtitle %}{% endblock %}</center>
+        </h4>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    {% block footer %}
+    <footer class="footer py-2">
+        <div class="container">
+            <div class="row">
                 <div class="col">
-                  Developed by Halo Inc
+                    Developed by Halo Inc
                 </div>
                 <div class="col">
-                  Contact: support@halo.com
+                    Contact: support@halo.com
                 </div>
-              </div>
-           </div>
+            </div>
+        </div>
     </footer>
-  {% endblock %}
+    {% endblock %}
 
 </body>
-</html>
 
+</html>

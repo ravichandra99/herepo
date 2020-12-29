@@ -4,6 +4,10 @@
 {% block title %} Monitor {% endblock %}
 {% block pagetitle %} Monitor {% endblock pagetitle %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/monitor.css' %}">
+{% endblock %}
+
 {% block meta %} <meta http-equiv="refresh" content="300"/> {% endblock meta %}
 
 {% block script %}
@@ -38,7 +42,7 @@ $(document).ready(function()
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid pt-5" id="monitorDashboard">
   {% if quiz %}
     {% if papers %}
       <div class="card">
@@ -73,8 +77,6 @@ $(document).ready(function()
               </table>
           </div>
       </div>
-      <br>
-          <br>
           {% if messages %}
               {% for message in messages %}
               <div class="alert alert-dismissible alert-{{ message.tags }}">
@@ -87,19 +89,19 @@ $(document).ready(function()
           {% endif %}
           <br>
       <div class="row">
-        <div class="col-md-4">
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#csvModal">
+        <div class="col-md-6 text-md-right">
+          <button type="button" class="btn btn-info btn-custom" data-toggle="modal" data-target="#csvModal">
             <i class="fa fa-download"></i>&nbsp;Download CSV
           </button>
         </div>
-        <div class="col-md-4">
-          <a href="{% url 'yaksh:show_statistics' papers.0.question_paper.id course.id %}" class="btn btn-primary">
+        <div class="col-md-6">
+          <a href="{% url 'yaksh:show_statistics' papers.0.question_paper.id course.id %}" class="btn btn-primary details-btn">
             <i class="fa fa-line-chart"></i>&nbsp;Question Statistics
           </a>
         </div>
-        <div class="col-md-4">
-          <div class="badge badge-info">
-            Auto-Refreshes every 5 minutes
+        <div class="col-md-12 text-center">
+          <div class="badge">
+            <small>Auto-Refreshes every 5 minutes</small>
           </div>
         </div>
       </div>

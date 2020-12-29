@@ -137,6 +137,7 @@ def index(request, next_url=None):
     return my_redirect("/exam/login/")
 
 
+
 def user_register(request):
     """ Register a new user.
     Create a user and corresponding profile and store roll_number also."""
@@ -1380,6 +1381,7 @@ def monitor(request, quiz_id=None, course_id=None):
                                                quiz_id=quiz_id).distinct()
     except (QuestionPaper.DoesNotExist, Course.DoesNotExist):
         papers = []
+        print(papers)
         q_paper = None
         latest_attempts = []
         attempt_numbers = []

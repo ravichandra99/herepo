@@ -1381,6 +1381,7 @@ def monitor(request, quiz_id=None, course_id=None):
                                                quiz_id=quiz_id).distinct()
     except (QuestionPaper.DoesNotExist, Course.DoesNotExist):
         papers = []
+        print(papers)
         q_paper = None
         latest_attempts = []
         attempt_numbers = []

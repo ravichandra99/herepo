@@ -1,54 +1,66 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/preview_questionpaper.css' %}">
+{% endblock %}
 
 {% block title %} Preview Question paper {% endblock title %}
 {% block pagetitle %} Quiz: {{ paper.quiz.description }} {% endblock pagetitle %}
 
 {% block content %}
-<div class="container">
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-6">Maximum Mark(s): {{ paper.total_marks }}</div>
-            <div class="col-md-6">
-                <span class="pull-right">
-                    Total Time: {{ paper.quiz.duration }} minutes
-                </span>
+<div class="container-fluid">
+    <div class="mx-4 my-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">Maximum Mark(s): {{ paper.total_marks }}</div>
+                    <div class="col-md-6">
+                        <span class="pull-right">
+                            Total Time: {{ paper.quiz.duration }} minutes
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<br>
-<div class="card">
-    <div class="card-header">Instructions</div>
-    <div class="card-body" id="instructions">
-        {{ paper.quiz.instructions|safe }}
-    </div>
-</div>
-<br>
-{% for question in questions %}
-    <div class="card">
-        <div class="card-header">
-            <strong> {{forloop.counter}}. {{ question.summary }} 
-            <span class="marks pull-right"> Mark(s): {{ question.points }} </span>
-            </strong>
+        <br>
+        <div class="custom-card">
+            <div class="card">
+                <div class="card-header text-white">Instructions</div>
+                <div class="card-body" id="instructions">
+                    {{ paper.quiz.instructions|safe }}
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <h5><u>Question:</u></h5> <strong>{{ question.description|safe }}</strong>
-            <br/><b>Answer:</b><br/>
-            {% if question.type == "code" %}
-                <div class="card"><pre>{{ question.snippet }}</pre><br/></div>
-            {% endif %}
-            {% if question.type == "mcq" or question.type == "mcc" %}
+        <br>
+        {% for question in questions %}
+
+        <div class="card name">
+            <div class="card-header say text-white">
+                <strong> {{forloop.counter}}. {{ question.summary }}
+                    <span class="marks pull-right"> Mark(s): {{ question.points }} </span>
+                </strong>
+            </div>
+            <div class="card-body said">
+                <h5><u>Question:</u></h5> <strong>{{ question.description|safe }}</strong>
+                <br /><b>Answer:</b><br />
+                {% if question.type == "code" %}
+                <div class="card">
+                    <pre>{{ question.snippet }}</pre><br />
+                </div>
+                {% endif %}
+                {% if question.type == "mcq" or question.type == "mcc" %}
                 <h5> <u>Choices:</u></h5>
                 {% for testcase in question.get_test_cases %}
-                <br/><strong>
-                {{ forloop.counter }}. {{ testcase.options|safe }}</strong>
+                <br /><strong>
+                    {{ forloop.counter }}. {{ testcase.options|safe }}</strong>
                 {% endfor %}
-            {% endif %}
-            
+                {% endif %}
+            </div>
         </div>
+
+        <br>
+        {% endfor %}
     </div>
-    <br>
-{% endfor %}
 </div>
 {% endblock %}

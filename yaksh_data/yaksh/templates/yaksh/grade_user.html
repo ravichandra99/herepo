@@ -41,8 +41,9 @@ function searchNames() {
 {% endblock script %}
 
 {% block content %}
-<div class="container">
-{% if objects %}
+<div class="container-fluid graderSection">
+<div class="container py-5">
+  {% if objects %}
   {% include "yaksh/paginator.html" %}
     <div id="accordion">
       {% for course in objects %}
@@ -55,7 +56,7 @@ function searchNames() {
                           </h5>
                       </div>
                       <div class="col-md">
-                          <a class="card-link btn btn-outline-primary btn-block btn-custom m-1" data-toggle="collapse" href="#collapse{{course.id}}">
+                          <a class="card-link btn btn-outline-primary btn-block details-btn m-1" data-toggle="collapse" href="#collapse{{course.id}}">
                               Details
                               <i class="fa fa-toggle-down" id="toggle_course_{{course.id}}"></i>
                           </a>
@@ -109,7 +110,8 @@ function searchNames() {
   </div>
 {% endif %}
 </div>
-<div class="container-fluid">
+</div>
+<div class="container-fluid graderSection pb-5">
   <div class="row">
     {% if status == "grade" %}
       {% if users %}

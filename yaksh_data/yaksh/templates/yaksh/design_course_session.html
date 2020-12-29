@@ -1,6 +1,6 @@
 {% load static %}
 
-{% block title %} <center> <h3> Design Contest Session </h3> </center>{% endblock %}
+{% block title %} <center> <h3 class="designname"> Design Contest Session </h3> </center>{% endblock %}
 
 {% block script %}
 <script language="JavaScript" type="text/javascript" src="{% static 'yaksh/js/design_course.js' %}"></script>
@@ -8,21 +8,22 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'yaksh/css/design_course.css' %}">
+<link rel="stylesheet" href="{% static 'css/design_courses.css' %}">
 {% endblock %}
 
-<form action="{% url 'yaksh:design_course' course.id %}" method="POST" id="design_course_form">
+<form action="{% url 'yaksh:design_course' course.id %}" method="POST" id="design_course_form" class="p-4">
 {% csrf_token %}
     <div id="available-lesson-quiz">
         <div class="row">
             <div class="col-md-12 available-list">
                 <div id="fixed-available-wrapper">
-                    <p><u><b>Available Categories:</b></u></p>
+                    <p class="avaliname m-3">Available Categories:</p>
                     <div id="fixed-available">
                         <table id="course-details" class="table table-bordered table-responsive-sm">
                         <tr class="bg-light">
-                        <th width="2%">Select</th>
-                        <th>Categories</th>
-                        <th>Quizzes</th>
+                        <td width="2%" class="avaliname">Select</td>
+                        <td class="avaliname">Categories</td>
+                        <td class="avaliname">Quizzes</td>
                         </tr>
                         {% for module in learning_modules %}
                         <ul class="inputs-list">
@@ -51,41 +52,41 @@
                 </div>
                 <br>
                 <center>
-                <button id="Add" name="Add" class="btn btn-success" type="submit">
+                <button id="Add" name="Add" class="btn myaddbtn" type="submit">
                     <i class="fa fa-plus-square"></i>&nbsp;Add to Contest</button>
                 </center>
                 <br><br>
             </div>
             <div class="col-md-12">
                 <div id="fixed-added-wrapper">
-                    <p><u><b>Chosen Categories:</b></u></p>
+                    <p class="avaliname m-3">Chosen Categories:</p>
                     <div id="fixed-added">
                         <table id="course-details" class="table table-bordered table-responsive-sm">
                         <tr class="bg-light">
-                        <th width="5%">Select</th>
-                        <th>Module</th>
-                        <th width="20%">Order</th>
-                        <th width="25%" colspan="2">Check Prerequisite Completion
+                        <td width="5%" class="avaliname">Select</td>
+                        <td class="avaliname">Module</td>
+                        <td class="avaliname" width="20%">Order</td>
+                        <td class="avaliname" width="25%" colspan="2">Check Prerequisite Completion
                             <br>
                             <a href="#" data-toggle="tooltip" id="prereq_msg">
                                 What's This&nbsp;<i class="fa fa-question-circle"></i>
                             </a>
-                        </th>
-                        <th width="25%" colspan="2">Check Prerequisite Passing
+                        </td>
+                        <td class="avaliname" width="25%" colspan="2">Check Prerequisite Passing
                             <br>
                             <a href="#" data-toggle="tooltip" id="prereq_passing_msg">
                                 What's This&nbsp;<i class="fa fa-question-circle"></i>
                             </a>
-                        </th>
+                        </td>
                         </tr>
                         <tr>
                             <th scope="row">&nbsp;</th>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
-                            <th>Currently</th>
-                            <th>Change</th>
-                            <th>Currently</th>
-                            <th>Change</th>
+                            <td class="avaliname">Currently</td>
+                            <td class="avaliname">Change</td>
+                            <td class="avaliname">Currently</td>
+                            <td class="avaliname">Change</td>
                         </tr>
                         {% for module in added_learning_modules %}
                             <tr>
@@ -125,10 +126,10 @@
                 </div>
                 <br>
                 <center>
-                <button id="Remove" name="Remove" class="btn btn-danger" type="submit"><i class="fa fa-minus-square"></i>&nbsp;Remove from contest</button>
-                <button id="Change" name="Change" class="btn btn-info" type="submit"><i class="fa fa-reorder"></i>&nbsp;Change Order</button>
-                <button id="Change" name="change_prerequisite_completion" class="btn btn-primary" type="submit"> Change Prerequisite Completion</button>
-                <button id="Change_prereq_passing" name="change_prerequisite_passing" class="btn btn-primary" type="submit"> Change Prerequisite Passing</button>
+                <button id="Remove" name="Remove" class="btn myremovebtn" type="submit"><i class="fa fa-minus-square"></i>&nbsp;Remove from contest</button>
+                <button id="Change" name="Change" class="btn myaddbtn" type="submit"><i class="fa fa-reorder"></i>&nbsp;Change Order</button>
+                <button id="Change" name="change_prerequisite_completion" class="btn myaddbtn" type="submit"> Change Prerequisite Completion</button>
+                <button id="Change_prereq_passing" name="change_prerequisite_passing" class="btn myaddbtn" type="submit"> Change Prerequisite Passing</button>
 
                 </center>
             </div>

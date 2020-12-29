@@ -1,0 +1,306 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Earth</title>
+    <link rel="stylesheet" href="{% static 'landing.css' %}">
+    <script src="https://use.fontawesome.com/3d729252f2.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}">
+</head>
+<body>
+    <!-- Header logo -->
+    <img src="{% static 'img/headlogo.jpg' %}" alt="headlogo" class="headlogo">
+    <!-- Ending Header logo -->
+    <div class="container m-0">
+        <div class="row">
+            <div class="col-md-7 col-lg-6 m-lg-5 pt-lg-0 pl-lg-0 col-12 landing-text col-xl-7m-xl-5 pt-xl-5 pl-xl-5 my-md-5 pt-md-1 pl-md-4">
+                <p class="p-0 m-0">
+                    <h1 class="title">Skills reveal what  resumes can't</h1>
+                </p>
+                <p class="sub-title my-md-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt tempore recusandae iusto ab ullam sed officiis velit facilis iure repudiandae corporis aperiam odio necessitatibus in, dignissimos, laborum officia ipsam asperiores!</p>
+                <a class="btn btn-landing-custom-1 btn-sm col-md-4 d-none d-md-inline" href="/exam/login">Sign in</a>
+                <a class="btn btn-landing-custom-2 btn-sm col-md-4 d-none d-md-inline" href="/exam/register">Sign up</a>
+            </div>
+            <div class="col-12 d-flex justify-content-around">
+                <button class="btn btn-landing-custom-1 d-md-none btn-sm d-inline mr-2 px-2 py-0">Sign in</button>
+                <button class="btn btn-landing-custom-2 d-md-none btn-sm d-inline px-2 py-0">Sign up</button>
+            </div>
+            <div class="backdrop1 d-none d-md-block"></div>
+            <div class="backdrop2 d-none d-md-block"></div>
+            <div class="boy-backdrop"></div>
+        </div>
+    </div>
+
+    <!-- Owl carousel-->
+    <div class="owl-carousel owl-theme d-flex justify-content-center">
+        <div class="item mb-3 ml-md-0 ml-2">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <img src="{% static 'img/community.svg' %}" class="img-header"/>
+                    <h6 class="title">Community</h6>
+                </div>
+                <div class="card-body py-0 pb-3">
+                    <p>Practice programming, prepare for interviews, and level up your coding skills with a community of 5M+ developers </p>                    
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-custom btn-sm">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="item mb-3 ml-md-0 ml-2">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <img src="{% static 'img/assessments.svg' %}" class="img-header"/>
+                    <h6 class="title">Assessments</h6>
+                </div>
+                <div class="card-body py-0 pb-3">
+                    <p>Remotely assess, interview, and hire developers across all roles based on skills and nothing else</p>                    
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-custom btn-sm">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="item mb-3 ml-md-0 ml-2">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <img src="{% static 'img/hackathons.svg' %}" class="img-header"/>
+                    <h6 class="title">Hackathons</h6>
+                </div>
+                <div class="card-body py-0 pb-3">
+                    <p>Host virtual hackathons and bring together people with diverse skills and solve business challenges</p>                    
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-custom btn-sm">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Owl carousel -->
+
+
+    <!-- chart -->
+    <section class="chart-section">
+        <div class="dotted-backdrop-wrapper"></div>
+        <h3 class="section-title">Be the <span>developer</span> you want to be</h3>
+        <p class="section-subtitle">Join our thriving community of 5M+ developers.</p>
+        <div class="row">
+            <div class="chart-one mb-3 col-md-5 offset-md-1 pt-md-3 mb-md-0 pl-md-5 col-xl-4 offset-xl-2 pt-xl-3 mb-xl-0 pl-xl-5 col-lg-5 offset-lg-1 pt-lg-3 mb-lg-0 pl-lg-0">
+                <h5 class="sub-title">Practice</h5>
+                <h2 class="title">Practice everyday to excel in interviews</h2>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia doloribus provident tenetur amet repudiandae delectus optio eaque fugiat culpa vel, nam, rerum quam non quos incidunt accusantium autem! Ea, ullam.</p>
+                <a href="#" class="link">View All</a>
+            </div>
+            <div class="chart-two mb-3 col-md-5 mb-md-3 pb-md-2 pr-md-5 col-xl-4 mb-xl-3 pb-xl-2 pr-xl-5 col-lg-5 mb-lg-3 pb-lg-2 pr-lg-5">
+                <h6 class="sub-title">Contests</h6>
+                <h2 class="title">Compete and win bragging rights</h2>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia doloribus provident tenetur amet repudiandae delectus optio eaque fugiat culpa vel, nam, rerum quam non quos incidunt accusantium autem! Ea, ullam.</p>
+                <a href="#" class="link">View All</a>
+            </div>
+            <div class="chart-three mb-3 col-md-5 offset-md-1 pt-md-1 mb-md-1 pl-md-5 col-xl-4 offset-xl-2 pt-xl-1 mb-xl-1 pl-xl-5 col-lg-5 offset-lg-1 pt-lg-1 mb-lg-1 pl-lg-5">
+                <h6 class="sub-title">Hackathons</h6>
+                <h2 class="title">Build solutions and win big</h2>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia doloribus provident tenetur amet repudiandae delectus optio eaque fugiat culpa vel, nam, rerum quam non quos incidunt accusantium autem! Ea, ullam.</p>
+                <a href="#" class="link">View All</a>
+            </div>
+            <div class="chart-four pb-3 col-md-5 pr-md-5  col-xl-4 pr-xl-5 col-lg-5 pr-lg-5">
+                <h6 class="sub-title">Data Science competitions</h6>
+                <h2 class="title">Learn Data Science by solving real-world problems</h2>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia doloribus provident tenetur amet repudiandae delectus optio eaque fugiat culpa vel, nam, rerum quam non quos incidunt accusantium autem! Ea, ullam.</p>
+                <a href="#" class="link">View All</a>
+            </div>
+        </div>
+    </section>
+    <!-- Ending chart -->
+
+    <!-- challenges-section -->
+    <section class="challenges-section">
+        <div class="dotted-backdrop2-wrapper"></div>
+        <div class="challenges-backdrop"></div>
+        <div class="row">
+            <div class="col-12 col-md-12 offset-0 order-2 order-md-2 mt-3 mt-md-4 col-lg-6 offset-lg-0 order-lg-1 mt-lg-0 col-xl-4 offset-xl-2 order-xl-1 mt-xl-0">
+                <div class="row">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                    <div class="col-md-6 col-6 col-lg-6 col-xl-5">
+                        <div class="custom-card my-0">
+                            <img src="{% static 'img/bulb.svg' %}" alt="bulb" class="custom-img">
+                            <p class="description">Build an ever growing pipeline of innovative ideas</p>
+                        </div>
+                        <div class="custom-card my-3">
+                            <img src="{% static 'img/puzzle.svg' %}" alt="bulb" class="custom-img">
+                            <p class="description">Bring together people with diverse skills and drive cross-functional collaboration</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6 mt-4 mt-md-5 p-0 p-md-0 col-lg-6 mx-lg-0 p-lg-0 col-xl-5 mx-xl-2 p-xl-3">
+                        <div class="custom-card my-3 ml-2 ml-md-2 my-md-2 ml-lg-3">
+                            <img src="{% static 'img/timer.svg' %}" alt="bulb" class="custom-img">
+                            <p class="description">Enable a faster go-to-market for key business requirements</p>
+                         </div>
+                        <div class="custom-card my-3 ml-2 ml-lg-3 my-md-3 ml-md-0">
+                            <img src="{% static 'img/globe.svg' %}" alt="bulb" class="custom-img">
+                            <p class="description">Foster a culture of innovation across teams spread around the globe</p>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+            <div class="col-md-12 col-12 challenges-description order-md-1 col-lg-6 order-lg-2 ml-lg-0 col-xl-4 order-xl-2 ml-xl-2">
+                <h3 class="title">Solve Core Business Challenges With Virtual Hackathons</h3>
+                <p class="description d-none d-md-block">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
+                <p class="description-mobile d-md-none">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius sunt fugiat a facere modi esse architecto libero porro facilis repellat, nam nemo qui in? Vel corporis ullam facilis adipisci provident!
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- End-challenges-section -->
+
+<!-- Brand Partners -->
+    <section class="partners-section">
+        <div class="row">
+            <div class="col-md-2 col-4 my-md-3 my-1 text-center">
+                <i class="fa fa-amazon"></i>
+            </div>
+            <div class="col-md-2 col-4 my-md-3 my-1 text-center">
+                <i class="fa fa-paypal"></i>
+            </div>
+            <div class="col-md-2 col-4 my-md-3 my-1 text-center">
+                <i class="fa fa-git"></i>
+            </div>
+            <div class="col-md-2 col-4 my-md-3 my-1 text-center">
+                <i class="fa fa-amazon"></i>
+            </div>
+            <div class="col-md-2 col-4 my-md-3 my-1 text-center">
+                <i class="fa fa-paypal"></i>
+            </div>
+            <div class="col-md-2 col-4 my-md-3 my-1 text-center">
+                <i class="fa fa-git"></i>
+            </div>
+        </div>
+    </section>
+<!-- End Brand Partners -->
+
+    <section class="getin-tuch-section">
+        <div class="pt-md-5 pt-5 p-xl-5">
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+            <div class="circle-3"></div>
+            <div class="getin-tuch">
+                <div class="col-md-12 col-12 col-lg-12 offset-lg-0 col-xl-8 offset-xl-2">
+                    <h1 class="title">Make Virtual hackathons the driving force behind your company's success</h1>
+                    <button class="getin-tuch-btn btn btn-sm col-md-6 offset-md-3 my-5 col-lg-4 offset-lg-4">Get In Tuch</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="quick-links mx-md-0 pt-4 mx-lg-2 mx-xl-5">
+            <div class="row d-flex justify-content-between mx-md-1 pb-2 mx-lg-0 mx-xl-5">
+                <div class="col-md-2 col-6 col-lg-2">
+                    <h5>For Businesses</h5>
+                    <p class="p-0 m-0"><a href="#">eSkill Assessments</a></p>
+                    <p class="p-0 m-0"><a href="#">FaceCode</a></p>
+                    <p class="p-0 m-0"><a href="#">Hackathons</a></p>
+                </div>
+                <div class="col-md-2 col-6 col-lg-2">
+                    <h5>Solutions</h5>
+                    <p class="p-0 m-0"><a href="#">For Tech Recuriters</a></p>
+                    <p class="p-0 m-0"><a href="#">For Hiring Managers</a></p>
+                    <p class="p-0 m-0"><a href="#">Remote Hiring</a></p>
+                    <p class="p-0 m-0"><a href="#">Learning and Development</a></p>
+                    <p class="p-0 m-0"><a href="#">University Hiring</a></p>
+                </div>
+                <div class="col-md-2 col-6 col-lg-2">
+                    <h5>Featuers</h5>
+                    <p class="p-0 m-0"><a href="#">Accurate Assessments</a></p>
+                    <p class="p-0 m-0"><a href="#">Adavanced Proctoring</a></p>
+                    <p class="p-0 m-0"><a href="#">improved candidate Experince</a></p>
+                    <p class="p-0 m-0"><a href="#">detailed analytics</a></p>
+                    <p class="p-0 m-0"><a href="#">Enterprise-ready Program</a></p>
+                </div>
+                <div class="col-md-2 col-6 col-lg-2">
+                    <h5>Knowledge</h5>
+                    <p class="p-0 m-0"><a href="#">Blog</a></p>
+                    <p class="p-0 m-0"><a href="#">E-Books</a></p>
+                    <p class="p-0 m-0"><a href="#">evnts</a></p>
+                    <p class="p-0 m-0"><a href="#">webinars</a></p>
+                    <p class="p-0 m-0"><a href="#">guides</a></p>
+                    <p class="p-0 m-0"><a href="#">insights</a></p>
+                </div>
+                <div class="col-md-2 col-12 mt-3 mt-md-0 col-lg-2 mt-lg-0 col-xl-2 mt-xl-0">
+                    <h5 class="d-none d-md-block">Company</h5>
+                    <h5 class="text-center d-md-none">Company</h5>
+                    <div class="company">
+                        <p class="p-0 m-0"><a href="#">about</a></p>
+                        <p class="p-0 m-0"><a href="#">Press</a></p>
+                        <p class="p-0 m-0"><a href="#">support</a></p>
+                        <p class="p-0 m-0"><a href="#">careers</a></p>
+                        <p class="p-0 m-0"><a href="#">contact</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="divider">
+        <div class="contact-section mx-md-0 mx-lg-0 mx-xl-5">
+            <div class="row mx-md-0 mx-lg-0 mx-xl-5 d-flex justify-content-between align-items-center text-center">
+                <div class="col-md-4 col-6 col-lg-4 contact">
+                    <p>+60143252</p>
+                    <p>contact@eskillap.com</p>
+                </div>
+                <div class="col-md-4 col-6 col-lg-4 socials d-flex justify-content-around">
+                    <i class="fa fa-facebook-f"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-youtube"></i>
+                </div>
+                <div class="col-12 d-md-none p-0">
+                    <hr class="divider">
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <p>2020 &copy; eskillap. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="{% static 'owl.carousel.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            loop:false,
+            margin:20,
+            autoWidth:true,
+            nav:false,
+            dots:false,
+            pagination:false,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                768:{
+                    items:2
+                },
+                1000:{
+                    items:5
+                }
+            }
+        })
+    });
+    </script>
+</body>
+</html>

@@ -1,118 +1,141 @@
-{% if is_modules %}
-    {% block pagetitle %} <center> <h3>Contest Categories</h3> </center> {% endblock %}
-        <a href="{% url 'yaksh:add_module' course.id %}" class="btn btn-primary btn-lg">
-            <i class="fa fa-plus-circle"></i>&nbsp;Add Category
-        </a>
-        <br><br>
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/course_added_modules.css' %}">
+{% endblock %}
+
+<div class="">
+    {% if is_modules %}
+    {% block pagetitle %} <center>
+        <h2 class="my-2">Contest Categories</h2>
+    </center> {% endblock %}
+    <br>
+    <div class="float-right mr-3">
+        <a href="{% url 'yaksh:add_module' course.id %}"><button class="btn btn-lg text-white" id="add_category"><i
+                    class="fa fa-plus-circle"></i>&nbsp;Add Category</button></a>
+    </div>
+
+    <br>
+    <br><br>
     {% if modules %}
-        <center>
-            <div class="alert alert-dismissible alert-info">
-                <strong>
-                    For additional category settings, Click on Design Category
-                </strong>
+    <center>
+        <div class="alert alert-dismissible alert-info">
+            <strong>
+                For additional category settings, Click on Design Category
+            </strong>
+        </div>
+    </center>
+    {% for module in modules %}
+    <div class="container-fluid">
+        <div class="card shadow">
+            <div class="card-header">
+                <a href="{% url 'yaksh:edit_module' course.id module.id %}" class="text-white">
+                    <i class="fa fa-edit"></i>&nbsp;{{module.name}}
+                </a>
             </div>
-        </center>
-        {% for module in modules %}
-            <div class="card">
-                <div class="card-header">
-                    <a href="{% url 'yaksh:edit_module' course.id module.id %}">
-                        <i class="fa fa-edit"></i>&nbsp;{{module.name}}
-                    </a>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <a href="{% url 'yaksh:add_quiz' course.id module.id %}" class="btn btn-success">
-                                <i class="fa fa-plus-circle"></i>&nbsp;Add Quiz
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="{% url 'yaksh:add_exercise' course.id module.id %}" class="btn btn-dark">
-                                <i class="fa fa-plus-circle"></i>&nbsp;Add Exercise
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="{% url 'yaksh:design_module' module.id course.id %}" class="btn btn-secondary">
-                                Design Category
-                            </a>
-                        </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <a href="{% url 'yaksh:add_quiz' course.id module.id %}"><button
+                                class="btn btn-success bat btn-lg">
+                                <i class="fa fa-plus-circle"></i>&nbsp;Add Quiz</button>
+                        </a>
+
                     </div>
-                    <br>
-                    {% with module.get_learning_units as units %}
-                        {% if units %}
-                            <p><b><u>Quizzes/Exercise</u></b><p>
-                            <table class="table table-responsive-sm">
-                                {% for unit in units %}
-                                    <tr>
-                                        <td>
-                                        {% if unit.type == "quiz" %}
-                                            {% if unit.quiz.is_exercise %}
-                                                <a href="{% url 'yaksh:edit_exercise' course.id module.id unit.quiz.id %}">
-                                                {{unit.quiz.description}}</a>
-                                            {% else %}
-                                                <a href="{% url 'yaksh:edit_quiz' course.id module.id unit.quiz.id %}">
-                                                {{unit.quiz.description}}</a>
-                                            {% endif %}
-                                        {% endif %}
-                                        </td>
-                                        <td>
-                                        {% if unit.type == "quiz" %}
-                                        {% with unit.quiz as quiz %}
-                                            {% if quiz.questionpaper_set.get.id %}
-                                                <a href="{% url 'yaksh:designquestionpaper' course.id quiz.id quiz.questionpaper_set.get.id %}" class="btn btn-primary">
-                                                  <i class="fa fa-edit"></i>
-                                                  Edit Question Paper
-                                                </a>
-                                            {% else %}
-                                                <a href="{% url 'yaksh:designquestionpaper' course.id quiz.id %}" class="btn btn-success">
-                                                    <i class="fa fa-plus-circle"></i>
-                                                    Add Question Paper
-                                                </a>
-                                            {% endif %}
-                                        {% endwith %}
-                                        {% else %}
-                                        
-                                        {% endif %}
-                                        </td>
-                                        <td>
-                                            {% if unit.type == "quiz" %}
-                                                {% if unit.quiz.is_exercise %}
-                                                    Exercise
-                                                {% else %}
-                                                    Quiz
-                                                {% endif %}
-                                            {% endif %}
-                                        </td>
-                                        <td>
-                                            {% if unit.type == "quiz" %}
-                                                {% if unit.quiz.questionpaper_set.get.id %}
-                                                    <a href="{% url 'yaksh:show_statistics' unit.quiz.questionpaper_set.get.id course.id %}" class="btn btn-outline-primary">
-                                                        <i class="fa fa-line-chart"></i>
-                                                        Statistics
-                                                    </a>
-                                                {% else %}
-                                                
-                                                {% endif %}
-                                            {% endif %}
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            </table>
-                        {% else %}
-                            <center>
-                                <span class="badge badge-warning">
-                                    <big>No quiz added</big>
-                                </span>
-                            </center>
-                        {% endif %}
-                    {% endwith %}
+                    <div class="col">
+                        <a href="{% url 'yaksh:add_exercise' course.id module.id %}"><button
+                                class="btn btn-dark bat btn-lg"><i class="fa fa-plus-circle"></i>&nbsp;Add
+                                Exercise</button>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'yaksh:design_module' module.id course.id %}"><button
+                                class="btn btn-secondary bat btn-lg">Design Category</button>
+                        </a>
+                    </div>
                 </div>
+                <br>
+                {% with module.get_learning_units as units %}
+                {% if units %}
+                <p><b><u>Quizzes/Exercise</u></b>
+                <p>
+                <table class="table table-responsive-sm">
+                    {% for unit in units %}
+                    <tr>
+                        <td>
+                            {% if unit.type == "quiz" %}
+                            {% if unit.quiz.is_exercise %}
+                            <a href="{% url 'yaksh:edit_exercise' course.id module.id unit.quiz.id %}">
+                                {{unit.quiz.description}}</a>
+                            {% else %}
+                            <a href="{% url 'yaksh:edit_quiz' course.id module.id unit.quiz.id %}">
+                                {{unit.quiz.description}}</a>
+                            {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if unit.type == "quiz" %}
+                            {% with unit.quiz as quiz %}
+                            {% if quiz.questionpaper_set.get.id %}
+                            <a href="{% url 'yaksh:designquestionpaper' course.id quiz.id quiz.questionpaper_set.get.id %}"
+                                class="btn btn-primary bat">
+                                <i class="fa fa-edit"></i>
+                                Edit Question Paper
+                            </a>
+                            {% else %}
+                            <a href="{% url 'yaksh:designquestionpaper' course.id quiz.id %}" class="btn btn-success">
+                                <i class="fa fa-plus-circle"></i>
+                                Add Question Paper
+                            </a>
+                            {% endif %}
+                            {% endwith %}
+                            {% else %}
+
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if unit.type == "quiz" %}
+                            {% if unit.quiz.is_exercise %}
+                            Exercise
+                            {% else %}
+                            Quiz
+                            {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if unit.type == "quiz" %}
+                            {% if unit.quiz.questionpaper_set.get.id %}
+                            <a href="{% url 'yaksh:show_statistics' unit.quiz.questionpaper_set.get.id course.id %}"
+                                class="btn btn-outline-primary bat">
+                                <i class="fa fa-line-chart"></i>
+                                Statistics
+                            </a>
+                            {% else %}
+
+                            {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                <center>
+                    <span class="badge badge-warning">
+                        <big>No quiz added</big>
+                    </span>
+                </center>
+                {% endif %}
+                {% endwith %}
             </div>
-            <br>
-        {% endfor %}
+        </div>
+    </div>
+    <br>
+    {% endfor %}
     {% else %}
-        <center>
-            <span class="badge badge-warning"><big>No learning categories</big></span>
-        </center>
+    <center>
+        <span class="badge badge-warning"><big>No learning categories</big></span>
+    </center>
     {% endif %}
-{% endif %}
+    {% endif %}
+
+</div>

@@ -2,35 +2,40 @@
 {% load custom_filters %}
 {% load static %}
 {% block title %} Member Dashboard {% endblock %}
+{% block pagetitle %}All Contests {% endblock pagetitle %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/quizzes_user.css'%}">
+
 {% endblock %}
 {% block script %}
 
 {% endblock %}
 
 {% block main %}
-<div class="container">
-    <center>
-        <h2 class="title">{{title}}</h2>
-    </center>
-    <hr>
+<div class="container-fluid">
+  
+    <div class="contentbg py-4 mx-1 mx-md-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form action="{% url 'yaksh:quizlist_user' %}" method="post" id="custom-search-form" >
                 {% csrf_token %}
-                <div class="col-md-12">
+                <div class="col-md-12 my-5">
                     <div class="input-group">
-                        <input type="text" name="course_code" class="form-control" type="search"  placeholder="Enter contest code to search" required="">
+                        <input type="text" name="course_code" class="form-control quizsearch" type="search"  placeholder="Enter contest code to search" required="">
                         <span class="input-group-append">
-                            <button class="btn btn-outline-info py-1" type="submit"><i class="fa fa-search"></i>&nbsp;Search</button>
+                            <button class="btn" type="submit">
+                                <i class="fa fa-search fa-2x"></i>
+                            </button>
                         </span>
+
+
+                       
                     </div>
                 </div>
             </form>
         </div>
         {% if "Search" in title %}
-        <div class="col-md-4 col-6 my-md-0 my-2">
+        <div class="col-md-4 col-6 my-md-0 my-2 mx-3 text-center">
             <a href="{% url 'yaksh:quizlist_user' %}" class="btn btn-md-block btn-outline-danger">
                 <i class="fa fa-times"></i>&nbsp;Clear search
             </a>
@@ -40,7 +45,7 @@
     <br>
     {% if messages %}
         {% for message in messages %}
-        <div class="alert alert-dismissible alert-{{ message.tags }}">
+        <div class="alert alert-dismissible alert-{{ message.tags }} mx-5">
             <button type="button" class="close" data-dismiss="alert">
                 <i class="fa fa-close"></i>
             </button>
@@ -51,24 +56,25 @@
     {% endif %}
 
     {% if not courses %}
-        <center><div class="col-md-8 alert alert-warning" role="alert">
+        <center><div class="col-md-6 col-6 alert alert-warning mx-4" role="alert">
             No Contests to display
         </div></center>
     {% endif %}
-    <div class="row justify-content-md-center align-items-center">
+    <div class="row justify-content-md-center align-items-center mx-4">
         <div class="col-md-12">
             <div id="accordian">
             {% for course in courses %}
-                <div class="card">
+                <div class="card mycard">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-7 col-12">{{course.data.name}}</div>
-                            <div class="col-md-2 col-12">
-                                <a class="card-link btn btn-block btn-custom m-1" data-toggle="collapse" href="#collapse{{course.data.id}}">
-                                    Details&nbsp;<i class="fa fa-toggle-down" id="toggle_course_{{course.id}}"></i>
+                            <div class="col-md-2 col-12 detailsbtn">
+                                <a class="card-link" data-toggle="collapse" href="#collapse{{course.data.id}}">
+                                    Details&nbsp;<i class="fa fa-angle-down" id="toggle_course_{{course.id}}"></i>
+                                   
                                 </a>
                             </div>
-                            <div class="col-md-2 col-12">
+                            <div class="col-md-2 col-12 text-center">
                                 {% if user in course.data.requests.all %}
                                     <span class="badge badge-warning badge-pill">
                                         Request Pending
@@ -79,21 +85,25 @@
                                     </span>
                                 {% elif user in course.data.students.all %}
                                     {% if course.completion_percentage > 0 %}
-                                        <a class="btn btn-block m-1 btn-custom" href="{% url 'yaksh:course_modules' course.data.id %}" >
-                                            Continue
-                                        </a>
+                                    <span class="continuebtn">
+                                        <a  href="{% url 'yaksh:course_modules' course.data.id %}" >
+                                            Continue <i class="fas fa-angle-right"></i>
+                                        </a></span>
                                     {% else %}
-                                        <a class="btn btn-block m-1 btn-outline-success start-btn" href="{% url 'yaksh:course_modules' course.data.id %}">
+                                    <span class="continuebtn">
+                                        <a  href="{% url 'yaksh:course_modules' course.data.id %}">
                                             Start
-                                        </a>
+                                        </a></span>
                                     {% endif %}
                                 {% else %}
                                     {% if course.data.active %}
                                         {% if course.data.is_active_enrollment %}
                                             {% if course.data.is_self_enroll %}
-                                                <a class="btn m-1" href="{% url 'yaksh:self_enroll' course.data.id %}">Join</a>
+                                            <span class="continuebtn">
+                                                <a class="btn m-1" href="{% url 'yaksh:self_enroll' course.data.id %}">Join</a></span>
                                             {% else %}
-                                                <a class="btn m-1" href="{% url 'yaksh:enroll_request' course.data.id %}">Join</a>
+                                            <span class="continuebtn">
+                                                <a class="btn m-1" href="{% url 'yaksh:enroll_request' course.data.id %}">Join</a></span>
                                             {% endif %}
                                         {% else %}
                                             <span class="badge badge-danger badge-pill">
@@ -113,32 +123,46 @@
                     <div id="collapse{{course.data.id}}" class="collapse hide" data-parent="#accordion">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-8">
-                                    <p><b>Instructor:</b> {{course.data.creator.get_full_name|title}}</p>
-                                    {% with course.data.get_learning_modules as modules %}
-                                        {% if modules %}
-                                            <p> <span class="badge badge-pill badge-primary">
-                                                Contest Content</span>
-                                                <ul>
-                                                    {% for module in modules %}
-                                                        <li>{{module.name|title}}</li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </p>
-                                        {% endif %}
-                                    {% endwith %}
+                                <div class="col-md-3">
+                                    <p>Instructor: </p><p class="instname">{{course.data.creator.get_full_name|title}}</p>
+                                   
+                                  
+                                </div>
+                                <div class="col-md-3">
+                                    <p>Starts On:</p><p class="time">{{course.data.start_enroll_time}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>Ends On:</p><p class="time">{{course.data.end_enroll_time}}</p>
+                                </div>
+                                <div class="col-md-3">
                                     {% if course.data.instructions %}
-                                        <p> <span class="badge badge-pill badge-primary">
-                                            Instructions</span><br>
-                                            {{ course.data.instructions|safe }}
+                                    <p> <span class="">
+                                        Instructions</span><br>
+                                       <p class="instructions p-4"> {{ course.data.instructions|safe }}</p>
+                                    </p>
+                                {% endif %}
+
+                                   
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    {% with course.data.get_learning_modules as modules %}
+                                    {% if modules %}
+                                        <p> <span class="">
+                                            Contest Content</span>
+                                            <ul class="mylist">
+                                                {% for module in modules %}
+                                                    <li>{{module.name|title}}</li>
+                                                {% endfor %}
+                                            </ul>
                                         </p>
                                     {% endif %}
+                                {% endwith %}
                                 </div>
-                                <div class="col-md-4">
-                                    <p><b>Starts On:</b> {{course.data.start_enroll_time}}</p>
-                                    <p><b>Ends On:</b> {{course.data.end_enroll_time}}</p>
+                                    <div class="col-md-3">
                                     {% with course.completion_percentage as percent %}
-                                    <p><b>Contest Progress:</b></p>
+                                    <p>Contest Progress:</p>
                                     <div class="progress">
                                         {% if percent %}
                                             {% if percent <= 50 %}
@@ -168,6 +192,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 {% endblock %}
