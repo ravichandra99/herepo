@@ -1,34 +1,26 @@
-function increase(frm)
-{
-    if(frm.points.value == "")
-    {
+function increase(frm) {
+    if (frm.points.value == "") {
         frm.points.value = "0.5";
         return;
     }
     frm.points.value = parseFloat(frm.points.value) + 0.5;
 }
 
-function decrease(frm)
-{
-    if(frm.points.value > 0)
-    {
+function decrease(frm) {
+    if (frm.points.value > 0) {
         frm.points.value = parseFloat(frm.points.value) - 0.5;
     }
-    else
-    {
-        frm.points.value=0;
+    else {
+        frm.points.value = 0;
     }
 }
 
-function setSelectionRange(input, selectionStart, selectionEnd) 
-{
-    if (input.setSelectionRange) 
-    {
+function setSelectionRange(input, selectionStart, selectionEnd) {
+    if (input.setSelectionRange) {
         input.focus();
         input.setSelectionRange(selectionStart, selectionEnd);
     }
-    else if (input.createTextRange) 
-    {
+    else if (input.createTextRange) {
         var range = input.createTextRange();
         range.collapse(true);
         range.moveEnd('character', selectionEnd);
@@ -37,31 +29,24 @@ function setSelectionRange(input, selectionStart, selectionEnd)
     }
 }
 
-function replaceSelection (input, replaceString) 
-{
-    if (input.setSelectionRange) 
-    {
+function replaceSelection(input, replaceString) {
+    if (input.setSelectionRange) {
         var selectionStart = input.selectionStart;
         var selectionEnd = input.selectionEnd;
-        input.value = input.value.substring(0, selectionStart)+ replaceString + input.value.substring(selectionEnd);
-        if (selectionStart != selectionEnd)
-        {
-            setSelectionRange(input, selectionStart, selectionStart +   replaceString.length);
+        input.value = input.value.substring(0, selectionStart) + replaceString + input.value.substring(selectionEnd);
+        if (selectionStart != selectionEnd) {
+            setSelectionRange(input, selectionStart, selectionStart + replaceString.length);
         }
-        else
-        {
+        else {
             setSelectionRange(input, selectionStart + replaceString.length, selectionStart + replaceString.length);
         }
     }
-    else if (document.selection) 
-    {
+    else if (document.selection) {
         var range = document.selection.createRange();
-        if (range.parentElement() == input)
-        {
+        if (range.parentElement() == input) {
             var isCollapsed = range.text == '';
             range.text = replaceString;
-            if (!isCollapsed)
-            {
+            if (!isCollapsed) {
                 range.moveStart('character', -replaceString.length);
                 range.select();
             }
@@ -69,82 +54,78 @@ function replaceSelection (input, replaceString)
     }
 }
 
-function textareaformat()
-{
-    document.getElementById('id_type').setAttribute('class','custom-select');
-    document.getElementById('id_points').setAttribute('class','mini-text form-control');
-    document.getElementById('id_tags').setAttribute('class','form-control');
-    $("[id*="+'test_case_args'+"]").attr('placeholder',
-                                         'Command Line arguments for bash only');
+function textareaformat() {
+    document.getElementById('id_type').setAttribute('class', 'custom-select');
+    document.getElementById('id_points').setAttribute('class', 'mini-text form-control');
+    document.getElementById('id_tags').setAttribute('class', 'form-control');
+    $("[id*=" + 'test_case_args' + "]").attr('placeholder',
+        'Command Line arguments for bash only');
     var sol_preview = "<p id='sol_preview' align='justify'></p>";
     $(sol_preview).insertBefore("#id_solution");
 
-    $('#id_snippet').bind('keydown', function( event ){
-         if(navigator.userAgent.match("Gecko"))
-        {
-            c=event.which;
+    $('#id_snippet').bind('keydown', function (event) {
+        if (navigator.userAgent.match("Gecko")) {
+            c = event.which;
         }
-        else
-        {
-            c=event.keyCode;
+        else {
+            c = event.keyCode;
         }
-        if(c==9)
-        {
-            replaceSelection(document.getElementById('id_snippet'),String.fromCharCode(9));
-            setTimeout(document.getElementById('id_snippet'),0);
+        if (c == 9) {
+            replaceSelection(document.getElementById('id_snippet'), String.fromCharCode(9));
+            setTimeout(document.getElementById('id_snippet'), 0);
             return false;
         }
-      });
-
-    $('#id_description').bind('focus', function( event ){
-         document.getElementById("id_description").rows=5;
-         document.getElementById("id_description").cols=40;
-      });
-
-    $('#id_description').bind('blur', function( event ){
-         document.getElementById("id_description").rows=1;
-         document.getElementById("id_description").cols=40;
-      });
-
-    $('#id_description').bind('keypress', function (event){
-        document.getElementById('desc_preview').innerHTML = document.getElementById('id_description').value ;
     });
 
-    $('#id_solution').bind('keypress', function (event){
-        document.getElementById('sol_preview').innerHTML = document.getElementById('id_solution').value ;
+    $('#id_description').bind('focus', function (event) {
+        document.getElementById("id_description").rows = 5;
+        document.getElementById("id_description").cols = 40;
     });
 
-    $('#id_type').bind('focus', function(event){
+    $('#id_description').bind('blur', function (event) {
+        document.getElementById("id_description").rows = 1;
+        document.getElementById("id_description").cols = 40;
+    });
+
+    $('#id_description').bind('keypress', function (event) {
+        document.getElementById('desc_preview').innerHTML = document.getElementById('id_description').value;
+    });
+
+    $('#id_solution').bind('keypress', function (event) {
+        document.getElementById('sol_preview').innerHTML = document.getElementById('id_solution').value;
+    });
+
+    $('#id_type').bind('focus', function (event) {
         var type = document.getElementById('id_type');
         type.style.border = '1px solid #ccc';
     });
 
-    $('#id_language').bind('focus', function(event){
+    $('#id_language').bind('focus', function (event) {
         var language = document.getElementById('id_language');
         language.style.border = '1px solid #ccc';
     });
 
-    document.getElementById('sol_preview').innerHTML = document.getElementById('id_solution').value ;
+    document.getElementById('sol_preview').innerHTML = document.getElementById('id_solution').value;
 
     var question_type = document.getElementById('id_type').value
     if (document.getElementById('id_grade_assignment_upload').checked ||
-        question_type == 'upload'){
+        question_type == 'upload') {
         $("#id_grade_assignment_upload").prop("disabled", false);
     }
-    else{
+    else {
         $("#id_grade_assignment_upload").prop("disabled", true);
     }
 
-    $('#id_type').change(function() {
-        if ($(this).val() == "upload"){
+    $('#id_type').change(function () {
+        if ($(this).val() == "upload") {
             $("#id_grade_assignment_upload").prop("disabled", false);
         }
-        else{
+        else {
             $("#id_grade_assignment_upload").prop("disabled", true);
         }
-   });
+    });
 
-    $('#id_file_field').on('change',function(){
+    $('#id_file_field').on('change', function () {
         //get the file name
         var files = [];
         for (var i = 0; i < $(this)[0].files.length; i++) {
@@ -153,18 +134,18 @@ function textareaformat()
         $(this).next('.custom-file-label').html(files.join(', '));
     });
 
-    $("#question_form").each(function(){
+    $("#question_form").each(function () {
         $(this).find('textarea').addClass("form-control");
         $(this).find('input[type=number]').addClass("form-control");
     });
 
-    $(function() {
+    $(function () {
         tinymce.init({
             selector: 'textarea#id_description',
-            setup : function(ed) {
-                  ed.on('change', function(e) {
-                     tinymce.triggerSave();
-                  });
+            setup: function (ed) {
+                ed.on('change', function (e) {
+                    tinymce.triggerSave();
+                });
             },
             max_height: 400,
             height: 400,
@@ -174,33 +155,30 @@ function textareaformat()
     });
 }
 
-function autosubmit()
-{
-        var language = document.getElementById('id_language');
-        if(language.value == 'select')
-        {
-            language.style.border="solid red";
-            return false;
-        }
-        var type = document.getElementById('id_type');
-        if(type.value == 'select')
-        {
-            type.style.border = 'solid red';
-            return false;
-        }
+function autosubmit() {
+    var language = document.getElementById('id_language');
+    if (language.value == 'select') {
+        language.style.border = "solid red";
+        return false;
+    }
+    var type = document.getElementById('id_type');
+    if (type.value == 'select') {
+        type.style.border = 'solid red';
+        return false;
+    }
 
 }
 
 $(document).ready(() => {
     let option = $('#id_language').val();
-    if(option === 'other') {
+    if (option === 'other') {
         $('#id_topic').closest('tr').show();
         $('#id_topic').prop("required", true);
     } else {
         $('#id_topic').prop("required", false);
         $('#id_topic').closest('tr').hide();
     }
-    $('#id_language').change(function() {
+    $('#id_language').change(function () {
         let value = $(this).val();
         if (value === "other") {
             $('#id_topic').closest('tr').show();
@@ -212,7 +190,7 @@ $(document).ready(() => {
             $('#id_type').children("option[value='code']").show();
         }
     });
-    $('#id_type').change(function() {
+    $('#id_type').change(function () {
         let value = $(this).val();
         if (value === "code") {
             $('#id_language').children("option[value='other']").hide();
@@ -220,11 +198,31 @@ $(document).ready(() => {
             $('#id_language').children("option[value='other']").show();
         }
     })
-    $('#add_more').click(function() {
+    $('#add_more').click(function () {
         var form_idx = $(tc_type).val();
         $('#form_set').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
         $(tc_type).val(parseInt(form_idx) + 1);
-        var form_type = "#id_"+'{{tc_class}}'+"_set-"+form_idx+"-type";
-        $(form_type).val($("#id_"+'{{tc_class}}'+"_set-0-type").val());
+        var form_type = "#id_" + '{{tc_class}}' + "_set-" + form_idx + "-type";
+        $(form_type).val($("#id_" + '{{tc_class}}' + "_set-0-type").val());
     });
 });
+
+$(document).ready(function () {
+    $("#id_type").change(function () {
+        var drop = $("#id_type").val();
+        if (drop !== "code") {
+            $("#id_snippet").attr('disabled', 'disabled');
+            $("#id_file_field").attr('disabled', 'disabled');
+        } else {
+            $("#id_snippet").removeAttr('disabled');
+            $("#id_file_field").removeAttr('disabled');
+        }
+    })
+
+});
+
+// for diasbaling the right clicks on the page
+
+// $(document).ready(function () {
+//     document.addEventListener('contextmenu', event => event.preventDefault());
+// });

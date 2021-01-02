@@ -26,4 +26,13 @@
 .mymsg {
   color: #ff0000 !important;
 }
+
+.headname {
+  color: white !important;
+  background-color: transparent;
+  padding: 20px;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
 /*# sourceMappingURL=intro.css.map */

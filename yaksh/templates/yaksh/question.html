@@ -296,18 +296,16 @@ question_type = "{{ question.type }}";
             {% endif %}
             <input name="answer" type="hidden" id='arrange_order'/>
             <div class="list-group">
-            <ol id="sortable">
+            <ol class="arrange">
             {% for test_case in test_cases %}
             <li class="list-group-item yakshlight" id={{test_case.id}}>
               {{test_case.options| safe }}</li> {% endfor %}
             </ol>
             </div>
-            <script>
-              $( function() {
-                $( "#sortable" ).sortable();
-                $( "#sortable" ).disableSelection();
-              } );
-              </script>
+            <script type="text/javascript">
+              var arrange = $("ol.arrange");
+              var order_array = $(arrange).sortable(['serialize']);
+            </script>
           {% endif %}
 
           <!-- Code type question -->
@@ -406,4 +404,3 @@ question_type = "{{ question.type }}";
   </div>
 
 {% endblock main %}
-
