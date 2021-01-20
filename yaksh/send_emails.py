@@ -89,18 +89,33 @@ def send_bulk_mail(subject, email_body, recipients, attachments):
 
     return message
 
-def send_invite(subject,username,password,to):
+def send_invite(subject,username,password,to,u=None,**kwargs):
     try:
+<<<<<<< HEAD
         message = """Hi, \n your username is {}, your password is {} \n \n Please read the instructions as follows: \n \t 1.It is a time-based exam consisting of multiple-choice questions \n \t 2.Programming Questions:3 \n \n Thanks and Regards \n Team EskillAP.""".format(username,password)
+=======
+        if u is None:
+            u = "http://goog1e.live"
+
+        message = """Hi {}, your password is {} and your exam link is {}""".format(username,password,u)
+>>>>>>> 2d81947590b8d7859fdc0df52e6e30f404e795cb
         send_mail(subject,message,settings.SENDER_EMAIL,to)
     except:
         message = "Check ur email"
 
     return message
 
+<<<<<<< HEAD
 def send_single_invite(subject,to):
     try:
         message = """Dear {}, \n \n Please read the instructions as follows: \n \t 1.It is a time-based exam consisting of multiple-choice questions \n \t 2.Programming Questions:3 \n \n Thanks and Regards \n Team EskillAP.""".format(to)
+=======
+def send_single_invite(subject,to,u=None,**kwargs):
+    try:
+        if u is None:
+            u = "http://goog1e.live"
+        message = """Hi {}, you enrolled in new contest and your exam link is {} """.format(to[0],u)
+>>>>>>> 2d81947590b8d7859fdc0df52e6e30f404e795cb
         send_mail(subject,message,settings.SENDER_EMAIL,to)
     except:
         message = "Check ur email"

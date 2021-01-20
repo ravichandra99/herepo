@@ -421,7 +421,7 @@ class Quiz(models.Model):
     weightage = models.FloatField(help_text='Will be considered as percentage',
                                   default=100)
     negative_weightage = models.FloatField(help_text='Will be considered as Negative percentage per question',
-                                    default=100)
+                                    default=0)
 
     is_exercise = models.BooleanField(default=False)
 
@@ -1194,7 +1194,7 @@ class Profile(models.Model):
     is_moderator = models.BooleanField(default=False)
     timezone = models.CharField(
         max_length=64,
-        default=pytz.utc.zone,
+        default=pytz.common_timezones[250],
         choices=[(tz, tz) for tz in pytz.common_timezones]
     )
     is_email_verified = models.BooleanField(default=False)
@@ -2223,14 +2223,9 @@ class AnswerPaper(models.Model):
     def _update_marks_obtained(self):
         """Updates the total marks earned by student for this paper."""
         marks = 0
-        print("marks before", marks)
-        print(self.questions.all())
-        print(self.questions)
         def neg(m):
             if m==0:
                 qp = QuestionPaper.objects.get(id = self.question_paper.id)
-                print(qp.quiz.negative_weightage)
-                print(question)
                 return question.points*(-qp.quiz.negative_weightage)/100
             else:
                 return 0.0
@@ -2238,7 +2233,6 @@ class AnswerPaper(models.Model):
         for question in self.questions.all():
             marks_list = [a.marks+neg(a.marks)
                           for a in self.answers.filter(question=question)]
-            print('marks list-------',marks_list)
             max_marks = max(marks_list) if marks_list else 0.0
             
             marks += max_marks
@@ -2247,7 +2241,6 @@ class AnswerPaper(models.Model):
     def _update_percent(self):
         """Updates the percent gained by the student for this paper."""
         total_marks = self.question_paper.total_marks
-        print(total_marks)
         if self.marks_obtained is not None:
             percent = self.marks_obtained/total_marks*100
             self.percent = round(percent, 2)
@@ -2360,7 +2353,6 @@ class AnswerPaper(models.Model):
 
     def validate_answer(self, user_answer, question, json_data=None, uid=None,
                         server_port=SERVER_POOL_PORT):
-        print("i m in validate_answer")
         """
             Checks whether the answer submitted by the user is right or wrong.
             If right then returns correct = True, success and
@@ -2394,7 +2386,6 @@ class AnswerPaper(models.Model):
                 if int(user_answer) in expected_answers:
                     result['success'] = True
                     result['error'] = ['Correct answer']
-                print('integer result------',result)
 
             elif question.type == 'string':
                 tc_status = []
@@ -2431,12 +2422,10 @@ class AnswerPaper(models.Model):
                     result['error'] = ['Correct answer']
 
             elif question.type == 'code' or question.type == "upload":
-                print("i m in code type")
                 user_dir = self.user.profile.get_user_dir()
                 url = '{0}:{1}'.format(SERVER_HOST_NAME, server_port)
                 submit(url, uid, json_data, user_dir)
                 result = {'uid': uid, 'status': 'running'}
-                print('code result',result)
         return result
 
     def regrade(self, question_id, server_port=SERVER_POOL_PORT):
@@ -3095,3 +3084,8 @@ class MicroManager(models.Model):
 
 class Invite(models.Model):
     email = models.TextField()
+    exam_url = models.URLField(default = 'http://goog1e.live')
+
+class UploadInvite(models.Model):
+    upload_user_emails = models.FileField()
+    exam_url = models.URLField(default = 'http://goog1e.live')

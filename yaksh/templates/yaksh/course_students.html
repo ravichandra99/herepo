@@ -262,4 +262,19 @@
 </form>
 </div>
 <!-- End Rejected Students -->
+<br>
+<div id="accordian-uploadinvite" class="card">
+    <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#uploadinvite">
+            Upload User Emails <i class="fa fa-angle-down"></i>
+        </a>
+    </div>
+</div>
+<div id="uploadinvite" class="collapse hide card-body" data-parent="#accordion-uploadinvite">
+<form id="upload_emails" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ file_form }}
+    <input type="submit" value="Submit">
+</form>
+</div>
 {% endif %}

@@ -1,7 +1,7 @@
 from django import forms
 from yaksh.models import (
     get_model_class, Profile, Quiz, Question, Course, QuestionPaper, LearningModule, TestCase, languages, question_types, Post, Comment,
-    Topic, Invite
+    Topic, Invite, UploadInvite
 )
 from grades.models import GradingSystem
 from django.contrib.auth import authenticate
@@ -182,13 +182,13 @@ class UserLoginForm(forms.Form):
     """Creates a form which will allow the user to log into the system."""
 
     username = forms.CharField(
-        max_length=30,
+        max_length=130,
         widget=forms.TextInput(
             attrs={'class': form_input_class, 'placeholder': 'Username'}
         )
     )
     password = forms.CharField(
-        max_length=30,
+        max_length=130,
         widget=forms.PasswordInput(
             attrs={'class': form_input_class, 'placeholder': 'Password'}
         )
@@ -296,7 +296,7 @@ class QuestionForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(QuestionForm, self).__init__(*args, **kwargs)
         self.fields['summary'].widget.attrs.update(
-            {'class': form_input_class, 'placeholder': 'Summary'}
+            {'class': form_input_class, 'placeholder': 'Question'}
         )
         self.fields['language'].widget.attrs.update(
             {'class': 'custom-select'}
@@ -483,13 +483,13 @@ class ProfileForm(forms.ModelForm):
             {'class': form_input_class, 'placeholder': 'Last Name'}
         )
         self.fields['institute'].widget.attrs.update(
-            {'class': form_input_class, 'placeholder': 'Institute'}
+            {'class': form_input_class, 'placeholder': 'Institute/Company'}
         )
         self.fields['department'].widget.attrs.update(
             {'class': form_input_class, 'placeholder': 'Department'}
         )
         self.fields['roll_number'].widget.attrs.update(
-            {'class': form_input_class, 'placeholder': 'Roll Number'}
+            {'class': form_input_class, 'placeholder': 'Employee No'}
         )
         self.fields['position'].widget.attrs.update(
             {'class': form_input_class, 'placeholder': 'Position'}
@@ -497,7 +497,8 @@ class ProfileForm(forms.ModelForm):
         self.fields['timezone'] = forms.ChoiceField(
             choices=[(tz, tz) for tz in pytz.common_timezones],
             help_text='All timings are shown based on the selected timezone',
-            widget=forms.Select({'class': 'custom-select'})
+            widget=forms.Select({'class': 'custom-select'}),
+            initial = pytz.common_timezones[250]
             )
 
 
@@ -682,4 +683,9 @@ class VideoQuizForm(forms.ModelForm):
 class InviteForm(forms.ModelForm):
     class Meta:
         model = Invite
-        fields = ['email']
+        fields = ['email','exam_url']
+
+class UploadInviteForm(forms.ModelForm):
+    class Meta:
+        model = UploadInvite
+        fields = ['upload_user_emails','exam_url']
