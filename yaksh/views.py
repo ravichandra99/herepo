@@ -61,11 +61,7 @@ import random
 import string
 from django.conf import settings
 from textwrap import dedent
-<<<<<<< HEAD
-from .send_emails import send_invite, send_single_invite
-=======
 from .send_emails import send_invite,send_single_invite
->>>>>>> 2d81947590b8d7859fdc0df52e6e30f404e795cb
 from django.core.exceptions import ValidationError
 from django import forms
 
@@ -3293,12 +3289,7 @@ def course_students(request, course_id):
                 elif User.objects.filter(email=i).exists() and not Course.objects.filter(students__in = User.objects.filter(email = i)).filter(id = course_id).exists():
                     course = get_object_or_404(Course, pk=course_id)
                     user = User.objects.get(email=i).id
-<<<<<<< HEAD
-                    print(user)
-                    asdf = send_single_invite("Invite",[i])
-=======
                     asdf = send_single_invite("Invite",[i],u)
->>>>>>> 2d81947590b8d7859fdc0df52e6e30f404e795cb
                     course = get_object_or_404(Course, pk=course_id)
                     if course.is_self_enroll():
                         was_rejected = False
