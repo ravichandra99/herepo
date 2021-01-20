@@ -61,7 +61,7 @@ import random
 import string
 from django.conf import settings
 from textwrap import dedent
-from .send_emails import send_invite
+from .send_emails import send_invite, send_single_invite
 from django.core.exceptions import ValidationError
 from django import forms
 
@@ -3307,7 +3307,7 @@ def course_students(request, course_id):
                     print('----enrolling user is', user)
                     user = User.objects.get(email=i).id
                     print(user)
-                    asdf = send_invite("Invite",[i])
+                    asdf = send_single_invite("Invite",[i])
                     course = get_object_or_404(Course, pk=course_id)
                     if course.is_self_enroll():
                         was_rejected = False

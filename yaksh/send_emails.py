@@ -91,16 +91,16 @@ def send_bulk_mail(subject, email_body, recipients, attachments):
 
 def send_invite(subject,username,password,to):
     try:
-        message = """Hi {}, your password is {}""".format(username,password)
+        message = """Hi, \n your username is {}, your password is {} \n \n Please read the instructions as follows: \n \t 1.It is a time-based exam consisting of multiple-choice questions \n \t 2.Programming Questions:3 \n \n Thanks and Regards \n Team EskillAP.""".format(username,password)
         send_mail(subject,message,settings.SENDER_EMAIL,to)
     except:
         message = "Check ur email"
 
     return message
 
-def send_invite(subject,to):
+def send_single_invite(subject,to):
     try:
-        message = """Hi {}, you enrolled in new course """.format(to)
+        message = """Dear {}, \n \n Please read the instructions as follows: \n \t 1.It is a time-based exam consisting of multiple-choice questions \n \t 2.Programming Questions:3 \n \n Thanks and Regards \n Team EskillAP.""".format(to)
         send_mail(subject,message,settings.SENDER_EMAIL,to)
     except:
         message = "Check ur email"

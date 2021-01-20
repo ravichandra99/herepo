@@ -1,3 +1,13 @@
+
+{% load static %}
+
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/addteacher.css' %}">
+
+{% endblock %}
+
 <div class="container">
 <center><h3>Add Mentors</h3><br></center>
 <form action="{% url 'yaksh:search_teacher' course.id %}" method="post">
@@ -6,7 +16,7 @@
         <input class="form-control form-control-lg" type="text" name="uname" id="inputLarge" placeholder="Search teachers with username, firstname, lastname, email" required>
     </div>
     <center>
-        <button class="btn btn-info btn-lg" type="submit">
+        <button class="btn mynextbtn" type="submit">
             <i class="fa fa-search"></i>
             Search
         </button>

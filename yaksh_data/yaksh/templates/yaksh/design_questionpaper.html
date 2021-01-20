@@ -7,7 +7,8 @@
 
 {% block css %}
     <link rel="stylesheet" media="all" type="text/css" href="{% static 'yaksh/css/question_paper_creation.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/courses.css' %}">
+   
+    <link rel="stylesheet" href="{% static 'css/design_questionpaper.css' %}">
 {% endblock %}
 
 {% block script %}
@@ -55,7 +56,7 @@
         </h3>
     </div>
     <br>
-    
+  
     {% if messages %}
         {% for message in messages %}
         <div class="alert alert-dismissible alert-{{ message.tags }}">
@@ -66,9 +67,10 @@
         </div>
         {% endfor %}
     {% endif %}
-    <div class="tab-content">
+    <div class="tab-content" >
         <!-- common to fixed and random questions -->
-        <div class="row" id="selectors">
+       
+        <div class="row p-4 mr-1" id="selectors">
             <div class = "col-md-8">
                 <h5 class="mb-4 searchname">Please select Question type and Marks</h5>
             </div>
@@ -79,20 +81,21 @@
                 {{ filter_form.marks }}
             </div>
         </div> <!-- /.row -->
+    
         <br>
         {% csrf_token %}
         <div class="tab-pane active" id="fixed-questions">
             <h4 class="text-center text-uppercase">(Or)</h4>
             <!-- Search questions using tags -->
-            
+            <div class="whitebg p-4 my-4">
             <span class="input-group-addon" id="basic-addon1"><h5 class="mb-3 ml-2 searchname mt-3">Search Questions using Tags: </h5></span>
             <div class="col-md-14 mb-5">
             <div class="input-group">
                 <input type="text" id="question_tags" name="question_tags" class="form-control"
                  placeholder="Search using comma separated Tags">
                 <span class="input-group-btn">
-                <button class="btn btn-outline-primary" type="submit">
-                    <i class="fa fa-search"></i>
+                <button class="btn" type="submit">
+                    <i class="fa fa-search fa-2x"></i>
                 </button>
                 </span>
                 <div class="col-md-6 mt-4 mt-md-0">
@@ -111,8 +114,10 @@
                 </div>
             </div>
             </div>
+        </div>
+        
             
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-6">
                     <div id="fixed-available-wrapper">
                         <p class="selectname ml-3 mt-3">Select questions to add:</p>
@@ -187,7 +192,7 @@
         </div> <!-- /#fixed-questions -->
 
         <div class="tab-pane" id="random-questions">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-6">
                     <div id="random-available-wrapper">
                         <p class="selectname ml-3 mt-3">Select questions to add to the pool:</p>

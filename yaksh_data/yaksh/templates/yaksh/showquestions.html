@@ -5,7 +5,7 @@
 
 {% block pagetitle %} Questions {% endblock pagetitle %}
 
-
+ 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/show_questions.css' %}">
 {% endblock %}
@@ -17,61 +17,65 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container-fluid">
-    <div class="nav nav-pills d-flex justify-content-center" role="tablist" aria-orientation="vertical">
+  <div class="container-fluid p-lg-5 py-5 backdrop">
+    <div class="nav nav-pills d-flex justify-content-left" role="tablist" aria-orientation="vertical">
       <a href="#show" id="showbar" class="nav-link m-1 active"  data-toggle="pill" role="tab" aria-controls="show" aria-selected="true"> All Questions</a>
       <a href="#updown" id="updownbar" class="nav-link m-1" data-toggle="pill" role="tab" aria-controls="updown" aria-selected="false" > Upload Questions</a>
     </div>
     <br>
     <div class="tab-content">
       <!-- Upload Questions -->
-      <div id="updown" class="card tab-pane fade" role="tabpanel" aria-labelledby="updownbar">
-        <div class="col" role="alert">
-          <p>You can upload question files the following ways -
-            <li><b><u>Yaml File</u></b>
-              <p>One can upload Yaml file with extensions .yaml or .yml. Please note
-                that you cannot upload files associated to a question. Yaml file can
-                have any name.
-              </p>
-            </li>
-            <li><b><u>Zip File</u></b>
-             <p> One can also upload zip with the following zip structure - </p>
-              <pre>
-                .zip
-                |-- .yaml or .yml
-                |-- .yaml or .yml
-                |-- folder1
-                |   |-- Files required by questions
-                |-- folder2
-                |   |-- Files required by questions
-              </pre>
-            </li>
-          </p>
-        </div>
+      
+      <div id="updown" class="card tab-pane fade upload-questions" role="tabpanel" aria-labelledby="updownbar">
         <div class="card-body">
           <form action="" method="post"  enctype="multipart/form-data">
             {% csrf_token %}
-              <div class="form-group">
-                <div class="col-md-4">
-                  <a class="btn btn-outline-primary btn-custom btn-block m-1" href="{% url 'yaksh:download_yaml_template' %}">
-                    <i class="fa fa-download"></i>&nbsp;Download Template</a>
+            <div class="form-group">
+                <p class="upload-questions-head">You can upload question files the following ways -</p>
+                <div class="col" role="alert">
+                  <p>
+                    <li><b>Yaml File</b>
+                      <p>One can upload Yaml file with extensions .yaml or .yml. Please note
+                        that you cannot upload files associated to a question. Yaml file can
+                        have any name.
+                      </p>
+                    </li>
+                  </p>
                 </div>
-                  <br><br>
-                  <h4> Or </h4>
-                  <br>
-                  <div class="col-md-5">
-                    <div class="input-group row">
-                        <div class="custom-file col-12">
-                            {{ upload_form }}
-                            <label class="custom-file-label" for="id_file">
-                                Choose file
-                            </label>
-                        </div>
-                        <div class="input-group-append col-12 my-4">
-                          <button class="btn btn-outline-primary  btn-custom btn-block" type="submit" name="upload" value="upload"><i class="fa fa-upload"></i>&nbsp;Upload File</button>
-                        </div>
-                    </div>
+                <div class="row d-flex justify-content-center align-items-center">
+                  <div class="col-lg-5 col-12">
+                    <li><b>Zip File</b>
+                     <p> One can also upload zip with the following zip structure - </p>
+                      <pre>
+        .zip
+        |-- .yaml or .yml
+        |-- .yaml or .yml
+        |-- folder1
+        |   |-- Files required by questions
+        |-- folder2
+        |   |-- Files required by questions
+                      </pre>
+                    </li>
+                    <a class="btn btn-outline-primary btn-custom btn-block m-1" href="{% url 'yaksh:download_yaml_template' %}">
+                      <i class="fa fa-download"></i>&nbsp;Download Template</a>
                   </div>
+                    <div class="col-lg-1 text-center or-section">
+                      <h3>Or</h3>
+                    </div>
+                    <div class="col-lg-5 col-12">
+                      <div class="input-group row m-0">
+                          <div class="custom-file col-12">
+                              {{ upload_form }}
+                              <label class="custom-file-label" for="id_file">
+                                  Choose file
+                              </label>
+                          </div>
+                          <div class="input-group-append col-12 my-4">
+                            <button class="btn btn-outline-primary  btn-custom btn-block" type="submit" name="upload" value="upload"><i class="fa fa-upload"></i>&nbsp;Upload File</button>
+                          </div>
+                      </div>
+                    </div>
+                </div>
               </div>
               <script>
                   $('#id_file').on('change',function(){
@@ -103,24 +107,23 @@
             <h4>Filters Questions: </h4>
             <form method="GET" action="{% url 'yaksh:questions_filter' %}">
 
-              <div class="row">
-                  <div class="col-md-4 my-1 my-md-0">{{ form.question_type }}</div>
-                  <div class="col-md-4 my-1 my-md-0">{{ form.language }}</div>
-                  <div class="col-md-4 my-1 my-md-0">{{ form.marks }}</div>
-                  <br><br>
-                  <div class="col">
-                    <button class="btn btn-outline-success btn-custom m-1">
+              <div class="row mx-lg-2 my-lg-5">
+                  <div class="col-lg-4 my-1 my-md-1 col-md-4">{{ form.question_type }}</div>
+                  <div class="col-lg-3 my-1 my-md-1 col-md-4">{{ form.language }}</div>
+                  <div class="col-lg-3 my-1 my-md-1 col-md-4">{{ form.marks }}</div>
+                  <div class="col-lg-2 col-md-6 offset-md-3 offset-lg-0 my-md-2">
+                    <button class="btn btn-outline-success btn-block btn-custom">
                       <i class="fa fa-filter"></i>&nbsp;Filter
                     </button>
                   </div>
               </div>
             </form>
             <!-- End Filter Questions -->
-            <hr>
+            <hr class="d-lg-none d-md-none">
             <!-- Search by Tags -->
             <h4 >Search using Tags: </h4>
-            <div class="row">
-              <div class="col-11 my-1 col-md-6">
+            <div class="row mx-lg-2 my-lg-5">            
+              <div class="col-12 my-1 col-lg-5">
                 <form method="GET" action="{% url 'yaksh:search_questions_by_tags' %}">
                   <div class="input-group">
                     <input type="text" name="question_tags" id="question_tags" class="form-control" type="search"  placeholder="Search questions using comma separated Tags">
@@ -132,7 +135,7 @@
                   </div>
                 </form>
               </div>
-              <div class="col-12 my-1 col-md-6">
+              <div class="col-12 my-1 col-lg-5">
                 <select class="form-control" id="sel1" onchange="append_tag(this);">
                   {% if all_tags %}
                    <option value="" disabled selected>Available Tags</option>
@@ -146,70 +149,78 @@
                   {% endif %}
                 </select>
               </div>
+              <!-- End Search by Tags -->
+              <div class="col-lg-2 offset-lg-0 col-md-6 offset-md-3 my-md-0">
+                <a class="btn btn-outline-danger btn-block m-1" href="{% url 'yaksh:show_questions' %}">
+                  <i class="fa fa-times"></i>&nbsp;Clear
+                </a>                
+              </div>
             </div>
-            <br>
-            <!-- End Search by Tags -->
-            <a class="btn btn-outline-danger m-1" href="{% url 'yaksh:show_questions' %}">
-              <i class="fa fa-times"></i>&nbsp;Clear
-            </a>
           </div>
           <!-- End Card body -->
         </div>
         <!-- End card filters and search -->
-        <form name=frm action="{% url 'yaksh:show_questions' %}" method="post">
+        <form name=frm action="{% url 'yaksh:show_questions' %}" method="post" class="questions-table">
           {% csrf_token %}
           <div id="filtered-questions">
             <br>
-            <a class="btn btn-lg btn-custom" href="{% url 'yaksh:add_question' %}">
+            <!--Mobile Add Question button-->
+            <a class="btn btn-lg btn-custom btn-block d-lg-none d-md-none" href="{% url 'yaksh:add_question' %}">
               <i class="fa fa-plus-circle"></i>&nbsp;Add Question</a>
+            <!--Legacy laptop, Ipad and Ipad pro Add Question button-->
+              <a class="btn btn-lg btn-custom d-none d-lg-inline d-md-inline" href="{% url 'yaksh:add_question' %}">
+                <i class="fa fa-plus-circle"></i>&nbsp;Add Question</a>
             {% if objects %}
               <div>
                 <br>
                 {% include "yaksh/paginator.html" %}
                 <br>
-                <h5><input id="checkall" type="checkbox"> Select All </h5>
-                 <div class="table-wrapper-2">
-                    <table id="questions-table" class="tablesorter table  table-striped table-responsive-sm">
+                <div class="table-wrapper-2 py-lg-5">
+                  <div class="table-responsive">
+                    <table id="questions-table" class="tablesorter table table-striped">
                       <thead>
                         <tr>
-                          <th> Select </th>
-                          <th> Sr No. </th>
-                          <th> Summary&nbsp;<i class="fa fa-sort"></i> </th>
-                          <th> Language&nbsp;<i class="fa fa-sort"></i> </th>
-                          <th> Type&nbsp;<i class="fa fa-sort"></i> </th>
-                          <th> Marks&nbsp;<i class="fa fa-sort"></i> </th>
-                          <th>Test</th>
-                          <th>Download</th>
-                          <th>Delete</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {% for question in objects %}
-                        <tr>
-                          <td>
-                           <input type="checkbox" name="question" value="{{ question.id }}">
-                          </td>
-                          <td>{{forloop.counter}}</td>
-                          <td><a href="{% url 'yaksh:add_question' question.id %}">{{question.summary|capfirst}}</a></td>
-                          <td>{{question.language|capfirst}}</td>
-                          <td>{{question.type|capfirst}}</td>
-                          <td>{{question.points}}</td>
-                          <td>
-                            <a href="{% url 'yaksh:test_question' question.id %}" class="btn btn-info">
-                              Test
-                            </a>
-                          </td>
-                          <td><a href="{% url 'yaksh:download_question' question.id %}" class="btn btn-primary">
-                            <i class="fa fa-download"></i>&nbsp;Download</a></td>
-                          <td><a href="{% url 'yaksh:delete_question' question.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete {{question.summary|capfirst}}?')">
-                          <i class="fa fa-trash"></i>&nbsp;Delete</a></td>
-                        </tr>
-                        {% endfor %}
-                      </tbody>
+                            <td class="check-header"><input id="checkall" type="checkbox">&nbsp;<label for="checkall" class=" my-lg-1">Select all</label></td>
+                            <th class="table-header"> Sr No. </th>
+                            <th class="table-header"> Summary&nbsp;<i class="fa fa-sort"></i> </th>
+                            <th class="table-header"> Language&nbsp;<i class="fa fa-sort"></i> </th>
+                            <th class="table-header"> Type&nbsp;<i class="fa fa-sort"></i> </th>
+                            <th class="table-header"> Marks&nbsp;<i class="fa fa-sort"></i> </th>
+                            <th class="table-header">Test</th>
+                            <th class="table-header">Download</th>
+                            <th class="table-header">Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-center">
+                          {% for question in objects %}
+                          <tr>
+                            <td>
+                             <input type="checkbox" name="question" value="{{ question.id }}">
+                            </td>
+                            <td>{{forloop.counter}}</td>
+                            <td><a href="{% url 'yaksh:add_question' question.id %}">{{question.summary|capfirst}}</a></td>
+                            <td>{{question.language|capfirst}}</td>
+                            <td>{{question.type|capfirst}}</td>
+                            <td>{{question.points}}</td>
+                            <td>
+                              <a href="{% url 'yaksh:test_question' question.id %}">
+                                <i class="fa fa-flask flask-custom"></i>
+                              </a>
+                            </td>
+                            <td><a href="{% url 'yaksh:download_question' question.id %}">
+                              <i class="fa fa-download download-custom"></i></a></td>
+                            <td><a href="{% url 'yaksh:delete_question' question.id %}" onclick="return confirm('Are you sure you want to delete {{question.summary|capfirst}}?')">
+                            <i class="fa fa-trash text-danger"></i></a></td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
                     </table>
                   </div>
+                </div>
               </div>
-            {% include "yaksh/paginator.html" %}
+              <br>
+              {% include "yaksh/paginator.html" %}
+              <br>
             {% else %}
               <br><br>
               <div class="alert alert-info">
@@ -220,9 +231,9 @@
           <br>
           <center>
             {% if objects %}
-              <button class="btn btn-lg btn-primary" type="submit" name='download' value='download'><i class="fa fa-download"></i>&nbsp;Download Selected</button>
-              <button class="btn btn-lg btn-primary" type="submit" name="test" value="test">Test Selected</button>
-              <button class="btn btn-lg btn-danger" type="submit" onClick="return confirm_delete(frm);" name='delete' value='delete'>
+            <button class="btn btn-lg btn-custom my-2 my-lg-0" type="submit" name="test" value="test"><i class="fa fa-flask"></i>&nbsp;Test Selected</button>
+              <button class="btn btn-lg btn-custom my-2 my-lg-0" type="submit" name='download' value='download'><i class="fa fa-download"></i>&nbsp;Download Selected</button>
+              <button class="btn btn-lg btn-outline-danger my-2 my-lg-0" type="submit" onClick="return confirm_delete(frm);" name='delete' value='delete'>
               <i class="fa fa-trash"></i>&nbsp;Delete Selected</button>
             {% endif %}
           </center>

@@ -1,5 +1,12 @@
 {% extends "user.html" %}
 {% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/show_video.css' %}">
+<link rel="stylesheet" href="{% static 'yaksh/css/jquery-ui/jquery-ui.css' %}">
+{% endblock %}
+
+
 {% load custom_filters %}
 
 {% block title %} {{ learning_module.name }} {% endblock %}
@@ -18,9 +25,7 @@
 </script>
 <script type="text/javascript" src="{% static 'yaksh/js/tinymce/js/tinymce/tinymce.min.js' %}"></script>
 {% endblock %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'yaksh/css/jquery-ui/jquery-ui.css' %}">
-{% endblock %}
+
 {% block main %}
 <div class="wrapper">
     <!-- Sidebar  -->
@@ -78,7 +83,7 @@
 
     <!-- Page Content  -->
     <div id="content">
-        <button type="button" id="sidebarCollapse" class="btn btn-outline-info">
+        <button type="button" id="sidebarCollapse" class="btn menu text-white">
             <i class="fa fa-navicon fa-lg"></i>
         </button>
         <br><br>
@@ -114,7 +119,7 @@
             {% endif %}
             <br>
             {% if first_unit %}
-                <a href="{% url 'yaksh:next_unit' course.id learning_module.id first_unit.id '1' %}" class="btn btn-success btn-lg">Start
+                <a href="{% url 'yaksh:next_unit' course.id learning_module.id first_unit.id '1' %}" class="btn btn-lg text-white" id="start">Start
                     <i class="fa fa-play">
                     </i>
                 </a>

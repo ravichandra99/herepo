@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block title %} Register {% endblock %}
-{% block pagetitle %} Registration {% endblock %}
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/register.css' %}">
 {% endblock %}
 {% block nav %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
     <a class="navbar-brand" href="{% url 'yaksh:index' %}">
         <img src="{% static 'yaksh/images/yaksh_banner.png' %}" alt="YAKSH">
     </a>
@@ -15,13 +15,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row justify-content-center form-group d-flex px-1">
-        <div class="col-md-5 col-12">
+<div class="container">
+    <div class="row  form-group px-1">
+        <div class="col-md-6 my-4">
+            <img src="/static/yaksh/images/login.png" class="img-fluid mt-5 pt-5" alt="Responsive image">
+            <p class="my-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dignissimos non eligendi accusantium pariatur! Totam neque aliquid sequi itaque? Animi incidunt modi accusamus quibusda minima? Suscipit!</p>
+        </div>
+        <div class="col-md-6">
+           
             <form action="" method="post" class="form m-1 p-3">
+                <h2 class="text-center my-2">Registration</h2>
                 <fieldset class="p-md-4 p-3">
                     {% csrf_token %}
-                    <h5 class="sub-title"> Please fill in the following details:</h5>
+                    <!-- <h5 class="sub-title"> Please fill in the following details:</h5> -->
                     <center>
                         {% if form.errors %}
                             {% for field in form %}
@@ -48,13 +54,12 @@
                             <br>
                         {% endfor %}
                         <br>
-                        <br>
                     </center>
                     <center>
-                        <button class="btn btn-outline-success btn-lg m-1" type="submit">
+                        <button class="btn btn-light btn-lg m-1" type="submit">
                             Register
                         </button>
-                        <a href="{% url 'yaksh:index' %}" class="btn btn-outline-primary btn-lg m-1">
+                        <a href="{% url 'yaksh:index' %}" class="btn btn-outline-light btn-lg m-1">
                             Cancel
                         </a>
                     </center>

@@ -1,3 +1,9 @@
+{% load static %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/design_courses.css' %}">
+{% endblock %}
+
 <!-- Contest Status -->
 {% if is_progress %}
 <div class="course_data">
@@ -10,7 +16,7 @@
                     Number Of Members: {{ students_no }}
                 </div>
                 <div class="col">
-                    <a href="{% url 'yaksh:download_course_progress' course.id %}" class="btn btn-info">
+                    <a href="{% url 'yaksh:download_course_progress' course.id %}" class="btn myaddbtnt">
                         <i class="fa fa-download"></i>&nbsp;Download Data
                     </a>
                 </div>
@@ -21,12 +27,12 @@
         <table class="tablesorter table table-bordered table-responsive-sm" id="course_table" data-sortlist="[0,0]">
         <thead>
             <tr>
-                <th>Sr. No</th>
-                <th>Roll No.</th>
-                <th>Name</th>
-                <th>Current Unit</th>
-                <th>Completion Percentage</th>
-                <th>Grade</th>
+                <td class="header">Sr. No</td>
+                <td class="header">Roll No.</td>
+                <td class="header">Name</td>
+                <td class="header">Current Unit</td>
+                <td class="header">Completion Percentage</td>
+                <td class="header">Grade</td>
             </tr>
         </thead>
         <tbody>

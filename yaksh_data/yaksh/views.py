@@ -137,6 +137,7 @@ def index(request, next_url=None):
     return my_redirect("/exam/login/")
 
 
+
 def user_register(request):
     """ Register a new user.
     Create a user and corresponding profile and store roll_number also."""

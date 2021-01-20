@@ -1,66 +1,84 @@
 {% extends "base.html" %}
 {% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/quit.css' %}">
+{% endblock %}
 
-{% block title %} Quit Quiz {% endblock %}
 
-{% block nav %} 
+
+{% block nav %}
 <div class="container-fluid yakshnav">
-  <nav class="navbar fixed-top navbar-expand-lg yakshheading yakshnav">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'yaksh:index' %}">
-            <img src="{% static 'yaksh/images/yaksh_banner.png' %}" alt="YAKSH">
-        </a>
-    </div><!-- /.container -->
-  </nav><!-- /.navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg yakshheading yakshnav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'yaksh:index' %}">
+                <img src="{% static 'yaksh/images/yaksh_banner.png' %}" alt="YAKSH">
+            </a>
+        </div><!-- /.container -->
+    </nav><!-- /.navbar -->
 </div>
 {% endblock %}
 
 {% block content %}
-<center>
-<div class="col-md-8">
-    <h3>Submission Status</h3>
-    <table class="table table-bordered table-responsive-sm" >
-        <thead>
-            <tr class="text-center">
-                <th> Question</th>
-                <th> Status </th>
-            </tr>
-        </thead>
+<h3 class="cc mx-5">Submission Status</h3>
+<div class="container-fluid my-border pb-5">
+    <center>
+        <div class="col-md-8 p-5">
+            <table class="table table-bordered table-responsive-sm table-striped">
+                <thead>
+                    <tr class="text-center">
+                        <th class="conditions"> Question</th>
+                        <th class="conditions"> Status </th>
+                    </tr>
+                </thead>
 
-        {% for question in paper.questions.all %}
-            <tbody>
-                {% if question in paper.questions_answered.all %}
+                {% for question in paper.questions.all %}
+                <tbody>
+                    {% if question in paper.questions_answered.all %}
                     <tr class="table-success">
-                    <td> {{ question.summary }} </td>
-                    <td> Attempted </td>
-                {% else %}
+                        <td> {{ question.summary }} </td>
+                        <td> Attempted </td>
+                        {% else %}
                     <tr class="table-warning">
-                    <td> {{ question }} </td>
-                    <td> Not completed </td>
-                {% endif %}
-                </tr>
-            </tbody>
-        {% endfor %}
-    </table>
-</div>
-</center>
+                        <td> {{ question }} </td>
+                        <td> Not completed </td>
+                        {% endif %}
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
 
     {% if paper.question_paper.quiz.is_exercise %}
-	    <center><h4> Are you sure you wish to quit the Exercise?</h4></center>
-    {% else %}
-        <center><h4>Your current answers are saved.</h4></center>
-        <center><h4> Are you sure you wish to quit the exam?</h4></center>
-        <center><h4> Be sure, as you won't be able to restart this exam.</h4></center>
-    {% endif %}
-	<form action="{% url 'yaksh:complete' paper.attempt_number module_id paper.question_paper.id course_id %}" method="post">
-	{% csrf_token %}
-	<center>
-        <button class="btn btn-outline-success btn-lg" type="submit" name="yes">Yes</button>
-        {% if paper.is_special %}
-        <a class="btn btn-outline-danger btn-lg" name="no" href="{% url 'yaksh:skip_question' paper.questions.first.id paper.attempt_number module_id paper.question_paper.id course_id %}">No</a>
-        {% else %}
-        <a class="btn btn-outline-danger btn-lg" name="no" href="{% url 'yaksh:start_quiz' paper.attempt_number module_id paper.question_paper.id course_id %}">No</a>
-        {% endif %}
+    <center>
+        <h4 class="conditions"> Are you sure you wish to quit the Exercise?</h4>
     </center>
-	</form>
+    {% else %}
+    <center>
+        <h4 class="conditions">Your current answers are saved.</h4>
+    </center>
+    <center>
+        <h4 class="conditions"> Are you sure you wish to quit the exam?</h4>
+    </center>
+    <center>
+        <h4 class="conditions"> Be sure, as you won't be able to restart this exam.</h4>
+    </center>
+    {% endif %}
+    <form action="{% url 'yaksh:complete' paper.attempt_number module_id paper.question_paper.id course_id %}"
+        method="post">
+        {% csrf_token %}
+        <center>
+            <div class="p-4">
+                <button class="btn text-white" type="submit" name="yes" id="yes">Yes</button>
+                {% if paper.is_special %}
+                <a class="btn text-white" name="no" id="no"
+                    href="{% url 'yaksh:skip_question' paper.questions.first.id paper.attempt_number module_id paper.question_paper.id course_id %}">No</a>
+                {% else %}
+                <a class="btn text-white" name="no" id="no"
+                    href="{% url 'yaksh:start_quiz' paper.attempt_number module_id paper.question_paper.id course_id %}">No</a>
+                {% endif %}
+            </div>
+        </center>
+    </form>
+</div>
 {% endblock content %}

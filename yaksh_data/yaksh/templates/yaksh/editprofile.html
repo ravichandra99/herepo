@@ -1,30 +1,24 @@
 {% extends template  %}
-{% load static %}
 {% block title %} Edit Profile {% endblock %}
 {% block pagetitle %} My Profile {% endblock %}
+
+{% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/editprofile.css' %}">
 {% endblock %}
 {% block main %}
-<div class="container">
-    <hr>
+<div class="container-fluid">
+    <div class="contentbg">
+        <div class="py-4 mx-1 mx-md-4 my-5">
+    <br>
     <form action="{% url 'yaksh:edit_profile'%}" method="post" >
       {% csrf_token %}
-        <div class="row">
-            <form action="" method="post">
-                    {% csrf_token %}
-                        {% if form.errors %}
-                            {% for field in form %}
-                                {% for error in field.errors %}
-                                    <div class="alert alert-dismissible alert-danger">
-                                        <button type="button" class="close" data-dismiss="alert">
-                                            <i class="fa fa-close"></i>
-                                        </button>
-                                        <strong>{{ error|escape }}</strong>
-                                    </div>
-                                {% endfor %}
-                            {% endfor %}
-                            {% for error in form.non_field_errors %}
+      <form action="" method="post">
+            <div class="row">
+                {% csrf_token %}
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
                                 <div class="alert alert-dismissible alert-danger">
                                     <button type="button" class="close" data-dismiss="alert">
                                         <i class="fa fa-close"></i>
@@ -32,22 +26,35 @@
                                     <strong>{{ error|escape }}</strong>
                                 </div>
                             {% endfor %}
-                        {% endif %}
-                            {% for field in form %}
-                            <div class="form-group col-md-4">
-                                    <label>
-                                        {{ field.label }}
-                                    </label>
-                                    {{ field }}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-dismissible alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <i class="fa fa-close"></i>
+                                </button>
+                                <strong>{{ error|escape }}</strong>
                             </div>
-                            {% endfor %}
-                        </form>
-                    </div>
-                    <div class="row d-flex justify-content-center my-3">
-                        <button class="btn btn-success btn-block col-md-3 col-6 m-1" type="submit">Update</button>
-                        <a href="{% url 'yaksh:index' %}" class="btn btn-primary btn-block col-md-3 col-6 m-1">Cancel</a>
-                    </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% for field in form %}
+                        <div class="form-group col-lg-4">
+                            <label>
+                                {{ field.label }}
+                            </label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row float-left m-3">
+                    <button class="btn myaddbtn" type="submit">Update</button>&nbsp;&nbsp;
+                    <a href="{% url 'yaksh:index' %}" class="btn mynextbtn">Cancel</a>
+                </div>
+                </form>
+                <br>
+                <br>
     </center>
     </form>
-    {% endblock main %}
+    </div>
+    </div>
 </div>
+{% endblock main %}

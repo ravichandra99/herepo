@@ -2,6 +2,7 @@
 {% load static %}
 {% load custom_filters %}
 {% block title %} Contest Details {% endblock title %}
+{% block pagetitle %} {{ course.name|title }} {% endblock %}
 
 {% block script %}
 <script type="text/javascript" src="{% static 'yaksh/js/course.js' %}"></script>
@@ -15,17 +16,17 @@
 <link rel="stylesheet" href="{% static 'css/course_detail.css' %}">
 {% endblock %}
 
-<div class="text-center">
-{% block pagetitle %} <h1>{{ course.name|title }}</h1> {% endblock %}
-</div>
 
 {% block content %}
-<hr>
+
+<div class="contentbg py-4 mx-1 mx-md-5">
 <div id="dialog" title="Alert">
     <p id="error_msg"></p>
 </div>
 <div class="container-fluid">
+    <div class="p-4">
     <div class="row">
+        
         <div class="col-sm-3">
             {% include "yaksh/course_detail_options.html" %}
         </div>
@@ -84,6 +85,8 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 {% endblock %}
 

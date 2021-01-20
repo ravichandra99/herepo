@@ -1,3 +1,9 @@
+{% load static %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/design_courses.css' %}">
+{% endblock %}
+
 <!-- Send Mail -->
 {% if is_mail %}
 <div id="send-mail">
@@ -26,10 +32,10 @@
             <table id="mail_table" class="tablesorter table table-striped table-responsive-sm course-detail" data-sortlist="[1,0]">
                 <thead>
                     <th></th>
-                    <th>Full Name&nbsp;<i class="fa fa-sort"></i></th>
-                    <th>Email&nbsp;<i class="fa fa-sort"></i></th>
-                    <th>Roll Number&nbsp;<i class="fa fa-sort"></i></th>
-                    <th>Institute&nbsp;<i class="fa fa-sort"></i></th>
+                    <td class="header">Full Name&nbsp;<i class="fa fa-sort"></i></td>
+                    <td class="header">Email&nbsp;<i class="fa fa-sort"></i></td>
+                    <td class="header">Roll Number&nbsp;<i class="fa fa-sort"></i></td>
+                    <td class="header">Institute&nbsp;<i class="fa fa-sort"></i></td>
                 </thead>
                 <tbody>
                     {% for enroll in enrolled %}
@@ -48,7 +54,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <button class="btn btn-success btn-lg" type="submit" name='send_mail' value='send_mail' id="send_mail">
+            <button class="btn myaddbtnt" type="submit" name='send_mail' value='send_mail' id="send_mail">
                 Send Mail
             </button>
         </div>

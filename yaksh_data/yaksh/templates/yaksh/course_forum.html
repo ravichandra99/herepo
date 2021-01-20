@@ -13,7 +13,7 @@
     {% include "yaksh/sidebar.html" %}
     <div class="container-fluid bg">
         <div class="container" id="page-content-wrapper">
-            <div>
+            <div class="p-5">
                 <h2>
                     <center>{{course.name}}</center>
                 </h2>
@@ -22,17 +22,18 @@
             <div class="d-flex p-2 bd-highlight">
                 <div class="col-md-4">
                     {% if moderator %}
-                    <a href="{% url 'yaksh:course_detail' course.id %}" class="btn">
-                        <i class="fa fa-arrow-left"></i>&nbsp;Back
+                    <a href="{% url 'yaksh:course_detail' course.id %}" class="">
+                        <i class="fa fa-reply"></i>&nbsp;Back
                     </a>
                     {% else %}
-                    <a href="{% url 'yaksh:course_modules' course.id %}" class="btn btn-primary">
-                        <i class="fa fa-arrow-left"></i>&nbsp;Back
+                    <a href="{% url 'yaksh:course_modules' course.id %}" class="">
+                        <i class="fa fa-reply"></i>&nbsp;Back
                     </a>
                     {% endif %}
                 </div>
                 <div class="col-md">
-                    <button type="button" class="btn  pull-right" data-toggle="modal" data-target="#newPostModal">
+                    <button type="button" id="new" class="btn  pull-right" data-toggle="modal"
+                        data-target="#newPostModal">
                         <i class="fa fa-plus"></i>&nbsp;New Post
                     </button>
                 </div>
