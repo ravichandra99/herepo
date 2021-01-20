@@ -213,9 +213,11 @@ $(document).ready(function () {
         if (drop !== "code") {
             $("#id_snippet").attr('disabled', 'disabled');
             $("#id_file_field").attr('disabled', 'disabled');
+            $("#id_partial_grading").attr('disabled','disabled');
         } else {
             $("#id_snippet").removeAttr('disabled');
             $("#id_file_field").removeAttr('disabled');
+            $("#id_partial_grading").removeAttr('disabled','disabled');
         }
     })
 
@@ -226,3 +228,16 @@ $(document).ready(function () {
 // $(document).ready(function () {
 //     document.addEventListener('contextmenu', event => event.preventDefault());
 // });
+
+
+  $(document).ready(function () {
+    function handleVisibilityChange() {
+        if (document.hidden) {
+            alert("hello");
+        } else  {
+            console.log("Visible");
+        }
+      }
+        document.addEventListener("visibilitychange", handleVisibilityChange, true);
+    });
+ 

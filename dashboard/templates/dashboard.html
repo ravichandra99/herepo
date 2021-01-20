@@ -1,0 +1,182 @@
+{% extends "manage.html" %}
+{% load static %}
+{% block title %} Dashboard {% endblock %}
+{% block pagetitle %} Dashboard {% endblock pagetitle %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid border pb-5">
+  <nav aria-label="breadcrumb" class="custom-nav">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item active"><a href="{% url 'dashboard:leaderboard' %}">leaderboard</a></li>
+    </ol>
+  </nav>
+  <!-- landing cards section -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'img/user.jpg' %}" alt="" class="img-fluid img-responsive">
+                </div>
+                <div class="col-6">
+                  <p class="text-center">Total users</p> <br>
+                  <p class="text-center">{{ userCount.count }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'img/pic.jpg' %}" alt="" class="img-fluid img-responsive">
+                </div>
+                <div class="col-6">
+                  <p class="text-center">Total contest</p> <br>
+                  <p class="text-center">{{ courseCount.count }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'img/pic2.jpg' %}" alt="" class="img-fluid img-responsive">
+                </div>
+                <div class="col-6">
+                  <p class="text-center">Total moderators</p> <br>
+                  <p class="text-center">{{ moderatorCount.count }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'img/pic3.jpg' %}" alt="" class="img-fluid img-responsive">
+                </div>
+                <div class="col-6">
+                  <p class="text-center">Total question</p> <br>
+                  <p class="text-center">{{ questionCount.count }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- script for chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!-- end of the script -->
+  <!-- card for student graph -->
+  <div class="custom">
+    <div class="row">
+      <div class="col-6">
+        <div class="card mt-5 shadow">
+          <h3 class="m-3">number of students enrolled to contests</h3>
+          <canvas id="bar"></canvas>
+        </div>
+      </div>
+      <script>
+        var contest = [];
+        var student = [];
+        {% for i in contests %}
+        contest.push("{{ i }}");
+        {% endfor %}
+        {% for i in students %}
+        student.push("{{ i }}");
+        {% endfor %}
+        var ctx = document.getElementById('bar').getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: contest,
+            datasets: [{
+              label: 'contest',
+              data: student,
+              backgroundColor: [
+                // 'rgba(255, 99, 132, 0.2)'
+                // 'rgba(54, 162, 235, 0.2)',
+                // 'rgba(255, 206, 86, 0.2)',
+                // 'rgba(75, 192, 192, 0.2)',
+                // 'rgba(153, 102, 255, 0.2)',
+                // 'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                // 'rgba(255, 99, 132, 1)'
+                // 'rgba(54, 162, 235, 1)',
+                // 'rgba(255, 206, 86, 1)',
+                // 'rgba(75, 192, 192, 1)',
+                // 'rgba(153, 102, 255, 1)',
+                // 'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      </script>
+      <!-- end of the student bar -->
+      <div class="col-6">
+        <div class="card mt-5 shadow">
+          <h3 class="m-3">top 5 contests</h3>
+          <canvas id="line"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- script for line graph -->
+  <script>
+    var contestsName = []
+    {% for i in contestsName %}
+    contestsName.push("{{ i }}");
+    {% endfor %}
+    console.log(contestsName)
+    var ctx = document.getElementById('line').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: contestsName,
+        datasets: [{
+          label: '# of Votes',
+          data: {{ studentCount }},
+    }]
+      },
+      // options: {
+      //   scales: {
+      //     yAxes: [{
+      //       ticks: {
+      //         beginAtZero: true
+      //       }
+      //     }]
+      //   }
+      // }
+    });
+  </script>
+</div>
+{% endblock %}
+</html>

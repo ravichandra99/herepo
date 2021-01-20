@@ -1,0 +1,52 @@
+@import 'function.scss';
+    .border{
+        border: 1px solid $primary-color;
+        width: 95%;
+        background-color: #F4FAFF;
+    }
+
+    .custom-nav{
+        margin-top: 20px;
+        background-color: transparent !important;
+    }
+
+    .breadcrumb{
+        background-color: transparent !important;
+        border: none;
+    }
+
+    .container-fluid{
+        .card{
+            border-radius: 20px;
+        }
+    }
+p{
+    color: rgba(11, 19, 124, 0.698);
+    font-size: 1.5rem;
+}
+
+#drop{
+    background-color: $primary-color;
+    border-radius: 10px;
+}
+
+#leader-table{
+    border-radius: 20px;
+}
+
+.table{
+    #name{
+        color: $primary-color;
+    }
+    #percentage{
+        color: $primary-color;
+    }
+}
+
+.head{
+    color: $primary-color;
+}
+
+.red{
+    border-radius: 20px;
+}

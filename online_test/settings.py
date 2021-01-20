@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'corsheaders',
     'rest_framework.authtoken',
     'crispy_forms',
+    'dashboard',
 )
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

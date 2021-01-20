@@ -1,0 +1,78 @@
+{% extends "manage.html" %}
+{% load static %}
+{% load dash_extra %}
+{% block title %} LeaderBoard {% endblock %}
+{% block pagetitle %} LeaderBoard {% endblock pagetitle %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid border p-5">
+    <nav aria-label="breadcrumb" class="custom-nav">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'dashboard:index' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="{% url 'dashboard:leaderboard' %}">leaderboard</a></li>
+        </ol>
+    </nav>
+
+    <!-- dropdown button -->
+    <!-- <div class="btn-group">
+        <button type="button" class="btn btn-block dropdown-toggle text-white" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true" id="drop">
+            contests
+        </button>
+        <div class="dropdown-menu">
+            {% for i in contests %}
+            <span class="dropdown-item"> {{ i.name }}</span>
+            {% endfor %}
+        </div>
+    </div> -->
+
+    <div class="container">
+        <!-- {% for i,j in z|zip:contests %}
+        <h3 class="text-center">top 10 students in {{ j }}</h3>
+        <table class="table table-striped shadow" id="leader-table">
+            <tbody>
+                <tr>
+                    <td id="name">name</td>
+                    <td id="percentage">percentage</td>
+                </tr>
+                {% for k in i %}
+                {{ k }}
+                <tr>
+                    {% for p in k %}
+                    <td>{{ p }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endfor %} -->
+
+        {% for i,j in z|zip:contests %}
+        <div class="shadow m-4 red">
+            <h3 class="text-center head">top 5 students in {{ j }}</h3>
+            <div class="row">
+                <div class="col-6">
+                    <b class="p-3">name</b>
+                </div>
+                <div class="col-6">
+                    <b>percent</b>
+                </div>
+            </div>
+            <div class="row">
+                {% for k in i %}
+                <div class="col-6">
+                    {% for o in k %}
+                    <p class="pl-3">{{ o }}</p>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
