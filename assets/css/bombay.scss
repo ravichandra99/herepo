@@ -6,10 +6,18 @@
 .header{
     color: $primary-color;
 }
+.navbar-brand{
+    img{
+        width: 150px !important;
+    }
+}
 #manageNavbar{
     background-color:white !important;
     .navbar-brand{
         color: #24577A !important;
+        img{
+            width: 150px !important;
+        }
     }
     .nav-link{
         color: #24577A !important;
@@ -30,7 +38,7 @@
     background-color: $backdrop-color;
     border-radius: 40px 40px 0px 0px;
     border: 1px solid $primary-color;
-    width: 94%;
+    width: 97%;
     margin: 0 auto;
     .card-header{
         background:transparent;
@@ -38,10 +46,10 @@
 
     }
     .exam-components{
-        border-bottom: 1px solid $primary-color;
+        border-right: 1px solid $primary-color;
         padding: 0;
         .course-title-section{
-            border-radius: 20px 20px 0px 0px;
+            border-radius: 40px 0px 0px 0px;
             background-color:$primary-color;
             .title{
                 color: $font-color!important;
@@ -55,13 +63,9 @@
             }
         }
         .question-navigator-section{
-            // border-bottom: 1px solid $primary-color;
             font-size: 0.9em;
             .question-status-info{
                 font-size: 0.9em;
-            }
-            .divider{
-                border-color: $primary-color;
             }
         }
         .question-type-section{

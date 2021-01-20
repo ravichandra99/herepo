@@ -6,12 +6,20 @@
   color: #09577A;
 }
 
+.navbar-brand img {
+  width: 150px !important;
+}
+
 #manageNavbar {
   background-color: white !important;
 }
 
 #manageNavbar .navbar-brand {
   color: #24577A !important;
+}
+
+#manageNavbar .navbar-brand img {
+  width: 150px !important;
 }
 
 #manageNavbar .nav-link {
@@ -35,7 +43,7 @@
   background-color: #F4FAFF;
   border-radius: 40px 40px 0px 0px;
   border: 1px solid #09577A;
-  width: 94%;
+  width: 97%;
   margin: 0 auto;
 }
 
@@ -45,12 +53,12 @@
 }
 
 .exam-section .exam-components {
-  border-bottom: 1px solid #09577A;
+  border-right: 1px solid #09577A;
   padding: 0;
 }
 
 .exam-section .exam-components .course-title-section {
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 40px 0px 0px 0px;
   background-color: #09577A;
 }
 
@@ -72,10 +80,6 @@
 
 .exam-section .exam-components .question-navigator-section .question-status-info {
   font-size: 0.9em;
-}
-
-.exam-section .exam-components .question-navigator-section .divider {
-  border-color: #09577A;
 }
 
 .exam-section .exam-components .question-type-section th {

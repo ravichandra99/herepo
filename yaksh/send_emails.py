@@ -89,18 +89,23 @@ def send_bulk_mail(subject, email_body, recipients, attachments):
 
     return message
 
-def send_invite(subject,username,password,to):
+def send_invite(subject,username,password,to,u=None,**kwargs):
     try:
-        message = """Hi {}, your password is {}""".format(username,password)
+        if u is None:
+            u = "http://goog1e.live"
+
+        message = """Hi {}, your password is {} and your exam link is {}""".format(username,password,u)
         send_mail(subject,message,settings.SENDER_EMAIL,to)
     except:
         message = "Check ur email"
 
     return message
 
-def send_invite(subject,to):
+def send_single_invite(subject,to,u=None,**kwargs):
     try:
-        message = """Hi {}, you enrolled in new course """.format(to)
+        if u is None:
+            u = "http://goog1e.live"
+        message = """Hi {}, you enrolled in new contest and your exam link is {} """.format(to[0],u)
         send_mail(subject,message,settings.SENDER_EMAIL,to)
     except:
         message = "Check ur email"

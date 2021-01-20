@@ -34,9 +34,13 @@
 }
 
 // Grader styling 
+.graderSectionParent{
+    border: 1px solid $primary-color;
+}
 .graderSection{
-    background-color: $secondary-color;
-    width: 94%;
+    background-color: $backdrop-color;
+    width: auto;
+    
     .card{
         border: none !important;
         .details-btn {

@@ -42,10 +42,11 @@ $(document).ready(function()
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid pt-5" id="monitorDashboard">
-  {% if quiz %}
+<div class="container-fluid"  >
+  <div class="mx-4 pt-5" id="monitorDashboard">
+    {% if quiz %}
     {% if papers %}
-      <div class="card">
+      <div class="card mx-4">
           <div class="table-responsive">
               <table id="course-detail" class="table">
                   <tr>
@@ -88,8 +89,8 @@ $(document).ready(function()
               {% endfor %}
           {% endif %}
           <br>
-      <div class="row">
-        <div class="col-md-6 text-md-right">
+      <div class="row px-5">
+        <div class="col-md-6 text-md-right px-4">
           <button type="button" class="btn btn-info btn-custom" data-toggle="modal" data-target="#csvModal">
             <i class="fa fa-download"></i>&nbsp;Download CSV
           </button>
@@ -254,5 +255,6 @@ $(document).ready(function()
   {% else %}
     <h4>No Quiz Found</h4>
   {% endif %}
+  </div>
 </div>
 {% endblock %}

@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 
 # Local imports
 from yaksh.forms import ProfileForm
@@ -17,6 +20,9 @@ def has_profile(func):
     """
 
     def _wrapped_view(request, *args, **kwargs):
+        print('In decorator -----',request.path)
+        request.session['profile'] = request.path
+
         if user_has_profile(request.user):
             return func(request, *args, **kwargs)
         if request.user.groups.filter(name='moderator').exists():

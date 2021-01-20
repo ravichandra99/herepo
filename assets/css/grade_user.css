@@ -70,9 +70,13 @@
   }
 }
 
+.graderSectionParent {
+  border: 1px solid #09577A;
+}
+
 .graderSection {
-  background-color: #D4F0FC;
-  width: 94%;
+  background-color: #F4FAFF;
+  width: auto;
 }
 
 .graderSection .card {

@@ -45,7 +45,7 @@ from yaksh.forms import (
     UserRegisterForm, UserLoginForm, QuizForm, QuestionForm,
     QuestionFilterForm, CourseForm, ProfileForm,
     UploadFileForm, FileForm, QuestionPaperForm, LessonFileForm, LearningModuleForm, ExerciseForm, TestcaseForm,
-    SearchFilterForm, PostForm, CommentForm, TopicForm, VideoQuizForm, InviteForm
+    SearchFilterForm, PostForm, CommentForm, TopicForm, VideoQuizForm, InviteForm, UploadInviteForm
 )
 from yaksh.settings import SERVER_POOL_PORT, SERVER_HOST_NAME
 from .settings import URL_ROOT
@@ -61,7 +61,7 @@ import random
 import string
 from django.conf import settings
 from textwrap import dedent
-from .send_emails import send_invite
+from .send_emails import send_invite,send_single_invite
 from django.core.exceptions import ValidationError
 from django import forms
 
@@ -534,13 +534,13 @@ def special_start(request, micromanager_id=None):
 
 
 @login_required
+@has_profile
 @email_verified
 def start(request, questionpaper_id=None, attempt_num=None, course_id=None,
           module_id=None):
     """Check the user cedentials and if any quiz is available,
     start the exam."""
     user = request.user
-    # check conditions
     try:
         quest_paper = QuestionPaper.objects.get(id=questionpaper_id)
     except QuestionPaper.DoesNotExist:
@@ -655,7 +655,7 @@ def start(request, questionpaper_id=None, attempt_num=None, course_id=None,
     else:
         ip = request.META['REMOTE_ADDR']
         if not hasattr(user, 'profile'):
-            msg = 'You do not have a profile and cannot take the quiz!'
+            msg = 'You do not have a profile and cannot take the quiz!' # if its true instead
             raise Http404(msg)
         new_paper = quest_paper.make_answerpaper(user, ip, attempt_number,
                                                  course_id)
@@ -793,10 +793,8 @@ def skip(request, q_id, next_q=None, attempt_num=None, questionpaper_id=None,
 @email_verified
 def check(request, q_id, attempt_num=None, questionpaper_id=None,
           course_id=None, module_id=None):
-    print("I am in check")
     """Checks the answers of the user for particular question"""
     user = request.user
-    print('Hai user', user)
     paper = get_object_or_404(
         AnswerPaper,
         user=request.user,
@@ -916,12 +914,10 @@ def check(request, q_id, attempt_num=None, questionpaper_id=None,
         if current_question.type in ['code', 'upload']:
             if (paper.time_left() <= 0 and not
                     paper.question_paper.quiz.is_exercise):
-                print("i am in get_result")
                 url = '{0}:{1}'.format(SERVER_HOST_NAME, SERVER_POOL_PORT)
                 result_details = get_result_from_code_server(url, uid,
                                                              block=True)
                 result = json.loads(result_details.get('result'))
-                print('u r result-------',result)
                 next_question, error_message, paper = _update_paper(
                     request, uid, result)
                 return show_question(request, next_question, paper,
@@ -929,7 +925,6 @@ def check(request, q_id, attempt_num=None, questionpaper_id=None,
                                      module_id=module_id,
                                      previous_question=current_question)
             else:
-                print('i m in else')
                 return JsonResponse(result)
         else:
             next_question, error_message, paper = _update_paper(
@@ -1122,7 +1117,6 @@ def enroll_request(request, course_id):
 @email_verified
 def self_enroll(request, course_id):
     user = request.user
-    print('----enrolling user is', user)
     course = get_object_or_404(Course, pk=course_id)
     if course.is_self_enroll():
         was_rejected = False
@@ -1381,7 +1375,6 @@ def monitor(request, quiz_id=None, course_id=None):
                                                quiz_id=quiz_id).distinct()
     except (QuestionPaper.DoesNotExist, Course.DoesNotExist):
         papers = []
-        print(papers)
         q_paper = None
         latest_attempts = []
         attempt_numbers = []
@@ -2039,7 +2032,6 @@ def view_profile(request):
 @login_required
 @email_verified
 def edit_profile(request):
-    print('i m in edit profile')
     """ edit profile details facility for moderator and members """
 
     user = request.user
@@ -2052,9 +2044,7 @@ def edit_profile(request):
         profile = Profile.objects.get(user_id=user.id)
     except Profile.DoesNotExist:
         profile = None
-    print(request.method == 'POST')
     if request.method == 'POST':
-        print('in post method')
         form = ProfileForm(request.POST, user=user, instance=profile)
         if form.is_valid():
             form_data = form.save(commit=False)
@@ -2063,6 +2053,10 @@ def edit_profile(request):
             form_data.user.last_name = request.POST['last_name']
             form_data.user.save()
             form_data.save()
+            if request.session['profile']:
+                a = request.session['profile']
+                del request.session['profile']
+                return redirect(a)
             return my_render_to_response(request, 'yaksh/profile_updated.html')
         else:
             context['form'] = form
@@ -2468,7 +2462,6 @@ def download_assignment_file(request, quiz_id, course_id,
 @login_required
 @email_verified
 def upload_users(request, course_id):
-    print("work")
     user = request.user
     course = get_object_or_404(Course, pk=course_id)
     context = {'course': course}
@@ -2508,7 +2501,7 @@ def upload_users(request, course_id):
     return my_redirect(reverse('yaksh:course_students', args=[course_id]))
 
 
-def _read_user_csv(request, reader, course):
+def _read_user_csv(request, reader, course, url):
     fields = reader.fieldnames
     counter = 0
     for row in reader:
@@ -2529,6 +2522,7 @@ def _read_user_csv(request, reader, course):
                               counter, user.username))
             else:
                 _add_to_course(user, course)
+                asdf = send_single_invite("Invite",[email],url)
                 messages.info(
                     request,
                     "{0} -- {1} -- User Added Successfully".format(
@@ -2543,6 +2537,7 @@ def _read_user_csv(request, reader, course):
                             'is_email_verified': True}
         _create_or_update_profile(user, profile_defaults)
         if created:
+            asdf = send_invite("Invite",username,password,[email],url)
             state = "Added"
             course.students.add(user)
         else:
@@ -2575,11 +2570,6 @@ def _get_csv_values(row, fields):
         username = row['username'].strip()
     if 'remove' in fields:
         remove = row['remove']
-    print("starting for loop")
-    e = email.split(",")
-    for i in e:
-        send_invite("Invite",username,password,[i])
-    print("end of for loop")
     return (username, email, first_name, last_name, password,
             roll_no, institute, department, remove)
 
@@ -3282,33 +3272,24 @@ def course_students(request, course_id):
     enrolled_users = course.get_enrolled()
     requested_users = course.get_requests()
     rejected_users = course.get_rejected()
-
     if request.method == "POST":
         form = InviteForm(request.POST)
+        file_form = UploadInviteForm(request.POST,request.FILES)
         if form.is_valid():
             e = form.cleaned_data['email']
+            u = form.cleaned_data['exam_url']
 
             email = e.split(',')
-            print('----user email is',email)
-            
-
             for i in email:
-                print('user------true',User.objects.filter(email=i).exists())
-                print('course--------false',Course.objects.filter(students__in = User.objects.filter(email = i)).filter(id = course_id).exists())
-                print('it need to be True',User.objects.filter(email=i).exists() and not Course.objects.filter(students__in = User.objects.filter(email = i)).filter(id = course_id).exists())
                 if User.objects.filter(email=i).exists() and Course.objects.filter(students__in = User.objects.filter(email = i)).filter(id = course_id).exists():
                     messages.success(
                         request,
-                        "{} is already enrolled in course".format(i)
+                        "{} is already joined in quiz".format(i)
                         )
                 elif User.objects.filter(email=i).exists() and not Course.objects.filter(students__in = User.objects.filter(email = i)).filter(id = course_id).exists():
                     course = get_object_or_404(Course, pk=course_id)
-                    print('----course-----',course)
-                    print('True or False',course.is_self_enroll())
-                    print('----enrolling user is', user)
                     user = User.objects.get(email=i).id
-                    print(user)
-                    asdf = send_invite("Invite",[i])
+                    asdf = send_single_invite("Invite",[i],u)
                     course = get_object_or_404(Course, pk=course_id)
                     if course.is_self_enroll():
                         was_rejected = False
@@ -3321,20 +3302,13 @@ def course_students(request, course_id):
                     )
                 else:
                     username = i
-                    print('------username',username)
                     password = i
-                    print('-----password is',password)
 
                     user = User.objects.create_user(username = username, email = i, password = password)
-                    print('-----created user is', user)
                     user.save()
-                    print('--------user saved')
             
-                    asdf = send_invite("Invite",username,password,[i])
+                    asdf = send_invite("Invite",username,password,[i],u)
                     course = get_object_or_404(Course, pk=course_id)
-                    print('----course-----',course)
-                    print('True or False',course.is_self_enroll())
-                    print('----enrolling user is', user)
                     course = get_object_or_404(Course, pk=course_id)
                     if course.is_self_enroll():
                         was_rejected = False
@@ -3345,18 +3319,31 @@ def course_students(request, course_id):
                         course.name, course.creator.get_full_name()
                         )
                 )
-                
-                # if course.is_self_enroll():
-                #     return self_enroll(request, course_id)
-                    
-                #     print('----enrolled----')
-                # else:
-                #      return enroll_request(request, course_id)
-                    #course.request(user)
+        elif file_form.is_valid():
+            file = request.FILES['upload_user_emails']
+            url = file_form.cleaned_data['exam_url']
+            is_csv_file, dialect = is_csv(file)
+            if not is_csv_file:
+                messages.warning(request, "The file uploaded is not a CSV file.")
+                return my_redirect(reverse('yaksh:course_students',
+                                       args=[course_id]))
+            required_fields = ['email']
+            try:
+                reader = csv.DictReader(
+                file.read().decode('utf-8').splitlines(),
+                dialect=dialect)
+            except TypeError:
+                messages.warning(request, "Bad CSV file")
+                return my_redirect(reverse('yaksh:course_students',
+                                       args=[course_id]))
+            stripped_fieldnames = [
+            field.strip().lower() for field in reader.fieldnames]
+            _read_user_csv(request, reader, course,url)
 
             return HttpResponseRedirect(reverse("yaksh:course_students", args=[course_id]))
     else:
         form = InviteForm()
+        file_form = UploadInviteForm() 
 
     context = {
         "enrolled_users": enrolled_users,
@@ -3364,7 +3351,8 @@ def course_students(request, course_id):
         "course": course,
         "rejected_users": rejected_users,
         "is_students": True,
-        "form":form
+        "form":form,
+        "file_form":file_form
     }
     return my_render_to_response(request, 'yaksh/course_detail.html', context)
 

@@ -1,9 +1,12 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER FOSSEE <pythonsupport@fossee.in>
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 
 RUN apt-get update && \
-apt-get install git python3-pip libmysqlclient-dev sudo default-jre default-jdk -y 
+apt-get install git python3-pip libmysqlclient-dev sudo default-jre default-jdk -y
 
 VOLUME /Sites/online_test
 
