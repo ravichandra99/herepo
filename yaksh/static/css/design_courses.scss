@@ -1,0 +1,38 @@
+@import 'function.scss';
+
+.designname{
+    color:$primary-color !important;
+}
+.avaliname{
+    color: $primary-color !important;
+}
+.myaddbtn {
+    background-color: #206E04 !important;
+    color: white !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+   
+    box-shadow: 0px 0px 30px #0000001A;
+}
+.myremovebtn {
+    background-color: #DD3232 !important;
+    color: white !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+  
+    box-shadow: 0px 0px 30px #0000001A;
+}
+.myaddbtnt {
+    background-color: #09577A !important;
+    color: white !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+   
+    box-shadow: 0px 0px 30px #0000001A;
+}
+#available-lesson-quiz .col-md-12 > div {
+    background: #ffffff !important;
+    border: 1px solid #333333;
+    overflow-y: scroll;
+    height: 400px;
+}

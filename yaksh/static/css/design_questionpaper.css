@@ -1,0 +1,135 @@
+.btn {
+  border-width: 1px !important;
+}
+
+center {
+  text-transform: uppercase;
+}
+
+.btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.contest-active {
+  color: #fff !important;
+}
+
+.headname {
+  color: white !important;
+  background-color: #09577A;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.totalmarks {
+  color: #09577A !important;
+  font-size: 20px !important;
+}
+
+#selectors {
+  background-color: white !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+.searchname {
+  color: #09577A !important;
+}
+
+.custom-select {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-color: #f4faff;
+}
+
+.whitebg {
+  background-color: white !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+}
+
+#fixed-questions .col-md-6 > div, #random-questions .col-md-6 > div {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+  border: 0px !important;
+  border-radius: 15px;
+}
+
+.myaddbtn {
+  background-color: #206E04 !important;
+  color: white !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+}
+
+.myremovebtn {
+  background-color: #DD3232 !important;
+  color: white !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+}
+
+.mynextbtn {
+  background-color: #09577A !important;
+  color: white !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+}
+
+.contentbg {
+  background-color: #F4FAFF !important;
+  margin-left: 30px;
+  margin-right: 30px;
+  border: 1px solid #09577A;
+}
+
+.inputs-list li {
+  list-style-type: none;
+}
+
+.tabs li {
+  border: 1px solid #59748A;
+}
+
+.form-control {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-color: #f4faff;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .mystepname {
+    font-size: 13px !important;
+  }
+  .headname {
+    font-size: 18px !important;
+  }
+}
+/*# sourceMappingURL=design_questionpaper.css.map */

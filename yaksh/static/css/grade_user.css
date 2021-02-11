@@ -1,0 +1,90 @@
+.btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.quiz-active {
+  color: #fff !important;
+}
+
+.card {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.card .card-header {
+  background: transparent;
+}
+
+.card .card-header .btn {
+  border-width: 1px !important;
+}
+
+.card .card-header .btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.card .card-header .btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.card .card-header .course-name {
+  color: #09577A;
+}
+
+.card .card-body {
+  border-top: transparent;
+}
+
+.card .card-body .btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.card .card-body .btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.card .card-body .list-group-item {
+  border: 1px solid #09577A;
+}
+
+@media screen and (max-width: 520px) {
+  .card .card-header .course-name {
+    text-align: center;
+    word-break: break-all;
+  }
+}
+
+.graderSectionParent {
+  border: 1px solid #09577A;
+}
+
+.graderSection {
+  background-color: #F4FAFF;
+  width: auto;
+}
+
+.graderSection .card {
+  border: none !important;
+}
+
+.graderSection .card .details-btn {
+  background-color: #09577A !important;
+  color: white !important;
+}
+/*# sourceMappingURL=grade_user.css.map */

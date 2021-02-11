@@ -1,0 +1,25 @@
+.headname {
+  color: white !important;
+  background-color: transparent;
+  padding: 20px;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.menu {
+  background-color: #09577A;
+}
+
+#content {
+  background-color: #F4FAFF;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+}
+
+#start {
+  background-color: #336F12;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=show_video.css.map */

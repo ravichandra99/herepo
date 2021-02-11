@@ -1,0 +1,13 @@
+@import 'function.scss';
+@include button-border;
+@include button-colors;
+*{
+    font-weight: 120px;
+}
+body{
+    background-color:yellow!important;
+    color: red!important;
+}
+.container-fluid{
+    border-color: 1px solid red;
+}

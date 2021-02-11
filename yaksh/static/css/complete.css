@@ -1,0 +1,43 @@
+.headname {
+  color: white !important;
+  background-color: transparent;
+  padding: 20px;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.cc {
+  color: white !important;
+  background-color: #09577A;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.my-border {
+  border: 1px solid #09577A;
+  background-color: #F4FAFF;
+  width: 94%;
+}
+
+.mynextbtn {
+  background-color: #09577A !important;
+  color: white !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+  box-shadow: 0px 0px 30px #0000001A;
+}
+
+.mysuccess {
+  color: green !important;
+  font-size: 20px !important;
+}
+
+.table-color {
+  color: #09577A;
+}
+/*# sourceMappingURL=complete.css.map */

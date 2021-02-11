@@ -1,0 +1,19 @@
+.my-border {
+  width: 95%;
+  border: solid 1px #09577A;
+  background-color: #F4FAFF;
+}
+
+.cc p {
+  color: #09577A;
+}
+
+.cc th {
+  color: #09577A;
+}
+
+.more {
+  background-color: #09577A;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=statistics_question.css.map */

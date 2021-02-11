@@ -1,0 +1,41 @@
+#instructions {
+  color: #09577A;
+  background-color: #F4FAFF;
+}
+
+.custom-card .card {
+  border: 1px solid #09577A;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.custom-card .card .card-header {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #09577A;
+}
+
+.custom-card .card .card-body {
+  background-color: #f4faff;
+}
+
+.name {
+  border: 1px solid #09577A;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.name .say {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #09577A;
+}
+
+.name .said {
+  background-color: #f4faff;
+}
+
+.name .said p {
+  color: #09577A;
+}
+/*# sourceMappingURL=preview_questionpaper.css.map */

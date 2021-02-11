@@ -1,0 +1,92 @@
+@import 'function.scss';
+@mixin line {
+border-top: none !important;
+border-right: none !important;
+border-left: none !important;
+box-shadow: none !important;
+}
+
+
+
+.cancel{
+    background-color: #dd3232;
+    border-radius: 20px;
+    top: 1284px;
+}
+.save{
+    background-color: #206E04;
+    border-radius: 20px;
+}
+#id_name {
+    @include line;
+}
+
+#id_enrollment{
+    @include line;
+}
+
+#div_id_active{
+    .checkboxinput{
+        position: relative;
+    }
+}
+
+#id_code{
+    @include line;
+}
+
+#id_instructions{
+    @include line;
+}
+
+#id_start_enroll_time{
+    @include line;
+}
+
+#id_end_enroll_time{
+    @include line;
+}
+
+#id_grading_system{
+    @include line;
+}
+
+#div_id_view_grade{
+    .checkboxinput{
+        position: relative;
+    }
+}
+.nav-link{
+    border: none !important;
+}
+
+
+
+.form-cls{
+    background-color: white !important;
+    border-radius: 20px !important;
+}
+
+#page_title{
+    background-color: $primary-color !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.content-bg{
+    background-color: #F4FAFF;
+    margin-left: 24px;
+    margin-right: 24px;
+    border: 1px solid $primary-color !important;
+}
+
+
+
+@media (max-width: 992px) {
+    .content-bg {
+      margin:0;
+    }
+}
+
+
+

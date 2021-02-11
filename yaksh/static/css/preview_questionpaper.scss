@@ -1,0 +1,57 @@
+@import 'function.scss';
+
+
+// .card{
+//     border: 1px solid $primary-color;
+//     border-top-left-radius: 20px;
+//     border-top-right-radius: 20px;
+
+//     .card-header{ 
+//         border-top-left-radius: 20px;
+//         border-top-right-radius: 20px;
+//         background-color: $primary-color;
+//     }
+//     .card-body{
+//         background-color: #f4faff;
+//     }
+// }
+
+#instructions{
+    color: $primary-color;
+    background-color: #F4FAFF;
+}
+
+.custom-card{
+    .card{
+            border: 1px solid $primary-color;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        
+            .card-header{ 
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                background-color: $primary-color;
+            }
+            .card-body{
+                background-color: #f4faff;
+            }
+        }
+}
+
+.name{
+    border: 1px solid $primary-color;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    .say{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background-color: $primary-color;
+    }
+    .said{
+        background-color: #f4faff;
+        p{
+            color: $primary-color;
+        }
+    }
+
+}

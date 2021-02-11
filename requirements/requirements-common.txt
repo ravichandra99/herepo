@@ -20,5 +20,4 @@ django-cors-headers==3.1.0
 Pillow
 pandas
 django-crispy-forms==1.10.0
-django-crispy-forms
 

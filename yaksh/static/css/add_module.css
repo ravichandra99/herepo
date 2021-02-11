@@ -1,0 +1,23 @@
+.border {
+  border: solid 1px #09577A;
+  background-color: #F4FAFF;
+}
+
+#submit {
+  border-radius: 10px;
+}
+
+#Remove {
+  background-color: red;
+  border: 10px;
+}
+
+.change {
+  background-color: #09577A;
+  border-radius: 10px;
+}
+
+.order {
+  border-radius: 10px;
+}
+/*# sourceMappingURL=add_module.css.map */

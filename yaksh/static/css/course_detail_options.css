@@ -1,0 +1,29 @@
+.btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.list-group .nav-item .nav-link {
+  color: #09577A;
+  background-color: transparent;
+  border-width: 1px !important;
+  border-color: #09577A;
+}
+
+.list-group .nav-item .nav-link:hover {
+  color: #fff;
+  background-color: #09577A;
+}
+
+.list-group .nav-item .active {
+  color: #fff !important;
+  background-color: #09577A !important;
+}
+/*# sourceMappingURL=course_detail_options.css.map */

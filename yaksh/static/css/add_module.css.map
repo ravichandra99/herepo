@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,OAAO,CAAA;EACH,MAAM,EAAE,KAAK,CAAC,GAAG,CCHN,OAAO;EDIlB,gBAAgB,EAAE,OAAO;CAC5B;;AAGD,AAAA,OAAO,CAAA;EACH,aAAa,EAAE,IAAI;CACtB;;AAED,AAAA,OAAO,CAAA;EACH,gBAAgB,EAAE,GAAG;EACrB,MAAM,EAAE,IAAI;CACf;;AAED,AAAA,OAAO,CAAA;EACH,gBAAgB,EClBL,OAAO;EDmBlB,aAAa,EAAE,IAAI;CACtB;;AAED,AAAA,MAAM,CAAA;EACF,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "add_module.scss",
+        "function.scss"
+    ],
+    "names": [],
+    "file": "add_module.css"
+}

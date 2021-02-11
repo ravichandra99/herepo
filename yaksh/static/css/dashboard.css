@@ -1,0 +1,50 @@
+.border {
+  border: 1px solid #09577A;
+  width: 95%;
+  background-color: #F4FAFF;
+}
+
+.custom-nav {
+  margin-top: 20px;
+  background-color: transparent !important;
+}
+
+.breadcrumb {
+  background-color: transparent !important;
+  border: none;
+}
+
+.container-fluid .card {
+  border-radius: 20px;
+}
+
+p {
+  color: rgba(11, 19, 124, 0.698);
+  font-size: 1.5rem;
+}
+
+#drop {
+  background-color: #09577A;
+  border-radius: 10px;
+}
+
+#leader-table {
+  border-radius: 20px;
+}
+
+.table #name {
+  color: #09577A;
+}
+
+.table #percentage {
+  color: #09577A;
+}
+
+.head {
+  color: #09577A;
+}
+
+.red {
+  border-radius: 20px;
+}
+/*# sourceMappingURL=dashboard.css.map */

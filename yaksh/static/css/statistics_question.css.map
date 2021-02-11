@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEI,AAAA,UAAU,CAAA;EACN,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,KAAK,CAAC,GAAG,CCJV,OAAO;EDKd,gBAAgB,EAAE,OAAO;CAC5B;;AAED,AACI,GADD,CACC,CAAC,CAAA;EACG,KAAK,ECVF,OAAO;CDWb;;AAHL,AAII,GAJD,CAIC,EAAE,CAAA;EACE,KAAK,ECbF,OAAO;CDcb;;AAGL,AAAA,KAAK,CAAA;EACD,gBAAgB,EClBT,OAAO;EDmBd,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "statistics_question.scss",
+        "function.scss"
+    ],
+    "names": [],
+    "file": "statistics_question.css"
+}

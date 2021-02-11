@@ -1,0 +1,61 @@
+.btn {
+  border-width: 1px !important;
+}
+
+.card {
+  border: 1px solid #09577A;
+  border-radius: 0px;
+}
+
+.card .card-header {
+  background-color: transparent !important;
+}
+
+.card .card-header .card-link {
+  color: #09577A !important;
+}
+
+.card-body {
+  border: 1px solid #09577A !important;
+  border-top: transparent !important;
+}
+
+.card-body {
+  background-color: #F4FAFF;
+}
+
+.card-body p {
+  color: #09577A;
+}
+
+.card-body #submit {
+  background-color: #09577A;
+  border-radius: 10px;
+}
+
+#enroll {
+  border-radius: 10px;
+}
+
+.table {
+  border-radius: 20px !important;
+}
+
+#reject {
+  border-radius: 10px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.headname {
+  color: white !important;
+  background-color: #09577A !important;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: none;
+  border-top-right-radius: none;
+}
+/*# sourceMappingURL=course_students.css.map */

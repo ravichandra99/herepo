@@ -1,0 +1,109 @@
+@import 'function.scss';
+*{
+    font-family: 'Work Sans', sans-serif;
+    // border: 1px solid red;
+}
+.header{
+    color: $primary-color;
+}
+.navbar-brand{
+    img{
+        width: 150px !important;
+    }
+}
+#manageNavbar{
+    background-color:white !important;
+    .navbar-brand{
+        color: #24577A !important;
+        img{
+            width: 150px !important;
+        }
+    }
+    .nav-link{
+        color: #24577A !important;
+    }
+    .fa-chevron-circle-down{
+        font-size: 14px;
+    }
+    .navbar{
+        box-shadow: none !important;
+    }
+}
+.title{
+    color: $primary-color;
+}
+
+
+.exam-section{
+    background-color: $backdrop-color;
+    border-radius: 40px 40px 0px 0px;
+    border: 1px solid $primary-color;
+    width: 97%;
+    margin: 0 auto;
+    .card-header{
+        background:transparent;
+        padding: 0;
+
+    }
+    .exam-components{
+        border-right: 1px solid $primary-color;
+        padding: 0;
+        .course-title-section{
+            border-radius: 40px 0px 0px 0px;
+            background-color:$primary-color;
+            .title{
+                color: $font-color!important;
+                display: inline;
+                font-size: 1.5em;
+                text-transform: uppercase;
+            }
+            .subtitle{
+                color: $font-color!important;
+                display: inline;
+            }
+        }
+        .question-navigator-section{
+            font-size: 0.9em;
+            .question-status-info{
+                font-size: 0.9em;
+            }
+        }
+        .question-type-section{
+            th{
+                border: 1px solid $inactive-color;
+            }
+            td{
+                border: 1px solid $inactive-color;
+            }
+        }
+    }
+    .question-section{
+        .card{
+            box-shadow: 0px 0px 30px 0px $shadow-color;
+            border: 1px solid $card-border!important;
+            .card-header{
+                color: $secondary-color!important;
+                padding: 1% 2%;
+                background-color: $exam-card-header;
+                div{
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    small{
+                        margin: 1%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.headname{
+    color:white !important;
+    background-color: $primary-color;
+    padding: 20px;
+    position: relative;
+    top:20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}

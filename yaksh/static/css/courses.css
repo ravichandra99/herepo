@@ -1,0 +1,275 @@
+.btn {
+  border-width: 1px !important;
+}
+
+center {
+  text-transform: uppercase;
+}
+
+.btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.contest-active {
+  color: #fff !important;
+}
+
+.nav-pills .nav-item .nav-link {
+  color: #09577A;
+}
+
+.nav-pills .nav-item:hover .nav-link {
+  background-color: #09577A;
+  color: #fff;
+}
+
+.nav-pills .nav-link:active {
+  background-color: #09577A;
+  color: white !important;
+}
+
+.card .card-header {
+  background-color: transparent;
+  border: 1px solid #09577A;
+}
+
+.card .card-body {
+  border-top: none !important;
+  border: 1px solid #09577A;
+}
+
+/*.....UI Mockup.....*/
+.clearbtn {
+  color: red !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: red !important;
+  border-radius: 20px;
+}
+
+.searchbtn {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+  border-radius: 20px;
+}
+
+.headname {
+  color: white !important;
+  background-color: #09577A;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.contentbg {
+  background-color: #F4FAFF !important;
+  margin-left: 30px;
+  margin-right: 30px;
+  border: 1px solid #09577A;
+}
+
+.contentbox {
+  background-color: white !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+  border-radius: 20px !important;
+}
+
+.contentname {
+  color: #85A5C2 !important;
+}
+
+.timevalue {
+  background-color: #EEF7FE !important;
+  font-size: 15px !important;
+  border-radius: 20px;
+}
+
+.timename {
+  font-size: 15px !important;
+}
+
+.contentcount {
+  color: #85A5C2 !important;
+}
+
+.createdname {
+  font-size: 16px;
+}
+
+.activename {
+  background-color: green !important;
+  color: white !important;
+  font-size: 16px !important;
+  border-radius: 20px !important;
+}
+
+.inactivename {
+  background-color: red !important;
+  color: white !important;
+  font-size: 16px !important;
+  border-radius: 20px !important;
+}
+
+.iconname {
+  font-size: 14px !important;
+}
+
+.fa-edit {
+  color: #3B76EF !important;
+  background-color: #EEF7FE !important;
+  padding: 8px !important;
+  border-radius: 5px !important;
+}
+
+.fa-database {
+  color: #5FC5FF !important;
+  background-color: #EEF7FE !important;
+  padding: 8px !important;
+  border-radius: 5px !important;
+}
+
+.fa-copy {
+  color: #A66DD4 !important;
+  background-color: #EEF7FE !important;
+  padding: 8px !important;
+  border-radius: 5px !important;
+}
+
+.fa-download {
+  color: #F26A8A !important;
+  background-color: #EEF7FE !important;
+  padding: 8px !important;
+  border-radius: 5px !important;
+}
+
+.custom-select {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-color: #f4faff;
+}
+
+.form-control {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-color: #f4faff;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#selectors {
+  background-color: white !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+.tabs li {
+  border: 1px solid #59748A;
+}
+
+.searchname {
+  color: #09577A !important;
+}
+
+#fixed-questions .col-md-6 > div, #random-questions .col-md-6 > div {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+  border: 0px !important;
+  border-radius: 15px;
+}
+
+.selectname {
+  color: #09577A !important;
+}
+
+.myaddbtn {
+  background-color: #206E04 !important;
+  color: white !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+}
+
+.shufflename {
+  color: #09577A !important;
+}
+
+.whitebg {
+  background-color: white !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0px 0px 30px #0000001A;
+          box-shadow: 0px 0px 30px #0000001A;
+}
+
+.mycard .card-header {
+  background: #09577A !important;
+  color: #ffffff !important;
+  border: 1px solid #09577A;
+  font-weight: bold;
+}
+
+.continuebtn {
+  font-weight: 500;
+  color: white !important;
+}
+
+.detailsbtn {
+  font-weight: 500;
+  color: white !important;
+}
+
+#accordian .card .card-header {
+  background: #09577A !important;
+  color: #ffffff !important;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card {
+  border: 0;
+}
+
+.avilname {
+  color: #09577A !important;
+  font-weight: 500;
+}
+
+.thname {
+  color: #7B8C92 !important;
+  font-weight: 400 !important;
+}
+
+.nav-pills .active {
+  background-color: #09577A !important;
+  color: #fff !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .mystepname {
+    font-size: 13px !important;
+  }
+  .headname {
+    font-size: 18px !important;
+  }
+}
+/*# sourceMappingURL=courses.css.map */

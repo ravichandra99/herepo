@@ -1,0 +1,41 @@
+.headname {
+  color: white !important;
+  background-color: transparent !important;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: none;
+  border-top-right-radius: none;
+}
+
+.my-border {
+  border: solid 1px #09577A;
+  background-color: #F4FAFF;
+}
+
+.headname-cc {
+  color: white !important;
+  background-color: #09577A !important;
+  padding: 20px;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+label {
+  color: #09577A;
+}
+
+#submit {
+  border-radius: 10px;
+}
+
+#edit {
+  background-color: #09577A;
+  border-radius: 10px;
+}
+
+#prev {
+  border-radius: 10px;
+}
+/*# sourceMappingURL=add_exercise.css.map */

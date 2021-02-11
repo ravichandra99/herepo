@@ -1,0 +1,55 @@
+@import 'function.scss';
+@include button-border;
+.card{
+    border: 1px solid $primary-color;
+    border-radius: 0px;
+    .card-header{
+        background-color: transparent!important;
+        .card-link{
+            color: $primary-color!important;
+        }
+    }
+}
+.card-body{
+    border: 1px solid $primary-color!important;
+    border-top: transparent!important;
+}
+
+// styles for upload user
+
+.card-body{
+    background-color: #F4FAFF;
+     p {
+         color: $primary-color;
+     }
+     #submit{
+         background-color: $primary-color;
+         border-radius: 10px;
+     }
+}
+
+#enroll{
+    border-radius: 10px;
+}
+
+.table{
+    border-radius: 20px !important;
+}
+
+#reject{
+    border-radius: 10px;
+}
+
+.card{
+    border-radius: 10px;
+}
+
+.headname{
+    color:white !important;
+    background-color: $primary-color !important;
+    padding: 20px;
+    position: relative;
+    top:20px;
+    border-top-left-radius:none;
+    border-top-right-radius: none;
+}

@@ -1,0 +1,271 @@
+@import 'function.scss';
+@include button-border;
+center{
+    text-transform: uppercase;
+}
+@include button-colors;
+.contest-active{
+    color: $font-color!important;
+}
+.nav-pills{ 
+    .nav-item{
+        .nav-link{
+            
+            color: $primary-color;
+            
+            
+        }
+    }
+    .nav-item:hover{
+        .nav-link{
+            background-color: $primary-color;
+            color: $font-color;
+        }
+    }
+    
+    .nav-link:active{
+            background-color: $primary-color;
+            color: white !important;
+    }
+ 
+}
+.card{
+    .card-header{
+        background-color: transparent;
+        border: 1px solid $primary-color;
+    }
+    .card-body{
+        border-top: none!important;
+        border: 1px solid $primary-color;
+    }
+}
+
+/*.....UI Mockup.....*/
+
+.clearbtn{
+    color:red !important;
+        background-color: transparent !important;
+        border-width: 1px !important;
+        border-color:red !important;
+        border-radius: 20px;
+    
+}
+.searchbtn{
+        color:$primary-color !important;
+        background-color: transparent !important;
+        border-width: 1px !important;
+        border-color:$primary-color !important;
+        border-radius: 20px;
+}
+.headname{
+    color:white !important;
+    background-color: $primary-color;
+    padding: 20px;
+    position: relative;
+    top:20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.contentbg{
+    background-color: #F4FAFF !important;
+    
+    margin-left: 30px;
+    margin-right: 30px;
+    border:1px solid $primary-color; 
+}
+.contentbox{
+background-color:white !important;
+box-shadow: 0px 0px 30px #0000001A;
+border-radius: 20px !important;
+}
+.contentname{
+    color: #85A5C2 !important;
+   
+}
+.timevalue{
+    background-color:#EEF7FE !important;
+    font-size: 15px !important;
+    border-radius: 20px;
+}
+.timename{
+    font-size: 15px !important;
+   }
+.contentcount{
+    color: #85A5C2 !important;
+}
+.createdname{
+    font-size: 16px;
+}
+.activename{
+    background-color:green !important;
+    color: white !important;
+    font-size: 16px !important;
+    border-radius: 20px !important;
+}
+.inactivename{
+    background-color:rgb(255, 0, 0) !important;
+    color: white !important;
+    font-size: 16px !important;
+    border-radius: 20px !important;
+}
+.iconname
+{
+    font-size: 14px !important;
+}
+.fa-edit{
+    color: #3B76EF !important;
+    background-color: #EEF7FE !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+}
+.fa-database{
+    color: #5FC5FF !important;
+    background-color: #EEF7FE !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+}
+.fa-copy{
+    color: #A66DD4 !important;
+    background-color: #EEF7FE !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+}
+.fa-download{
+    color: #F26A8A !important;
+    background-color: #EEF7FE !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+}
+
+.custom-select {
+  
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    background-color: #f4faff;
+}
+.form-control{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    background-color: #f4faff; 
+    outline: none !important;
+    box-shadow: none !important; 
+    
+}
+#selectors{
+    background-color: white !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 30px #0000001A;
+   padding-top:50px !important;
+   padding-bottom: 50px !important;
+    
+}
+.tabs li {
+   
+    border: 1px solid #59748A;
+}
+
+.searchname{
+color: #09577A !important;
+}
+#fixed-questions .col-md-6 > div, #random-questions .col-md-6 > div {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 30px #0000001A;
+    border: 0px !important;
+    border-radius: 15px;
+}
+.selectname{
+    color: #09577A !important;
+}
+.myaddbtn{
+    background-color: #206E04 !important;
+    color:white !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 30px #0000001A;
+}
+// .myremovebtn{
+//     background-color: #DD3232 !important;
+//     color:white !important;
+//     font-size: 16px !important;
+//     border-radius: 10px !important;
+//     box-shadow: 0px 0px 30px #0000001A;
+// }
+// .mynextbtn{
+//     background-color: #09577A !important;
+//     color:white !important;
+//     font-size: 16px !important;
+//     border-radius: 10px !important;
+//     box-shadow: 0px 0px 30px #0000001A;
+// }
+// .inputs-list li {
+//     list-style-type: none;
+// }
+.shufflename{
+    color: #09577A !important;  
+}
+.whitebg{
+    background-color: white !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 30px #0000001A;
+}
+.mycard{
+    .card-header{
+        background: $primary-color !important;
+        color: #ffffff !important;
+        border: 1px solid #09577A;
+        font-weight: bold;
+    }
+}
+.continuebtn{
+    font-weight: 500;
+    color: white !important;
+}
+.detailsbtn{
+    font-weight: 500;
+    color:white !important;
+}
+
+#accordian .card .card-header {
+    background: $primary-color !important;
+    color: #ffffff !important;
+    
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.card{
+    border:0;
+}
+// .instname{
+//     color:#85A5C2 !important;
+//     font-size: 16px !important;
+// }
+// .instructions{
+//     border:1px solid black !important;
+// }
+// .time{
+//     font-size: 16px !important;
+// }
+.avilname{
+    color: $primary-color !important;
+    font-weight: 500;
+}
+.thname{
+    color:#7B8C92 !important;
+    font-weight: 400 !important;
+}
+.nav-pills .active {
+    background-color: #09577A !important;
+    color: #fff !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .mystepname{
+        font-size: 13px !important;
+    }
+    .headname{
+        font-size: 18px !important;
+    }
+   
+}

@@ -1,0 +1,20 @@
+@import 'function.scss';
+@include button-colors;
+.list-group {
+    .nav-item {
+        .nav-link {
+            color: $primary-color;
+            background-color: transparent;
+            border-width: 1px!important;
+            border-color: $primary-color;
+        }
+        .nav-link:hover {
+            color: $font-color;
+            background-color: $primary-color;
+        }
+        .active {
+            color: $font-color!important;
+            background-color: $primary-color!important;
+        }
+    }
+}

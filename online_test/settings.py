@@ -26,9 +26,9 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "yaksh_data", "output")
 SECRET_KEY = config('SECRET_KEY', default='dUmMy_s3cR3t_k3y')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 URL_ROOT = ''
 

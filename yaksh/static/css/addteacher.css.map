@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,UAAU,CAAC;EACP,gBAAgB,EAAE,kBAAkB;EACpC,KAAK,EAAE,gBAAgB;EACvB,SAAS,EAAE,eAAe;EAC1B,aAAa,EAAE,eAAe;EAE9B,UAAU,EAAE,sBAAsB;CACrC",
+    "sources": [
+        "addteacher.scss"
+    ],
+    "names": [],
+    "file": "addteacher.css"
+}

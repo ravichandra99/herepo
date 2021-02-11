@@ -1,0 +1,55 @@
+@import 'function.scss';
+
+.headname{
+    color:white !important;
+    background-color:transparent !important;
+    padding: 20px;
+    position: relative;
+    top:20px;
+    border-top-left-radius:none;
+    border-top-right-radius: none;
+}
+
+
+ .bg{
+    background-color: #F4FAFF;
+ }
+
+ #submit{
+     background-color: $primary-color;
+     border-radius: 5px;
+ }
+
+
+.card-header{
+
+        background-color: $primary-color !important;
+        border-top-left-radius: 20px !important; 
+        border-top-right-radius: 20px !important;
+        border-top: none !important;
+    }
+
+ .trash-cls{
+     color: red !important;   
+ }
+ .trash-cls:hover{
+     color: red !important;   
+ }
+
+
+ .comment{
+     border-radius: 10px;
+    
+ }
+
+ .comment{
+    .comment-txt{
+        color: #08577A;
+    }
+ }
+
+ .myborder{
+     margin-left: 40px !important;
+     margin-right: 40px !important;
+ }
+

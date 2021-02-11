@@ -1,0 +1,800 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+}
+
+body {
+  position: relative;
+}
+
+.headlogo {
+  width: 100%;
+}
+
+.container {
+  margin: 0;
+}
+
+.container .landing-text .title {
+  color: #fff;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+.container .landing-text .sub-title {
+  color: #fff;
+  font-size: 0.5em;
+  font-weight: 100;
+  line-height: 2em;
+}
+
+.container .landing-text .btn-landing-custom-1 {
+  color: #09577A;
+  background-color: #fff;
+}
+
+.container .landing-text .btn-landing-custom-2 {
+  color: #D4F0FC;
+  background: transparent;
+  border-color: #D4F0FC;
+  border-width: 2px;
+}
+
+.container .landing-text .btn-landing-custom-1:hover {
+  color: #D4F0FC;
+  background: transparent;
+  border-color: #D4F0FC;
+  border-width: 2px;
+}
+
+.container .landing-text .btn-landing-custom-2:hover {
+  color: #09577A;
+  background-color: #fff;
+}
+
+.container .boy-backdrop {
+  background-image: url("img/boy.svg");
+  background-repeat: no-repeat;
+  background-size: 100%,100%;
+  background-position: 80px -80px;
+  position: absolute;
+  width: 50%;
+  height: 20%;
+  right: 0%;
+  top: 2.9%;
+  overflow-x: hidden;
+}
+
+.container .backdrop1 {
+  background-image: url("img/backdrop1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px -250px;
+  position: absolute;
+  width: 99vw;
+  height: 1004px;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.container .backdrop2 {
+  background-image: url("img/backdrop2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 150px -450px;
+  position: absolute;
+  width: 65vw;
+  height: 700px;
+  right: 0px;
+}
+
+.owl-carousel .item {
+  width: 270px;
+  overflow: hidden;
+}
+
+.owl-carousel .item .card {
+  text-align: center;
+  height: 280px;
+}
+
+.owl-carousel .item .card .card-header {
+  background: transparent;
+  border-bottom-width: 0;
+}
+
+.owl-carousel .item .card .card-header .img-header {
+  height: 70px;
+}
+
+.owl-carousel .item .card .card-header .title {
+  margin: 10px 0px;
+  color: #09577A;
+  font-size: 0.7em;
+}
+
+.owl-carousel .item .card .card-body p {
+  font-size: 0.4em;
+}
+
+.owl-carousel .item .card .card-footer {
+  background: no-repeat;
+  border: none;
+}
+
+.owl-carousel .item .card .card-footer .btn-custom {
+  color: #09577A;
+  background: transparent;
+  border-color: #09577A;
+  font-size: 0.5em;
+  padding: 5px 10px;
+}
+
+.owl-carousel .item .card .card-footer .btn-custom:hover {
+  color: #D4F0FC;
+  background-color: #09577A;
+}
+
+.chart-section {
+  overflow: hidden;
+  text-align: center;
+}
+
+.chart-section .dotted-backdrop-wrapper {
+  background-image: url("img/dotted_backdrop.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 250px;
+  height: 170px;
+  right: 10px;
+}
+
+.chart-section .section-title {
+  color: #09577A;
+  text-transform: capitalize;
+  font-size: 1em;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.chart-section .section-title span {
+  color: #535353;
+}
+
+.chart-section .section-subtitle {
+  font-size: .5em;
+  color: #535353;
+}
+
+.chart-section .sub-title {
+  color: #535353;
+  font-size: 0.6em;
+}
+
+.chart-section .title {
+  color: #09577A;
+  font-size: 0.9em;
+}
+
+.chart-section .description {
+  color: #535353;
+  font-size: .5em;
+  margin: 0px;
+}
+
+.chart-section .link {
+  text-decoration: none;
+  font-size: 0.5em;
+  color: #09577A;
+}
+
+.chart-section .chart-one {
+  border-bottom: 1px solid #535353;
+  border-right: 1px solid #535353;
+  text-align: right;
+}
+
+.chart-section .chart-two {
+  border-bottom: 1px solid #535353;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.chart-section .chart-three {
+  border-right: 1px solid #535353;
+  text-align: right;
+}
+
+.chart-section .chart-four {
+  text-align: left;
+}
+
+.challenges-section {
+  position: relative;
+  padding-top: 100px;
+  margin: 250px 0px;
+}
+
+.challenges-section .challenges-backdrop {
+  position: absolute;
+  background-image: url("img/challenges_backdrop.svg");
+  background-repeat: no-repeat;
+  background-size: 115%;
+  background-position: -150px 0px;
+  width: 100%;
+  height: 150%;
+  top: -100px;
+}
+
+.challenges-section .dotted-backdrop2-wrapper {
+  background-image: url("img/dotted_backdrop2.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 250px;
+  height: 170px;
+  left: 60px;
+  top: -145px;
+}
+
+.challenges-section .row {
+  margin: 0px;
+}
+
+.challenges-section .row .circle1 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #1CA9F7;
+  border-radius: 50%;
+  left: -20px;
+  top: 150px;
+}
+
+.challenges-section .row .circle2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #89D6FB;
+  border-radius: 50%;
+  left: 450px;
+  top: 100px;
+}
+
+.challenges-section .row .circle3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #89D6FB;
+  border-radius: 50%;
+  left: -100px;
+  top: 250px;
+}
+
+.challenges-section .row .custom-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 19px 50px #E6DEDE;
+          box-shadow: 0px 19px 50px #E6DEDE;
+}
+
+.challenges-section .row .custom-card .custom-img {
+  width: 100px;
+  height: 80px;
+}
+
+.challenges-section .row .custom-card .description {
+  text-align: center;
+  font-size: 0.5em;
+  width: 130px;
+  height: 99;
+  margin-bottom: 0;
+}
+
+.challenges-section .row .challenges-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.challenges-section .row .challenges-description .title {
+  color: #09577A;
+  font-size: 1em;
+  font-weight: 100;
+  line-height: 2em;
+}
+
+.challenges-section .row .challenges-description .description {
+  font-size: 0.6em;
+}
+
+.partners-section {
+  margin-top: 300px;
+  background-color: #D4F0FC;
+  color: #09577A;
+  font-size: 32px;
+}
+
+.partners-section i:hover {
+  cursor: pointer;
+}
+
+.partners-section .row {
+  margin: 0;
+}
+
+.getin-tuch-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.getin-tuch-section .getin-tuch .title {
+  color: #09577A;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.getin-tuch-section .getin-tuch .getin-tuch-btn {
+  color: #09577A;
+  background-color: transparent;
+  font-weight: bolder;
+  border: 1px solid #09577A;
+  font-size: 1em;
+}
+
+.getin-tuch-section .getin-tuch .getin-tuch-btn:hover {
+  -webkit-transform: all 0.2s;
+          transform: all 0.2s;
+  color: #D4F0FC;
+  background-color: #09577A;
+}
+
+.getin-tuch-section .circle-1 {
+  left: 0px;
+}
+
+.getin-tuch-section .circle-1::before {
+  content: '';
+  position: absolute;
+  background-color: #09577A;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  left: -60px;
+  top: 100px;
+}
+
+.getin-tuch-section .circle-2 {
+  left: 0;
+}
+
+.getin-tuch-section .circle-2::before {
+  content: '';
+  background-color: #D4F0FC;
+  position: absolute;
+  border-radius: 50%;
+  border-color: red;
+  width: 50px;
+  height: 50px;
+  left: 150px;
+  top: 10px;
+}
+
+.getin-tuch-section .circle-3 {
+  top: 50px;
+}
+
+.getin-tuch-section .circle-3::before {
+  content: '';
+  position: absolute;
+  background-color: #D4F0FC;
+  border-radius: 1768px;
+  width: 1768px;
+  height: 1768px;
+  right: -900px;
+  top: 20px;
+  z-index: -1;
+}
+
+.footer-section {
+  background-color: #09577A;
+}
+
+.footer-section .quick-links .row {
+  margin: 0;
+  color: #fff;
+}
+
+.footer-section .quick-links .row h5 {
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.footer-section .quick-links .row a {
+  text-decoration: none;
+  color: #D4F0FC;
+  font-size: 0.5em;
+  text-transform: capitalize;
+}
+
+.footer-section .divider {
+  border-color: #fff;
+}
+
+.footer-section .contact-section {
+  background-color: #09577A;
+  color: #D4F0FC !important;
+}
+
+.footer-section .contact-section .row {
+  margin: 0px;
+}
+
+.footer-section .contact-section p {
+  font-size: 0.7em;
+}
+
+.footer-section .contact-section .socials {
+  font-size: 1em;
+}
+
+.footer-section .contact-section .socials .fa::before {
+  color: #fff;
+}
+
+.footer-section .contact-section .socials .fa:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 520px) {
+  .container {
+    background-color: #09577A;
+    padding-bottom: 130px;
+  }
+  .container .landing-text {
+    margin-top: 250px;
+    font-size: 0.7em;
+    text-align: center;
+  }
+  .container .boy-backdrop {
+    background-color: #D4F0FC;
+    background-size: 80%,80%;
+    background-position: 80px 0px;
+    width: 400px;
+    height: 250px;
+    right: 0px;
+    top: 38px;
+  }
+  .container .btn-landing-custom-1 {
+    color: #09577A;
+    background-color: #fff;
+  }
+  .container .btn-landing-custom-2 {
+    color: #D4F0FC;
+    background: transparent;
+    border-color: #D4F0FC;
+    border-width: 2px;
+  }
+  .container .btn-landing-custom-1:hover {
+    color: #D4F0FC;
+    background: transparent;
+    border-color: #D4F0FC;
+    border-width: 2px;
+  }
+  .container .btn-landing-custom-2:hover {
+    color: #09577A;
+    background-color: #fff;
+  }
+  .owl-carousel {
+    position: absolute;
+    top: -130px;
+    width: 250px;
+  }
+  .owl-carousel .item {
+    border: none;
+    -webkit-box-shadow: -6px 9px 30px #E6DEDE;
+            box-shadow: -6px 9px 30px #E6DEDE;
+    margin: 50px 0px;
+  }
+  .chart-section {
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .chart-section .dotted-backdrop-wrapper {
+    position: absolute;
+    background-position: 10px,20px;
+    width: 100px;
+    height: 100px;
+    left: -10px;
+    top: 90px;
+    z-index: -1;
+  }
+  .chart-section .chart-one {
+    text-align: center !important;
+    border-bottom: 1px solid #535353;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .chart-section .chart-two {
+    text-align: center !important;
+    border-bottom: 1px solid #535353;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .chart-section .chart-three {
+    text-align: center !important;
+    border-bottom: 1px solid #535353;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .chart-section .chart-four {
+    text-align: center !important;
+    border-bottom: 1px solid #535353;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .challenges-section {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding-top: 80px;
+  }
+  .challenges-section .dotted-backdrop2-wrapper {
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    left: 0;
+  }
+  .challenges-section .challenges-backdrop {
+    background-size: 125%;
+    background-position: -50px 100px;
+    background-origin: content-box;
+    width: 100%;
+    height: 110%;
+  }
+  .challenges-section .row {
+    margin: 0px;
+  }
+  .challenges-section .row .circle1 {
+    left: 0px;
+  }
+  .challenges-section .row .circle2 {
+    left: 320px;
+  }
+  .challenges-section .row .circle3 {
+    top: 500px;
+    left: 50px;
+    background-color: #09577A;
+  }
+  .challenges-section .row .circle4 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #D4F0FC;
+    border-radius: 50%;
+    left: 180px;
+    top: 450px;
+  }
+  .challenges-section .row .custom-card {
+    width: 145px;
+  }
+  .challenges-section .row .custom-card .custom-img {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+  }
+  .challenges-section .row .custom-card .description {
+    margin-top: 20px;
+    font-size: .5em;
+  }
+  .challenges-section .row .challenges-description .title {
+    line-height: 1em;
+    font-size: 0.6em;
+    text-align: center;
+  }
+  .challenges-section .row .challenges-description .description-mobile {
+    text-align: center;
+    font-size: 0.5em;
+  }
+  .partners-section {
+    margin-top: 0px;
+  }
+  .getin-tuch-section .circle-1::before {
+    opacity: 50%;
+    width: 50px;
+    height: 50px;
+    left: 0;
+    top: 30px;
+  }
+  .getin-tuch-section .circle-2::before {
+    top: 40px;
+    left: 100px;
+    width: 25px;
+    height: 25px;
+    border: 6px solid #D4F0FC;
+    background-color: transparent;
+  }
+  .getin-tuch-section .circle-3::before {
+    top: 200px;
+    right: -200px;
+    width: 414px;
+    height: 414px;
+    border-radius: 414px;
+  }
+  .getin-tuch-section .getin-tuch .title {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 300;
+  }
+  .getin-tuch-section .getin-tuch .getin-tuch-btn {
+    font-size: 0.7em;
+    font-weight: 200 !important;
+  }
+  .footer-section .quick-links .row .company {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footer-section .quick-links .row .company h5 {
+    display: block;
+  }
+  .footer-section .contact-section p {
+    font-size: 0.5em;
+  }
+  .footer-section .contact-section .contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (min-width: 521px) and (max-width: 768px) {
+  .container .backdrop1 {
+    width: 100%;
+    background-size: cover;
+    background-position: -650px -350px;
+  }
+  .container .boy-backdrop {
+    background-position: 50px 0%;
+  }
+  .container .backdrop2 {
+    background-size: cover;
+    background-position: -40px -200px;
+    width: 50%;
+    height: 15%;
+  }
+  .owl-carousel {
+    width: 250px;
+    padding: 0% 10%;
+    overflow: hidden;
+  }
+  .owl-carousel .item {
+    -webkit-box-shadow: -6px 9px 30px #E6DEDE;
+            box-shadow: -6px 9px 30px #E6DEDE;
+  }
+  .chart-section .dotted-backdrop-wrapper {
+    right: 0px;
+    background-position: 120px 0px;
+  }
+  .challenges-section {
+    margin: 100px 0px;
+  }
+  .challenges-section .challenges-backdrop {
+    background-size: 120%;
+    height: 100%;
+    background-position: -100px 80px;
+  }
+  .challenges-section .dotted-backdrop2-wrapper {
+    background-position: 0px 80px;
+    left: 0px;
+  }
+  .challenges-section .row .custom-card {
+    width: 300px;
+  }
+  .challenges-section .row .custom-card .custom-img {
+    width: 150px;
+    height: 100px;
+  }
+  .challenges-section .row .custom-card .description {
+    font-size: 0.7em;
+    width: 270px;
+  }
+  .partners-section {
+    margin-top: 50px;
+  }
+  .getin-tuch-section {
+    overflow: hidden;
+  }
+  .getin-tuch-section .circle-3::before {
+    width: 1000px;
+    height: 1000px;
+    right: -600px;
+    top: 50px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .container .backdrop1 {
+    background-position: -300px -250px;
+  }
+  .container .backdrop2 {
+    background-position: 100px -200px;
+  }
+  .container .boy-backdrop {
+    background-size: 120%;
+    background-position: 50px -0px;
+  }
+  .owl-carousel .item {
+    -webkit-box-shadow: 0px 9px 25px 0px #E6DEDE;
+            box-shadow: 0px 9px 25px 0px #E6DEDE;
+  }
+  .challenges-section {
+    margin: 100px 0px;
+  }
+  .challenges-section .challenges-backdrop {
+    background-size: 130%;
+    background-position: -150px 50px;
+  }
+  .challenges-section .dotted-backdrop2-wrapper {
+    background-position: -0px 50px;
+  }
+  .partners-section {
+    margin: 0px;
+  }
+}
+/*# sourceMappingURL=landing.css.map */

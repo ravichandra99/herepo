@@ -1,0 +1,28 @@
+.btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.jumbotron {
+  background: transparent;
+  border-color: #09577A;
+}
+
+.jumbotron .display-4 {
+  color: #09577A;
+}
+
+.contentbg {
+  background-color: #F4FAFF;
+  margin-left: 39px !important;
+  margin-right: 39px !important;
+  border: 1px solid #09577A !important;
+}
+/*# sourceMappingURL=course_detail.css.map */

@@ -1,0 +1,741 @@
+$primary-color:#09577A;
+$secondary-color:#D4F0FC;
+$font-color:#fff;
+$border-color:#535353;
+$shadow:#E6DEDE;
+$circle1-color:#1CA9F7;
+$circle2-color:#89D6FB;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    // border: 1px solid red;
+}
+body{
+    position: relative;
+}
+.headlogo{
+    width: 100%;
+}
+.container{
+    margin: 0;
+    .landing-text{
+        .title{
+            color: $font-color;
+            font-size: 1.5em;
+            line-height: 1.2em;
+        }
+        .sub-title{
+            color: $font-color;
+            font-size: 0.5em;
+            font-weight: 100;
+            line-height: 2em;
+        }
+        .btn-landing-custom-1{
+            color: $primary-color;
+            background-color: $font-color;
+        }
+        .btn-landing-custom-2{
+            color: $secondary-color;
+            background: transparent;
+            border-color: $secondary-color;
+            border-width: 2px;
+        }
+        .btn-landing-custom-1:hover{
+            color: $secondary-color;
+            background: transparent;
+            border-color: $secondary-color;
+            border-width: 2px;
+        }
+        .btn-landing-custom-2:hover{
+            color: $primary-color;
+            background-color: $font-color;
+        }
+    }
+    .boy-backdrop{
+        // border: 1px solid red;
+        background-image: url('img/boy.svg');
+        background-repeat: no-repeat;
+        background-size: 100%,100%;
+        background-position: 80px -80px;
+        position: absolute;
+        width: 50%;
+        height: 20%;
+        right: 0%;
+        top: 2.9%;
+        overflow-x: hidden;
+    }
+    .backdrop1{
+        // border: 1px solid red;
+        background-image: url('img/backdrop1.svg');
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: 0px -250px;
+        position: absolute;
+        width: 99vw;
+        height: 1004px;
+        z-index: -1;
+        overflow: hidden;
+    }
+    .backdrop2{
+        // border: 1px solid red;
+        background-image: url('img/backdrop2.svg');
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position:150px -450px;
+        position: absolute;
+        width: 65vw;
+        height: 700px;
+        right: 0px;
+    }
+}
+.owl-carousel{
+    .item{
+        width: 270px;
+        overflow: hidden;
+        .card{
+            text-align: center;
+            height: 280px;
+            .card-header{
+                background: transparent;
+                border-bottom-width: 0;
+                .img-header{
+                    height: 70px;
+                }
+                .title{
+                    margin: 10px 0px;
+                    color: $primary-color;
+                    font-size: 0.7em;
+                }
+            }
+            .card-body{
+                p{
+                    font-size: 0.4em;
+                }
+            }
+            .card-footer{
+                background: no-repeat;
+                border:none;
+                .btn-custom{
+                    color: $primary-color;
+                    background: transparent;
+                    border-color: $primary-color;
+                    font-size: 0.5em;
+                    padding: 5px 10px;
+                }
+                .btn-custom:hover{
+                    color: $secondary-color;
+                    background-color: $primary-color;
+                }
+            }
+
+        }
+    }
+}
+
+.chart-section{
+    overflow: hidden;
+    text-align: center;
+    .dotted-backdrop-wrapper{
+        background-image: url('img/dotted_backdrop.svg');
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 250px;
+        height: 170px;
+        right: 10px;
+    }
+    .section-title{
+        color: $primary-color;
+        text-transform: capitalize;
+        font-size: 1em;
+        font-weight: 600;
+        word-break: break-all;
+        span{
+            color: $border-color;
+        }
+    }
+    .section-subtitle{
+        font-size: .5em;
+        color: $border-color;
+    }
+    .sub-title{
+        color: $border-color;
+        font-size: 0.6em;
+    }
+    .title{
+        color: $primary-color;
+        font-size: 0.9em;
+    }
+    .description{
+        color: $border-color;
+        font-size: .5em;
+        margin: 0px;
+    }
+    .link{
+        text-decoration: none;
+        font-size: 0.5em;
+        color: $primary-color;
+    }
+    .chart-one{
+        border-bottom: 1px solid $border-color;
+        border-right:1px solid $border-color;
+        text-align: right;
+    }
+    .chart-two{
+        border-bottom: 1px solid $border-color;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .chart-three{
+        border-right:1px solid $border-color;
+        text-align: right;
+    }
+    .chart-four{
+        text-align: left;
+    }
+
+}
+
+.challenges-section{
+    position: relative;
+    padding-top: 100px;
+    margin: 250px 0px;
+    .challenges-backdrop{
+        position: absolute;
+        background-image: url('img/challenges_backdrop.svg');
+        background-repeat: no-repeat;
+        background-size: 115%;
+        background-position: -150px 0px;
+        width: 100%;
+        height: 150%;
+        top: -100px;
+    }
+    .dotted-backdrop2-wrapper{
+        background-image: url('img/dotted_backdrop2.svg');
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 250px;
+        height: 170px;
+        left: 60px;
+        top: -145px;
+    }
+    .row{
+        margin: 0px;
+        .circle1{
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: $circle1-color;
+            border-radius: 50%;
+            left: -20px;
+            top: 150px;
+        }
+        .circle2{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: $circle2-color;
+            border-radius: 50%;
+            left: 450px;
+            top: 100px;
+        }
+        .circle3{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: $circle2-color;
+            border-radius: 50%;
+            left: -100px;
+            top: 250px;
+        }
+        .custom-card{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: $font-color;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0px 19px 50px $shadow;
+            .custom-img{
+                width: 100px;
+                height: 80px;
+            }
+            .description{
+                text-align: center;
+                font-size: 0.5em;
+                width: 130px;
+                height: 99;
+                margin-bottom: 0;
+            }
+        }
+        .challenges-description{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            .title{
+                color: $primary-color;
+                font-size: 1em;
+                font-weight: 100;
+                line-height:2em;
+            }
+            .description{
+                font-size: 0.6em;
+            }
+        }
+    }
+}
+
+.partners-section{
+    margin-top: 300px;
+    background-color: $secondary-color;
+    color: $primary-color;
+    font-size: 32px;
+    i:hover{
+        cursor: pointer;
+    }
+    .row{
+        margin: 0;
+    }
+} 
+
+.getin-tuch-section{
+    position: relative;
+    overflow: hidden;
+    .getin-tuch{
+        .title{
+            color: $primary-color;
+            font-weight: bolder;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .getin-tuch-btn{
+            color: $primary-color;
+            background-color: transparent;
+            font-weight: bolder;
+            border: 1px solid $primary-color;
+            font-size: 1em;
+        }
+        .getin-tuch-btn:hover{
+            transform: all 0.2s;
+            color: $secondary-color;
+            background-color: $primary-color;
+        }
+    }
+    .circle-1{
+        left: 0px;
+    }
+    .circle-1::before{
+        content: '';
+        position: absolute;
+        background-color: $primary-color;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        left: -60px;
+        top: 100px;
+    }
+    .circle-2{
+        left: 0;
+    }
+    .circle-2::before{
+        content: '';
+        background-color: $secondary-color;
+        position: absolute;
+        border-radius: 50%;
+        border-color: red;
+        width: 50px;
+        height:50px;
+        left: 150px;
+        top: 10px;
+    }
+    .circle-3{
+        top: 50px;
+    }
+    .circle-3::before{
+        content: '';
+        position: absolute;
+        background-color: $secondary-color;
+        border-radius: 1768px;
+        width: 1768px;
+        height:1768px;
+        right:  -900px;
+        top: 20px;
+        z-index: -1;
+    }
+}
+
+
+
+.footer-section{
+    background-color: $primary-color;
+    .quick-links{
+        .row{
+            margin: 0;
+            color: $font-color;
+            h5{
+                font-size: 0.6em;
+                font-weight: bold;
+            }
+            a{
+                text-decoration: none;
+                color: $secondary-color;
+                font-size: 0.5em;
+                text-transform: capitalize;
+            }
+        }
+    }
+    .divider{
+        border-color: $font-color;
+    }
+    .contact-section{
+        background-color: $primary-color;
+        color: $secondary-color!important;
+        .row{
+            margin: 0px;
+        }
+        p{
+            font-size: 0.7em;
+        }
+        .socials{
+            font-size: 1em;
+            .fa::before{
+                color: $font-color;
+            }
+            .fa:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:520px){
+    //All mobiles below ipads
+    .container{
+        background-color: $primary-color;
+        padding-bottom: 130px;
+        .landing-text{
+            margin-top: 250px;
+            font-size: 0.7em;
+            text-align: center;
+        }
+        .boy-backdrop{
+            background-color: $secondary-color;
+            background-size: 80%,80%;
+            background-position: 80px 0px;
+            width: 400px;
+            height: 250px;
+            right: 0px;
+            top: 38px;
+        }
+        .btn-landing-custom-1{
+            color: $primary-color;
+            background-color: $font-color;
+        }
+        .btn-landing-custom-2{
+            color: $secondary-color;
+            background: transparent;
+            border-color: $secondary-color;
+            border-width: 2px;
+        }
+        .btn-landing-custom-1:hover{
+            color: $secondary-color;
+            background: transparent;
+            border-color: $secondary-color;
+            border-width: 2px;
+        }
+        .btn-landing-custom-2:hover{
+            color: $primary-color;
+            background-color: $font-color;
+        }
+    }
+    .owl-carousel{
+        position: absolute;
+        top: -130px;
+        width: 250px;
+        .item{
+            border:none;
+            box-shadow: -6px 9px 30px $shadow;
+            margin: 50px 0px;
+        }
+    }
+    .chart-section{
+        width: 300px;
+        margin: 0 auto;
+        position: relative;
+        .dotted-backdrop-wrapper{
+            position: absolute;
+            background-position:10px,20px;
+            width: 100px;
+            height: 100px;
+            left: -10px;
+            top: 90px;
+            z-index: -1;
+        }
+        .chart-one{
+            text-align: center!important;
+            border-bottom: 1px solid $border-color;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+        .chart-two{
+            text-align: center!important;
+            border-bottom: 1px solid $border-color;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+        .chart-three{
+            text-align: center!important;
+            border-bottom: 1px solid $border-color;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+        .chart-four{
+            text-align: center!important;
+            border-bottom: 1px solid $border-color;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+    }
+    .challenges-section{
+        margin-top: 50px;
+        margin-bottom: 100px;
+        padding-top: 80px;
+        .dotted-backdrop2-wrapper{
+            width: 100px;
+            height: 100px;
+            top: -20px;
+            left: 0;
+        }
+        .challenges-backdrop{
+            background-size: 125%;
+            background-position: -50px 100px;
+            background-origin: content-box;
+            width: 100%;
+            height: 110%;
+        }
+        .row{
+            margin: 0px;
+            .circle1{
+                left: 0px;
+            }
+            .circle2{
+                left:320px;
+            }
+            .circle3{
+                top: 500px;
+                left: 50px;
+                background-color: $primary-color;
+            }
+            .circle4{
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: $secondary-color;
+                border-radius: 50%;
+                left: 180px;
+                top: 450px;
+            }
+            .custom-card{
+                width: 145px;
+                .custom-img{
+                    margin-top: 10px;
+                    width: 50px;
+                    height: 50px;
+                }
+                .description{
+                    margin-top: 20px;
+                    font-size: .5em;
+                }
+            }
+            .challenges-description{
+                .title{
+                    line-height: 1em;
+                    font-size: 0.6em;
+                    text-align: center;
+                }
+                .description-mobile{
+                    text-align: center;
+                    font-size: 0.5em;
+                }
+            }
+        }
+    }
+    .partners-section{
+        margin-top: 0px;
+    }
+    .getin-tuch-section{
+        .circle-1::before{
+            opacity: 50%;
+            width: 50px;
+            height: 50px;
+            left: 0;
+            top: 30px;
+        }
+        .circle-2::before{
+            top: 40px;
+            left: 100px;
+            width: 25px;
+            height: 25px;
+            border: 6px solid $secondary-color;
+            background-color: transparent;
+        }
+        .circle-3::before{
+            top: 200px;
+            right: -200px;
+            width: 414px;
+            height: 414px;
+            border-radius: 414px;
+        }
+        .getin-tuch{            
+            .title{
+                text-align: center;
+                font-size: 0.9em;
+                font-weight: 300;
+            }
+            .getin-tuch-btn{
+                font-size: 0.7em;
+                font-weight: 200!important;
+            }
+        }
+    }
+    .footer-section{
+        .quick-links{
+            .row{
+                .company{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    h5{
+                        display: block;
+                    }
+                }
+            }
+        }
+        .contact-section{
+            p{
+                font-size: 0.5em;
+            }
+            .contact{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media only screen  and (min-width:521px) and (max-width:768px){
+    //Ipad below  laptop
+    .container{
+        // border: 1px solid black;
+        .backdrop1{
+            width: 100%;
+            background-size: cover;
+            background-position: -650px -350px;
+        }
+        .boy-backdrop{
+            background-position: 50px 0%;
+        }
+        .backdrop2{
+            background-size:cover;
+            background-position: -40px -200px;
+            width: 50%;
+            height: 15%;
+        }
+    }
+    .owl-carousel{
+        width: 250px;
+        padding: 0% 10%;
+        overflow: hidden;
+        .item{
+            box-shadow: -6px 9px 30px $shadow;
+        }
+    }
+    .chart-section{
+        .dotted-backdrop-wrapper{
+            right: 0px;
+            background-position: 120px 0px;
+        }
+
+    }
+    .challenges-section{
+        margin: 100px 0px;
+        .challenges-backdrop{
+            background-size: 120%;
+            height: 100%;
+            background-position: -100px 80px;
+        }
+        .dotted-backdrop2-wrapper{
+            background-position: 0px 80px;
+            left: 0px;
+        }
+        .row{
+            .custom-card{
+                width: 300px;
+                .custom-img{
+                    width: 150px;
+                    height: 100px;
+                }
+                .description{
+                    font-size: 0.7em;
+                    width: 270px;
+                }
+            }
+        }
+    }
+    .partners-section{
+        margin-top: 50px;
+    }
+    .getin-tuch-section{
+        overflow: hidden;
+        .circle-3::before{
+            width: 1000px;
+            height: 1000px;
+            right: -600px;
+            top: 50px;
+        }
+    }
+}
+@media only screen  and (min-width:769px) and (max-width:1024px){
+    .container{
+        .backdrop1{
+            background-position: -300px -250px;
+        }
+        .backdrop2{
+            background-position: 100px -200px;
+        }
+        .boy-backdrop{
+            background-size: 120%;
+            background-position: 50px -0px;
+        }
+    }
+    .owl-carousel{
+        .item{
+            box-shadow: 0px 9px 25px 0px $shadow;
+        }
+    }
+    .challenges-section{
+        margin: 100px 0px;
+        .challenges-backdrop{
+            background-size: 130%;
+            background-position: -150px 50px;
+        }
+        .dotted-backdrop2-wrapper{
+            background-position: -0px 50px;
+        }
+    }
+    .partners-section{
+        margin: 0px;
+    }
+}

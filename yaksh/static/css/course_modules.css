@@ -1,0 +1,114 @@
+.btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.btn {
+  border-width: 1px !important;
+}
+
+.card {
+  border: 1px solid #09577A;
+}
+
+.card .card-header {
+  background: transparent;
+}
+
+.card .card-header .course-title {
+  font-weight: bold;
+  color: #09577A;
+}
+
+.card .card-body {
+  border-top: 1px solid #09577A;
+}
+
+.modulename {
+  color: white !important;
+  background-color: #09577A;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.mycard {
+  border: 0px !important;
+  background-color: transparent !important;
+}
+
+.mycard .card-body {
+  border: 0px !important;
+  background-color: white;
+  border-radius: 15px !important;
+}
+
+.disname a {
+  color: white !important;
+}
+
+.myprogress {
+  height: 25px !important;
+  border-radius: 15px !important;
+}
+
+.contentbg {
+  background-color: #F4FAFF !important;
+  margin-left: 24px;
+  margin-right: 24px;
+  border: 1px solid #09577A !important;
+}
+
+.mycardmodules {
+  background: #59748A !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+}
+
+.detailsbtn a {
+  color: white !important;
+}
+
+.continuebtn a {
+  color: black !important;
+}
+
+.continuebtn {
+  color: white !important;
+}
+
+.success {
+  color: green !important;
+}
+
+.info {
+  color: lightskyblue !important;
+}
+
+.warning {
+  color: red !important;
+}
+
+.headname {
+  color: white !important;
+  background-color: transparent !important;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+@media screen and (max-width: 520px) {
+  .card .card-header {
+    text-align: center !important;
+  }
+}
+/*# sourceMappingURL=course_modules.css.map */

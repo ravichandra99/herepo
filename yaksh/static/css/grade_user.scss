@@ -1,0 +1,52 @@
+@import 'function.scss';
+@include button-colors;
+.quiz-active{
+    color: $font-color!important;
+} 
+.card{
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+    .card-header{
+        background: transparent;
+        // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        @include button-border;
+        @include button-colors;
+        .course-name{
+            color: $primary-color;
+        }
+    }
+    .card-body{
+        border-top: transparent;
+        @include button-colors;
+        .list-group-item{
+            border: 1px solid $primary-color;
+        }
+    }
+}
+@media screen and (max-width:520px){
+    .card{
+        .card-header{
+            .course-name{
+                text-align: center;
+                word-break: break-all;
+            }
+        }
+    }
+}
+
+// Grader styling 
+.graderSectionParent{
+    border: 1px solid $primary-color;
+}
+.graderSection{
+    background-color: $backdrop-color;
+    width: auto;
+    
+    .card{
+        border: none !important;
+        .details-btn {
+            background-color: $primary-color !important;
+            color: white !important;
+        }
+    }
+    
+}

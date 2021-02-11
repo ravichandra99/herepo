@@ -1,0 +1,91 @@
+@import 'function.scss';
+@include button-colors;
+@include button-border;
+.card{
+    border: 1px solid $primary-color;
+    .card-header{ 
+        background: transparent;
+        .course-title{
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
+    .card-body{
+        border-top: 1px solid $primary-color;
+    }
+}
+
+.modulename{
+    color:white !important;
+    background-color: $primary-color;
+    padding: 20px;
+   
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.mycard{
+    border:0px !important;
+    background-color: transparent !important;
+}
+.mycard{
+    .card-body{
+        border:0px !important;
+        background-color: white;
+        border-radius: 15px !important;
+    }
+}
+.disname a{
+    color:white !important;
+}
+.myprogress{
+    height: 25px !important;
+    border-radius: 15px !important;
+}
+.contentbg{
+    background-color: #F4FAFF !important;
+    
+    margin-left: 24px;
+    margin-right: 24px;
+    border:1px solid $primary-color !important; 
+}
+.mycardmodules{
+    background: #59748A !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+}
+.detailsbtn a{
+    color:white !important;
+}
+.continuebtn a{
+    color:rgb(0, 0, 0) !important;
+}
+.continuebtn{
+    color:white !important;
+}
+.success{
+    color: green !important;
+}
+.info{
+    color:lightskyblue !important;
+}
+.warning{
+    color: red !important;
+}
+
+.headname{
+    color:white !important;
+    background-color: transparent !important;
+    padding: 20px;
+    position: relative;
+    top:20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+@media screen and (max-width:520px){
+    .card{
+        .card-header{
+            text-align: center!important;
+        }
+    }
+}

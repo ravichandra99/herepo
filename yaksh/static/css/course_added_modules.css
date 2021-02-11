@@ -1,0 +1,51 @@
+.headname {
+  color: white !important;
+  background-color: white !important;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card {
+  border: 1px solid #09577A;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card .card-header {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #09577A;
+}
+
+.card .card-body {
+  background-color: #f4faff;
+}
+
+.bat {
+  border-radius: 10px;
+}
+
+#add_category {
+  background-color: #09577A;
+  border-radius: 20px;
+}
+
+.headname {
+  color: white !important;
+  background-color: #09577A !important;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+@media screen and (max-width: 520px) {
+  .card .card-header {
+    text-align: center !important;
+  }
+}
+/*# sourceMappingURL=course_added_modules.css.map */

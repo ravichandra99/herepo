@@ -1,0 +1,38 @@
+.btn-custom {
+  color: #09577A !important;
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-color: #09577A !important;
+}
+
+.btn-custom:hover {
+  color: #D4F0FC !important;
+  background-color: #09577A !important;
+}
+
+.btn {
+  border-width: 1px !important;
+}
+
+.custom {
+  background-color: #F4FAFF;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  border: 1px solid #09577A;
+}
+
+#submit {
+  border-radius: 20px;
+  background-color: green;
+  position: fixed;
+  top: 245px;
+  right: 60px;
+  -webkit-box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.back {
+  text-decoration: none;
+}
+/*# sourceMappingURL=add_question.css.map */

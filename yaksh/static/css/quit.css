@@ -1,0 +1,39 @@
+.headname {
+  color: white !important;
+  background-color: transparent;
+  padding: 20px;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.cc {
+  color: white !important;
+  background-color: #09577A;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.my-border {
+  border: 1px solid #09577A;
+  background-color: #F4FAFF;
+  width: 94%;
+}
+
+#yes {
+  background-color: #336F12;
+  border-radius: 10px;
+}
+
+#no {
+  background-color: #DE3F33;
+  border-radius: 10px;
+}
+
+.conditions {
+  color: #09577A;
+}
+/*# sourceMappingURL=quit.css.map */

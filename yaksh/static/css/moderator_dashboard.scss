@@ -1,0 +1,89 @@
+@import 'function.scss';
+* {
+    font-family: 'Work Sans', sans-serif;
+    // border: 1px solid red;
+}
+
+.heading {
+    color: $primary-color;
+}
+
+.container {
+    @include button-colors;
+    .accordion {
+        .card {
+            color: $primary-color;
+            // border:1px solid $primary-color;
+            .card-header {
+                cursor: pointer;
+                background-color: transparent;
+            }
+        }
+    }
+}
+.content-bg{
+    background-color: #F4FAFF;
+    margin-left: 24px;
+    margin-right: 24px;
+    border: 1px solid $primary-color !important;
+}
+
+.headname {
+    background-color: white !important;
+    position: relative;
+    top: 0px;
+    padding: 0px !important;
+}
+
+.headnameDashboard {
+    color: white !important;
+    background-color: $primary-color !important;
+    padding: 20px;
+    position: relative;
+    top: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+// Button styling 
+.addcontest-btn {
+    background-color: $primary-color !important;
+    color: white !important;
+}
+
+.details-btn {
+    background-color: $primary-color !important;
+    color: white !important;
+}
+
+// Dashboard styling 
+#dashboardSection {
+    background-color: $backdrop-color;
+    border: 1px solid $primary-color !important;
+    // background-color: powderblue;
+    width: 98%;
+    span.badge.badge-pill.badge-success {
+        position: relative;
+        top: 16.2%;
+    }
+    h4 {
+        position: relative;
+        top: 16.2%;
+    }
+    .card-body{
+        th{
+            font-weight: 500 !important;
+            font-size: 1rem;
+            color: $primary-color !important;
+        }
+        td{
+            font-weight: 300;
+            font-size: 1rem;
+        }
+    }
+}
+
+.contest-card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+

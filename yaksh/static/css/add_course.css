@@ -1,0 +1,103 @@
+.cancel {
+  background-color: #dd3232;
+  border-radius: 20px;
+  top: 1284px;
+}
+
+.save {
+  background-color: #206E04;
+  border-radius: 20px;
+}
+
+#id_name {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#id_enrollment {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#div_id_active .checkboxinput {
+  position: relative;
+}
+
+#id_code {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#id_instructions {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#id_start_enroll_time {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#id_end_enroll_time {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#id_grading_system {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#div_id_view_grade .checkboxinput {
+  position: relative;
+}
+
+.nav-link {
+  border: none !important;
+}
+
+.form-cls {
+  background-color: white !important;
+  border-radius: 20px !important;
+}
+
+#page_title {
+  background-color: #09577A !important;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.content-bg {
+  background-color: #F4FAFF;
+  margin-left: 24px;
+  margin-right: 24px;
+  border: 1px solid #09577A !important;
+}
+
+@media (max-width: 992px) {
+  .content-bg {
+    margin: 0;
+  }
+}
+/*# sourceMappingURL=add_course.css.map */

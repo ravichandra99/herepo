@@ -1,0 +1,25 @@
+@import 'function.scss';
+
+.border{
+    border: solid 1px $primary-color;
+    background-color: #F4FAFF;
+}
+
+
+#submit{
+    border-radius: 10px;
+}
+
+#Remove{
+    background-color: red;
+    border: 10px;
+}
+
+.change{
+    background-color: $primary-color;
+    border-radius: 10px;
+}
+
+.order{
+    border-radius: 10px;
+}

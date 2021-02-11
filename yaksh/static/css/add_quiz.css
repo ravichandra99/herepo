@@ -1,0 +1,56 @@
+.headname {
+  color: white !important;
+  background-color: #09577A !important;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.border {
+  border: solid 1px #09577A !important;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.bg {
+  background-color: #F4FAFF;
+  padding-bottom: 50px;
+}
+
+#submit {
+  border-radius: 20px;
+}
+
+.table_custom {
+  border-radius: 10px;
+}
+
+.headname {
+  display: none;
+}
+
+.head {
+  color: white !important;
+  background-color: #09577A !important;
+  padding: 20px;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#edit {
+  background-color: #09577A;
+  border-radius: 20px;
+}
+
+#prev {
+  color: #09577A;
+  border-radius: 20px;
+}
+
+.cc label {
+  color: #09577A !important;
+}
+/*# sourceMappingURL=add_quiz.css.map */

@@ -1,0 +1,38 @@
+$primary-color:#09577A;
+$secondary-color:#D4F0FC;
+$backdrop-color:#F4FAFF;
+$font-color:#fff;
+$inactive-color:#85A5C2;
+$shadow-color:#0000001A;
+$card-border:#707070;
+$exam-card-header:#59748A;
+@mixin button-border {
+    .btn{
+        border-width: 1px!important;
+    }
+}
+@mixin button-colors{
+    .btn-custom{
+        color: $primary-color!important;
+        background-color: transparent!important;
+        border-width: 1px!important;
+        border-color: $primary-color!important;
+    }
+    .btn-custom:hover{
+        color: $secondary-color!important;
+        background-color: $primary-color!important;
+    }
+}
+
+@mixin login-button {
+    .btn{
+        color: $secondary-color!important;
+        background-color: transparent;
+        border-width: 1px!important;
+        border-color: $secondary-color!important;
+    }
+    .btn:hover{
+        color: $primary-color!important;
+        background-color: $secondary-color!important;
+    }
+}
