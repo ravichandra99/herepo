@@ -248,6 +248,7 @@ def add_question(request, question_id=None):
         uploaded_files = []
 
     if request.method == 'POST':
+        print(request.POST,'....Post Request')
         qform = QuestionForm(request.POST, instance=question)
         fileform = FileForm(request.POST, request.FILES)
         remove_files_id = request.POST.getlist('clear')
@@ -269,7 +270,7 @@ def add_question(request, question_id=None):
         formsets = []
         for testcase in TestCase.__subclasses__():
             formset = inlineformset_factory(
-                                Question, testcase, extra=0,
+                                Question, testcase, extra=4,
                                 fields='__all__',
                                 form=TestcaseForm,
                                 formfield_callback=formfield_callback
@@ -282,6 +283,7 @@ def add_question(request, question_id=None):
             question = qform.save(commit=False)
             question.user = user
             question.save()
+            
             # many-to-many field save function used to save the tags
             if added_files:
                 for file in added_files:
@@ -289,9 +291,11 @@ def add_question(request, question_id=None):
                         question=question, file=file
                     )
             qform.save_m2m()
+            
             for formset in formsets:
                 if formset.is_valid():
                     formset.save()
+                    
             test_case_type = request.POST.get('case_type', None)
             uploaded_files = FileUpload.objects.filter(question_id=question.id)
             messages.success(request, "Question saved successfully")
@@ -1641,7 +1645,12 @@ def show_all_questions(request):
                     message = ques.read_yaml(extract_path, user, files)
                 elif file_extension in ["yaml", "yml"]:
                     questions = questions_file.read()
+                    print(questions)
                     message = ques.load_questions(questions, user)
+                elif file_extension == "xlsx":
+                    # questions = questions_file.read()
+                    # print(questions)
+                    message = ques.load_questions_xlsx(questions_file, user)
                 else:
                     message = "Please Upload a ZIP file or YAML file"
 
