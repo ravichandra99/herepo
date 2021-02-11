@@ -51,6 +51,7 @@ from yaksh.code_server import (
 from yaksh.settings import SERVER_POOL_PORT, SERVER_HOST_NAME
 from .file_utils import extract_files, delete_files
 from grades.models import GradingSystem
+from yaksh.untitled import halo
 
 languages = (
         ("python", "Python"),
@@ -1373,8 +1374,10 @@ class Question(models.Model):
                        files_list=None):
         try:
             questions = ruamel.yaml.safe_load_all(questions_list)
+            print(questions)
             msg = "Questions Uploaded Successfully"
             for question in questions:
+                print(question)
                 question['user'] = user
                 file_names = question.pop('files') \
                     if 'files' in question else None
@@ -1400,6 +1403,47 @@ class Question(models.Model):
                         msg = "Unable to parse test case data"
         except Exception as exc_msg:
             msg = "Error Parsing Yaml: {0}".format(exc_msg)
+        return msg
+
+    def load_questions_xlsx(self, questions_list, user, file_path=None,
+                       files_list=None):
+        try:
+            questions_xlsx = pd.read_excel(questions_list,engine = 'openpyxl')
+            questions_dict = questions_xlsx.to_dict('index')
+            # print(questions_dict)
+            questions = halo(questions_dict)
+            # print(questions)
+            
+            msg = "Questions Uploaded Successfully"
+            for question in questions:
+                print(question)
+                question['user'] = user
+                file_names = question.pop('files') \
+                    if 'files' in question else None
+                tags = question.pop('tags') if 'tags' in question else None
+                test_cases = question.pop('testcase')
+                print(test_cases)
+                que, result = Question.objects.get_or_create(**question)
+                if file_names and file_path:
+                    que._add_files_to_db(file_names, file_path)
+                if tags:
+                    que.tags.add(*tags)
+                for test_case in test_cases:
+                    try:
+                        test_case_type = test_case.pop('test_case_type')
+                        model_class = get_model_class(test_case_type)
+                        new_test_case, obj_create_status = \
+                            model_class.objects.get_or_create(
+                                question=que, **test_case
+                            )
+                        new_test_case.type = test_case_type
+                        new_test_case.save()
+                        
+
+                    except Exception:
+                        msg = "Unable to parse test case data"
+        except Exception as exc_msg:
+            msg = "Error Parsing XLSX: {0}".format(exc_msg)
         return msg
 
     def get_test_cases(self, **kwargs):
