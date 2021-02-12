@@ -134,13 +134,13 @@ STATICFILES_DIRS = [
 # Set this varable to <True> if smtp-server is not allowing to send email.
 EMAIL_USE_TLS = True
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'email-smtp.ap-south-1.amazonaws.com'
 
 EMAIL_PORT = '587'
 
-EMAIL_HOST_USER = 'saikiran@codegnan.com'
+EMAIL_HOST_USER = 'AKIAUYXXUI7RUW5DXKPT'
 
-EMAIL_HOST_PASSWORD = 'srpouyogylhlskzk'
+EMAIL_HOST_PASSWORD = 'BJYx6wCJgMg+NgD01F57e+Z8ThU5s2o1PFmEACihdyoO'
 
 # Set EMAIL_BACKEND to 'django.core.mail.backends.smtp.EmailBackend'
 # in production
@@ -151,19 +151,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # This email id will be used as <from address> for sending emails.
 # For example no_reply@<your_organization>.in can be used.
-SENDER_EMAIL = 'saikiran@codegnan.com'
+SENDER_EMAIL = 'eskillap@apssdc.in'
 
 # Organisation/Indivudual Name.
-SENDER_NAME = 'Codegnan'
+SENDER_NAME = 'eskillap'
 
-# This email id will be used by users to send their queries
-# For example queries@<your_organization>.in can be used.
-REPLY_EMAIL = 'saikiran@codegnan.com'
+
+REPLY_EMAIL = 'eskillap@apssdc.in'
 
 # This url will be used in email verification to create activation link.
 # Add your hosted url to this variable.
 # For example https://127.0.0.1:8000 or 127.0.0.1:8000
-PRODUCTION_URL = 'https://127.0.0.1:8000'
+PRODUCTION_URL = 'http://eskillap.com'
 
 # Set this variable to <False> once the project is in production.
 # If this variable is kept <True> in production, email will not be verified.

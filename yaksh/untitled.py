@@ -12,10 +12,10 @@ def halo(justdict):
                 yield {'options':mdict[i]}
             elif i.startswith('testcase') and i.endswith('correct'):
                 if mdict[i] == 1:
-                    res = True
+                    mdict[i] = True
                 if mdict[i] == 0:
-                    res = False
-                yield {'correct':res}
+                    mdict[i] = False
+                yield {'correct':mdict[i]}
             elif i.startswith('testcase') and i.endswith('test_case_type'):
                 yield {'test_case_type':mdict[i]}
 
